@@ -315,22 +315,6 @@ const RESOURCE_LINKS = {
   // 'Linux Journey':'https://linuxjourney.com/'
 };
 
-
-function getPriorityClasses(value){
-  const raw = String(value || '').toLowerCase();
-  if(raw.includes('must')) return 'must';
-  if(raw.includes('should')) return 'should';
-  if(raw.includes('nice')) return 'nice';
-  return '';
-}
-
-function renderPriorityBadge(module){
-  const label = module?.lvl || '';
-  const cls = getPriorityClasses(module?.lv || label);
-  if(!label) return '<div class="rm-badge-spacer"></div>';
-  return `<div class="rm-card-badges"><span class="must-t ${cls}">${label}</span></div>`;
-}
-
 const state = {
   rootOpen:false,
   levelId:null,
@@ -560,7 +544,7 @@ function renderPhaseColumn() {
           <button class="${cardClass(state.phaseId === phase.id)}" onclick="selectPhase('${phase.id}')" style="--rm-accent:${phase.color}">
             <span class="rm-card-kicker">${phase.label}</span>
             <span class="rm-card-title">${phase.title}</span>
-            <span class="rm-card-meta">${phase.nodes.length} topik · ${phase.dur}</span>
+            <span class="rm-card-meta">${phase.nodes.length} modul · ${phase.dur}</span>
           </button>`).join('')}
       </div>
     </section>`;
@@ -572,14 +556,11 @@ function renderModuleColumn() {
 
   return `
     <section class="rm-column">
-      <div class="rm-column-head">Topik</div>
+      <div class="rm-column-head">Modul</div>
       <div class="rm-stack">
         ${phase.modules.map(module => `
           <button class="${cardClass(state.moduleId === module.id)}" onclick="selectModule('${module.id}')" style="--rm-accent:${phase.color}">
-            <div class="rm-card-top">
-              <span class="rm-card-kicker">Topik</span>
-              ${renderPriorityBadge(module)}
-            </div>
+            <span class="rm-card-kicker">${module.lvl}</span>
             <span class="rm-card-title">${module.t}</span>
             <span class="rm-card-meta">${module.topics.length} materi</span>
           </button>`).join('')}
@@ -620,12 +601,13 @@ function renderResourceColumn() {
           const hasLink = Boolean(resource.url);
           return `
             <div class="rm-resource-wrap">
-              <a class="rm-resource-chip ${isActive ? 'rm-resource-chip-active' : ''} ${hasLink ? '' : 'is-disabled'}"
-                 href="${hasLink ? resource.url : '#'}"
-                 onclick="selectResource('${resource.id}')"
-                 style="--rm-accent:${phase.color}"
-                 ${hasLink ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}>
-                ${resource.title}
+              <button class="${cardClass(isActive)}" onclick="selectResource('${resource.id}')" style="--rm-accent:${phase.color}">
+                <span class="rm-card-kicker">${resource.type || 'Resource'}</span>
+                <span class="rm-card-title">${resource.title}</span>
+                <span class="rm-card-meta">${resource.prl || resource.section || 'Sumber belajar'}</span>
+              </button>
+              <a class="rm-resource-link ${hasLink ? '' : 'is-disabled'}" href="${hasLink ? resource.url : '#'}" ${hasLink ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}>
+                ${hasLink ? 'Buka Link' : 'URL belum diisi'}
               </a>
             </div>`;
         }).join('')}
@@ -637,7 +619,7 @@ function renderDetailPanel() {
   const rootMessage = `
     <div class="rm-empty-detail">
       <div class="rm-empty-title">Mulai dari root roadmap</div>
-      <div class="rm-empty-text">Klik <strong>Roadmap Belajar Cybersecurity</strong>, lalu telusuri level, fase, topik, materi, sampai sumber belajar.</div>
+      <div class="rm-empty-text">Klik <strong>Roadmap Belajar Cybersecurity</strong>, lalu telusuri level, fase, modul, materi, sampai sumber belajar.</div>
     </div>`;
 
   if (!state.rootOpen) return rootMessage;
@@ -680,7 +662,7 @@ function renderDetailPanel() {
   if (module) {
     return `
       <div class="rm-detail-card">
-        <div class="rm-detail-kicker">Topik</div>
+        <div class="rm-detail-kicker">Modul</div>
         <div class="rm-detail-title">${module.t}</div>
         <div class="rm-detail-desc">${module.ref}</div>
         <div class="rm-detail-tags">
