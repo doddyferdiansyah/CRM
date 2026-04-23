@@ -13,8 +13,34 @@ const phases=[
    gate:{title:'Siap lanjut ke Fase 1 jika kamu bisa…',items:['Menjelaskan CIA Triad (Confidentiality, Integrity, Availability) dengan kata-katamu sendiri','Membedakan HTTP dan HTTPS dan menjelaskan mengapa perbedaan itu penting','Menjalankan terminal dan mengetik minimal 3 perintah dasar (ping, ls/dir, cd)','Menyebutkan minimal 3 jenis ancaman siber yang umum terjadi di Indonesia']},
    nodes:[
      {icon:'💻',lv:'must',lvl:'MUST',t:'Literasi Komputer & Internet',ref:'CyBOK: Introduction',
-      topics:['Cara kerja komputer, OS, dan internet secara konseptual','File system: folder, ekstensi, path absolut vs relatif','HTTP vs HTTPS — perbedaan nyata dan kenapa penting','Browser, cookie, cache, dan jejak digital yang kamu tinggalkan'],
-      tools:['Youtube: Cara kerja komputer','YouTube: Cara kerja OS','Youtube: Cara kerja internet']},
+       topics:[
+         {
+           title:'Cara kerja komputer, OS, dan internet secara konseptual',
+           resources:[
+             'Youtube: Cara kerja komputer',
+             'YouTube: Cara kerja OS',
+             'Youtube: Cara kerja internet'
+           ]
+         },
+         {
+           title:'File system: folder, ekstensi, path absolut vs relatif',
+           resources:[
+             'YouTube: File system dasar'
+           ]
+         },
+         {
+           title:'HTTP vs HTTPS — perbedaan nyata dan kenapa penting',
+           resources:[
+             'YouTube: HTTP vs HTTPS'
+           ]
+         },
+         {
+           title:'Browser, cookie, cache, dan jejak digital yang kamu tinggalkan',
+           resources:[
+             'YouTube: Browser cookie cache'
+           ]
+         }
+       ]},
      {icon:'🌐',lv:'must',lvl:'MUST',t:'Jaringan Internet Dasar',ref:'CyBOK: Network Security Intro',
       topics:['IP address: apa itu dan kenapa setiap perangkat punya','Domain name dan cara DNS bekerja (penerjemah nama ke IP)','Router, WiFi, dan bagaimana data bergerak di internet','Apa itu firewall secara awam'],
       tools:['Cisco NetAcad Free','Khan Academy']},
