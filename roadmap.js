@@ -413,11 +413,17 @@ function buildRoadmapTree() {
                 ...node,
                 topics: node.topics.map((topic, topicIndex) => {
                   const topicId = `${moduleId}-t-${topicIndex}`;
+                
+                  const topicTitle = typeof topic === 'string' ? topic : topic.title;
+                  const topicResources = typeof topic === 'string'
+                    ? (node.tools || [])
+                    : (topic.resources || []);
+                
                   return {
                     id: topicId,
-                    title: topic,
+                    title: topicTitle,
                     moduleId,
-                    resources: node.tools.map((toolName, resourceIndex) => {
+                    resources: topicResources.map((toolName, resourceIndex) => {
                       const meta = getResourceMeta(toolName);
                       const url = RESOURCE_LINKS[toolName] || '';
                       return {
