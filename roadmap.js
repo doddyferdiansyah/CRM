@@ -313,9 +313,9 @@ const RESOURCE_LINKS = {
   // Isi URL di sini jika sudah siap.
   // Contoh:
   // 'Linux Journey':'https://linuxjourney.com/'
-  'https://youtu.be/oe45WyD4chg?si=OCPxy7QOV_ZRA_Gu'
-  'https://youtu.be/aTX6zxP1N5M?si=xj93Okc-GhT-GKDE'
-  'https://youtu.be/zKNi-lqYEKA?si=lx0PEAWH-WwICSQe'
+  //'https://youtu.be/oe45WyD4chg?si=OCPxy7QOV_ZRA_Gu'
+  //'https://youtu.be/aTX6zxP1N5M?si=xj93Okc-GhT-GKDE'
+  //'https://youtu.be/zKNi-lqYEKA?si=lx0PEAWH-WwICSQe'
 };
 
 const state = {
