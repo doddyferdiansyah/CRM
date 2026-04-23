@@ -14,7 +14,7 @@ const phases=[
    nodes:[
      {icon:'💻',lv:'must',lvl:'MUST',t:'Literasi Komputer & Internet',ref:'CyBOK: Introduction',
       topics:['Cara kerja komputer, OS, dan internet secara konseptual','File system: folder, ekstensi, path absolut vs relatif','HTTP vs HTTPS — perbedaan nyata dan kenapa penting','Browser, cookie, cache, dan jejak digital yang kamu tinggalkan'],
-      tools:['Google','YouTube','MDN Web Docs']},
+      tools:['Youtube: Cara kerja komputer','YouTube: Cara kerja OS','Youtube: Cara kerja internet']},
      {icon:'🌐',lv:'must',lvl:'MUST',t:'Jaringan Internet Dasar',ref:'CyBOK: Network Security Intro',
       topics:['IP address: apa itu dan kenapa setiap perangkat punya','Domain name dan cara DNS bekerja (penerjemah nama ke IP)','Router, WiFi, dan bagaimana data bergerak di internet','Apa itu firewall secara awam'],
       tools:['Cisco NetAcad Free','Khan Academy']},
@@ -313,6 +313,9 @@ const RESOURCE_LINKS = {
   // Isi URL di sini jika sudah siap.
   // Contoh:
   // 'Linux Journey':'https://linuxjourney.com/'
+  'https://youtu.be/oe45WyD4chg?si=OCPxy7QOV_ZRA_Gu'
+  'https://youtu.be/aTX6zxP1N5M?si=xj93Okc-GhT-GKDE'
+  'https://youtu.be/zKNi-lqYEKA?si=lx0PEAWH-WwICSQe'
 };
 
 const state = {
