@@ -38,3 +38,55 @@
 .rm-detail-split{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}.is-disabled{pointer-events:none;opacity:.45}
 @media(max-width:1200px){.rm-board{grid-template-columns:1fr}.rm-detail{position:static}}
 @media(max-width:768px){.roadmap-wrap{padding:42px 14px 48px}.rm-intro{grid-template-columns:1fr}.rm-column{min-width:220px;max-width:220px}.rm-column-root{min-width:250px;max-width:250px}.rm-card,.rm-root-btn{min-height:88px}}
+
+
+
+/* --- Revised visual polish --- */
+.st span{color:var(--L1)}
+
+.tree-card.resource-card{
+  padding:8px 12px;
+  min-height:auto;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  width:auto;
+  max-width:240px;
+}
+
+.tree-card.resource-card .tree-card-title{
+  margin:0;
+  font-size:11px;
+  line-height:1.4;
+}
+
+.tree-card.resource-card .tree-card-desc,
+.tree-card.resource-card .tree-card-meta{
+  display:none;
+}
+
+.badge-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:6px;
+}
+
+.priority-badge{
+  font-size:9px;
+  padding:2px 8px;
+  border:1px solid;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  display:inline-block;
+}
+
+.priority-badge.must{border-color:var(--red);color:var(--red)}
+.priority-badge.should{border-color:var(--orange);color:var(--orange)}
+.priority-badge.nice{border-color:var(--gold);color:var(--gold)}
+
+@media (max-width: 768px){
+  .tree-card.resource-card{
+    max-width:200px;
+  }
+}
