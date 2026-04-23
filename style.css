@@ -1,4 +1,3 @@
-<style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#020810;--s1:#050f1a;--s2:#081422;--card:#0a1a2e;--card2:#0d2038;
@@ -278,4 +277,3 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(2,8,16,.97);
   .lp-modules{grid-template-columns:1fr}
   .hero h1{font-size:2.4rem;letter-spacing:-1px}
 }
-</style>
