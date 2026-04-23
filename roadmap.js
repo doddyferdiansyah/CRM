@@ -25,7 +25,10 @@ const phases=[
          {
            title:'File system: folder, ekstensi, path absolut vs relatif',
            resources:[
-             'YouTube: File system dasar'
+             'YouTube: File system dasar',
+             'YouTube: Pengenalan folder',
+             'Youtube: Pengenalan Ekstensi',
+             'Youtube: Path absolut vs realtif'
            ]
          },
          {
@@ -341,7 +344,13 @@ const RESOURCE_LINKS = {
   // 'Linux Journey':'https://linuxjourney.com/'
   'Youtube: Cara kerja komputer':'https://youtu.be/oe45WyD4chg?si=OCPxy7QOV_ZRA_Gu',
   'YouTube: Cara kerja OS':'https://youtu.be/aTX6zxP1N5M?si=xj93Okc-GhT-GKDE',
-  'Youtube: Cara kerja internet':'https://youtu.be/zKNi-lqYEKA?si=lx0PEAWH-WwICSQe'
+  'Youtube: Cara kerja internet':'https://youtu.be/zKNi-lqYEKA?si=lx0PEAWH-WwICSQe',
+  'YouTube: File system dasar':'https://youtu.be/hV4xxRu0CGo?si=JzD2V5HUoKfOb9e3',
+  'YouTube: Pengenalan folder':'https://youtu.be/gT8ZrtZjZek?si=qyC4ncN5VKOzKNKP',
+  'Youtube: Pengenalan Ekstensi':'https://youtu.be/39oArGcGyKY?si=nbf28V3xt-YNGvEd',
+  'Youtube: Path absolut vs realtif':'https://youtu.be/ephId3mYu9o?si=opOtEUUnVKoTJ87z',
+  'YouTube: HTTP vs HTTPS':'https://youtu.be/ClkMk4m2MRA?si=BQ2LFIf41KA3ksX8',
+  'YouTube: Browser cookie cache':'https://youtu.be/teNgS8jS-CI?si=KHF6pZEhaRTQ4zWh'
 };
 
 const state = {
