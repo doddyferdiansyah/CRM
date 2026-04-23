@@ -988,10 +988,10 @@ function renderCareers(){
 // ═══════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════
-buildAssess();
-renderRoadmap();
-renderLP();
-renderFW();
-renderRes();
-renderCerts();
-renderCareers();
+if (document.getElementById('qArea')) buildAssess();
+if (document.getElementById('phaseNav') && document.getElementById('phaseContent')) renderRoadmap();
+if (document.getElementById('lpContent')) renderLP();
+if (document.getElementById('fwGrid')) renderFW();
+if (document.getElementById('resContent')) renderRes();
+if (document.getElementById('certFilter') && document.getElementById('certGrid')) renderCerts();
+if (document.getElementById('careerGrid')) renderCareers();
