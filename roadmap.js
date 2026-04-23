@@ -315,7 +315,7 @@ const RESOURCE_LINKS = {
   // 'Linux Journey':'https://linuxjourney.com/'
   'Youtube: Cara kerja komputer':'https://youtu.be/oe45WyD4chg?si=OCPxy7QOV_ZRA_Gu',
   'YouTube: Cara kerja OS':'https://youtu.be/aTX6zxP1N5M?si=xj93Okc-GhT-GKDE',
-  'Youtube: Cara kerja internet':'https://youtu.be/zKNi-lqYEKA?si=lx0PEAWH-WwICSQe',
+  'Youtube: Cara kerja internet':'https://youtu.be/zKNi-lqYEKA?si=lx0PEAWH-WwICSQe'
 };
 
 const state = {
