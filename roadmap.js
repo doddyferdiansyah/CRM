@@ -1,3 +1,19 @@
+
+function getPriorityClass(label){
+  const v=(label||'').toLowerCase();
+  if(v.includes('must')) return 'must';
+  if(v.includes('should')) return 'should';
+  if(v.includes('nice')) return 'nice';
+  return '';
+}
+
+function renderPriorityBadges(item){
+  const raw = item && (item.priority || item.lvl || item.level || item.badge || '');
+  if(!raw) return '';
+  const parts = Array.isArray(raw) ? raw : [raw];
+  return `<div class="badge-row">${parts.map(p=>`<span class="priority-badge ${getPriorityClass(p)}">${p}</span>`).join('')}</div>`;
+}
+
 // Roadmap Explorer — khusus halaman roadmap
 // Konten roadmap dan resource diambil dari source asli, lalu dirender ulang
 // dalam bentuk hirarki interaktif kiri ke kanan.
@@ -38,7 +54,7 @@ const phases=[
       topics:['Model OSI 7 layer — fungsi tiap layer dan contoh protokolnya','TCP/IP, UDP, ICMP — perbedaan dan kapan digunakan','IP addressing & subnetting CIDR — praktek sampai mahir','DNS, DHCP, ARP, NAT — cara kerja di jaringan nyata','Wireshark: capture, filter, dan baca packet secara dasar'],
       tools:['Professor Messer Net+','Wireshark Docs','Cisco Packet Tracer']},
      {icon:'🐍',lv:'must',lvl:'MUST',t:'Python & Bash Scripting',ref:'CyBOK: Software Security',
-      topics:['Python: variabel, kondisi, loop, fungsi, modul, file I/O','String manipulation dan regex dasar untuk parsing log','requests library: GET/POST ke API dan scraping dasar','Bash: variabel, loop, kondisi, pipe, redirect, cron job','Buat tools kecil: port scanner, log parser, file encryptor'],
+      topics:['Python: variabel, kondisi, loop, fungsi, topik, file I/O','String manipulation dan regex dasar untuk parsing log','requests library: GET/POST ke API dan scraping dasar','Bash: variabel, loop, kondisi, pipe, redirect, cron job','Buat tools kecil: port scanner, log parser, file encryptor'],
       tools:['Automate the Boring Stuff','HackerRank Python','TCM Python for Hackers']},
      {icon:'🔒',lv:'must',lvl:'MUST',t:'Konsep Keamanan Inti',ref:'CyBOK: Security Foundations',
       topics:['CIA Triad mendalam dengan kasus nyata Indonesia','AAA framework: Authentication, Authorization, Accounting','Threat vs Vulnerability vs Risk vs Exploit — definisi presisi','Defense in Depth, Least Privilege, Fail-Safe Defaults','Attack surface, threat modeling konsep, kill chain'],
@@ -319,7 +335,7 @@ const state = {
   rootOpen:false,
   levelId:null,
   phaseId:null,
-  moduleId:null,
+  topikeId:null,
   topicId:null,
   resourceId:null,
 };
@@ -376,18 +392,18 @@ function buildRoadmapTree() {
           const phaseSlug = phase.id;
           return {
             ...phase,
-            modules: phase.nodes.map((node, nodeIndex) => {
-              const moduleId = `${phaseSlug}-m-${nodeIndex}`;
+            topikes: phase.nodes.map((node, nodeIndex) => {
+              const topikeId = `${phaseSlug}-m-${nodeIndex}`;
               return {
-                id: moduleId,
+                id: topikeId,
                 phaseId: phaseSlug,
                 ...node,
                 topics: node.topics.map((topic, topicIndex) => {
-                  const topicId = `${moduleId}-t-${topicIndex}`;
+                  const topicId = `${topikeId}-t-${topicIndex}`;
                   return {
                     id: topicId,
                     title: topic,
-                    moduleId,
+                    topikeId,
                     resources: node.tools.map((toolName, resourceIndex) => {
                       const meta = getResourceMeta(toolName);
                       const url = RESOURCE_LINKS[toolName] || '';
@@ -420,14 +436,14 @@ function getSelectedPhase() {
   return level?.phases.find(phase => phase.id === state.phaseId) || null;
 }
 
-function getSelectedModule() {
+function getSelectedTopike() {
   const phase = getSelectedPhase();
-  return phase?.modules.find(module => module.id === state.moduleId) || null;
+  return phase?.topikes.find(topike => topike.id === state.topikeId) || null;
 }
 
 function getSelectedTopic() {
-  const module = getSelectedModule();
-  return module?.topics.find(topic => topic.id === state.topicId) || null;
+  const topike = getSelectedTopike();
+  return topike?.topics.find(topic => topic.id === state.topicId) || null;
 }
 
 function getSelectedResource() {
@@ -439,22 +455,22 @@ function resetBelow(level) {
   if (level === 'root') {
     state.levelId = null;
     state.phaseId = null;
-    state.moduleId = null;
+    state.topikeId = null;
     state.topicId = null;
     state.resourceId = null;
   }
   if (level === 'level') {
     state.phaseId = null;
-    state.moduleId = null;
+    state.topikeId = null;
     state.topicId = null;
     state.resourceId = null;
   }
   if (level === 'phase') {
-    state.moduleId = null;
+    state.topikeId = null;
     state.topicId = null;
     state.resourceId = null;
   }
-  if (level === 'module') {
+  if (level === 'topike') {
     state.topicId = null;
     state.resourceId = null;
   }
@@ -482,9 +498,9 @@ function selectPhase(phaseId) {
   renderRoadmapExplorer();
 }
 
-function selectModule(moduleId) {
-  state.moduleId = moduleId;
-  resetBelow('module');
+function selectTopike(topikeId) {
+  state.topikeId = topikeId;
+  resetBelow('topike');
   renderRoadmapExplorer();
 }
 
@@ -544,40 +560,40 @@ function renderPhaseColumn() {
           <button class="${cardClass(state.phaseId === phase.id)}" onclick="selectPhase('${phase.id}')" style="--rm-accent:${phase.color}">
             <span class="rm-card-kicker">${phase.label}</span>
             <span class="rm-card-title">${phase.title}</span>
-            <span class="rm-card-meta">${phase.nodes.length} modul · ${phase.dur}</span>
+            <span class="rm-card-meta">${phase.nodes.length} topik · ${phase.dur}</span>
           </button>`).join('')}
       </div>
     </section>`;
 }
 
-function renderModuleColumn() {
+function renderTopikeColumn() {
   const phase = getSelectedPhase();
   if (!phase) return '';
 
   return `
     <section class="rm-column">
-      <div class="rm-column-head">Modul</div>
+      <div class="rm-column-head">Topik</div>
       <div class="rm-stack">
-        ${phase.modules.map(module => `
-          <button class="${cardClass(state.moduleId === module.id)}" onclick="selectModule('${module.id}')" style="--rm-accent:${phase.color}">
-            <span class="rm-card-kicker">${module.lvl}</span>
-            <span class="rm-card-title">${module.t}</span>
-            <span class="rm-card-meta">${module.topics.length} materi</span>
+        ${phase.topikes.map(topike => `
+          <button class="${cardClass(state.topikeId === topike.id)}" onclick="selectTopike('${topike.id}')" style="--rm-accent:${phase.color}">
+            <span class="rm-card-kicker">${topike.lvl}</span>
+            <span class="rm-card-title">${topike.t}</span>
+            <span class="rm-card-meta">${topike.topics.length} materi</span>
           </button>`).join('')}
       </div>
     </section>`;
 }
 
 function renderTopicColumn() {
-  const module = getSelectedModule();
+  const topike = getSelectedTopike();
   const phase = getSelectedPhase();
-  if (!module || !phase) return '';
+  if (!topike || !phase) return '';
 
   return `
     <section class="rm-column">
       <div class="rm-column-head">Materi</div>
       <div class="rm-stack">
-        ${module.topics.map(topic => `
+        ${topike.topics.map(topic => `
           <button class="${cardClass(state.topicId === topic.id)}" onclick="selectTopic('${topic.id}')" style="--rm-accent:${phase.color}">
             <span class="rm-card-kicker">Materi</span>
             <span class="rm-card-title rm-card-title-sm">${topic.title}</span>
@@ -619,7 +635,7 @@ function renderDetailPanel() {
   const rootMessage = `
     <div class="rm-empty-detail">
       <div class="rm-empty-title">Mulai dari root roadmap</div>
-      <div class="rm-empty-text">Klik <strong>Roadmap Belajar Cybersecurity</strong>, lalu telusuri level, fase, modul, materi, sampai sumber belajar.</div>
+      <div class="rm-empty-text">Klik <strong>Roadmap Belajar Cybersecurity</strong>, lalu telusuri level, fase, topik, materi, sampai sumber belajar.</div>
     </div>`;
 
   if (!state.rootOpen) return rootMessage;
@@ -658,21 +674,21 @@ function renderDetailPanel() {
       </div>`;
   }
 
-  const module = getSelectedModule();
-  if (module) {
+  const topike = getSelectedTopike();
+  if (topike) {
     return `
       <div class="rm-detail-card">
-        <div class="rm-detail-kicker">Modul</div>
-        <div class="rm-detail-title">${module.t}</div>
-        <div class="rm-detail-desc">${module.ref}</div>
+        <div class="rm-detail-kicker">Topik</div>
+        <div class="rm-detail-title">${topike.t}</div>
+        <div class="rm-detail-desc">${topike.ref}</div>
         <div class="rm-detail-tags">
-          <span class="rm-tag">${module.lvl}</span>
-          <span class="rm-tag">${module.topics.length} materi</span>
-          <span class="rm-tag">${module.tools.length} resource</span>
+          <span class="rm-tag">${topike.lvl}</span>
+          <span class="rm-tag">${topike.topics.length} materi</span>
+          <span class="rm-tag">${topike.tools.length} resource</span>
         </div>
         <div class="rm-detail-list-head">Daftar materi</div>
         <ul class="rm-detail-list">
-          ${module.topics.map(topic => `<li>${topic.title}</li>`).join('')}
+          ${topike.topics.map(topic => `<li>${topic.title}</li>`).join('')}
         </ul>
       </div>`;
   }
@@ -727,13 +743,13 @@ function renderBreadcrumb() {
   const crumbs = ['Roadmap Belajar Cybersecurity'];
   const level = getSelectedLevel();
   const phase = getSelectedPhase();
-  const module = getSelectedModule();
+  const topike = getSelectedTopike();
   const topic = getSelectedTopic();
   const resource = getSelectedResource();
 
   if (level) crumbs.push(level.title);
   if (phase) crumbs.push(phase.title);
-  if (module) crumbs.push(module.t);
+  if (topike) crumbs.push(topike.t);
   if (topic) crumbs.push(topic.title);
   if (resource) crumbs.push(resource.title);
 
@@ -750,7 +766,7 @@ function renderRoadmapExplorer() {
     renderRootColumn(),
     renderLevelColumn(),
     renderPhaseColumn(),
-    renderModuleColumn(),
+    renderTopikeColumn(),
     renderTopicColumn(),
     renderResourceColumn(),
   ].join('');
