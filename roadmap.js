@@ -105,9 +105,9 @@ const phases=[
          {
            title:'Cara membaca dan memahami berita keamanan terkini',
            resources:[
-             'Situs Berita: The Hacker News':'https://thehackernews.com/',
-             'Situs Berita: Cyber News':'https://cybernews.com/',
-             'Situs Berita: Sindonews':'https://www.sindonews.com/topic/53184/keamanan-siber'
+             'Situs Berita: The Hacker News',
+             'Situs Berita: Cyber News',
+             'Situs Berita: Sindonews'
            ]
          }
        ]},
