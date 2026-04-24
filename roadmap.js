@@ -684,11 +684,6 @@ function renderDetailPanel() {
         <div class="rm-detail-kicker">Sumber Belajar</div>
         <div class="rm-detail-title">${resource.title}</div>
         <div class="rm-detail-desc">${resourceDesc}</div>
-        /* <div class="rm-detail-tags">
-          <span class="rm-tag">${resource.type || 'Sumber Belajar'}</span>
-          <span class="rm-tag">${resource.prl || 'Referensi'}</span>
-          <span class="rm-tag">${resource.section || 'Sumber Lain'}</span>
-        </div> */
         <div class="rm-detail-actions">
           <a class="rm-detail-link ${resource.url ? '' : 'is-disabled'}"
              href="${resource.url || '#'}"
