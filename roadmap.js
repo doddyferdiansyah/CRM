@@ -122,20 +122,219 @@ const phases=[
    gate:{title:'Siap lanjut ke Fase 2 jika kamu bisa…',items:['Melakukan subnetting manual dari /24 ke /26 tanpa kalkulator','Menjalankan Wireshark dan mengidentifikasi setidaknya 3 protokol dari packet capture','Membuat script Python yang membaca file teks dan mencari kata kunci tertentu','Menjelaskan perbedaan Authentication vs Authorization dengan contoh konkret']},
    nodes:[
      {icon:'🖥️',lv:'must',lvl:'MUST',t:'Sistem Operasi Linux',ref:'CyBOK: OS & Virtualisation Security',
-      topics:['Navigasi terminal: ls, cd, cat, grep, find, chmod, chown','User management: useradd, passwd, sudoers, /etc/shadow','Package manager: apt/yum, update, upgrade, install','Proses: ps aux, top, htop, kill, systemctl, journalctl','File permissions: rwx, numeric notation, SUID/SGID'],
-      tools:['Linux Journey','OverTheWire: Bandit','TryHackMe Pre-Security']},
-     {icon:'🌐',lv:'must',lvl:'MUST',t:'Jaringan Komputer',ref:'CyBOK: Network Security',
-      topics:['Model OSI 7 layer — fungsi tiap layer dan contoh protokolnya','TCP/IP, UDP, ICMP — perbedaan dan kapan digunakan','IP addressing & subnetting CIDR — praktek sampai mahir','DNS, DHCP, ARP, NAT — cara kerja di jaringan nyata','Wireshark: capture, filter, dan baca packet secara dasar'],
-      tools:['Professor Messer Net+','Wireshark Docs','Cisco Packet Tracer']},
-     {icon:'🐍',lv:'must',lvl:'MUST',t:'Python & Bash Scripting',ref:'CyBOK: Software Security',
-      topics:['Python: variabel, kondisi, loop, fungsi, modul, file I/O','String manipulation dan regex dasar untuk parsing log','requests library: GET/POST ke API dan scraping dasar','Bash: variabel, loop, kondisi, pipe, redirect, cron job','Buat tools kecil: port scanner, log parser, file encryptor'],
-      tools:['Automate the Boring Stuff','HackerRank Python','TCM Python for Hackers']},
-     {icon:'🔒',lv:'must',lvl:'MUST',t:'Konsep Keamanan Inti',ref:'CyBOK: Security Foundations',
-      topics:['CIA Triad mendalam dengan kasus nyata Indonesia','AAA framework: Authentication, Authorization, Accounting','Threat vs Vulnerability vs Risk vs Exploit — definisi presisi','Defense in Depth, Least Privilege, Fail-Safe Defaults','Attack surface, threat modeling konsep, kill chain'],
-      tools:['CompTIA Security+ Study','SANS Reading Room']},
-     {icon:'🗄️',lv:'should',lvl:'SHOULD',t:'Database & Web Dasar',ref:'CyBOK: Software Security',
-      topics:['SQL dasar: SELECT, INSERT, UPDATE, DELETE, JOIN, WHERE','Client-server model dan request-response cycle','REST API: method, endpoint, header, body, status code','HTTP methods dan developer tools browser','Cara aplikasi web modern bekerja dari browser ke database'],
-      tools:['SQLZoo','Postman','W3Schools']},
+       topics:[
+         {
+           title:'Navigasi terminal: ls, cd, cat, grep, find, chmod, chown',
+           resources:[
+             'Youtube: Pengenalan Sistem Operasi',
+             'Youtube: Playlist Linux Command',
+             'Artikel: Cara Navigasi di Terminal'
+           ]
+         },
+         {
+           title:'User management: useradd, passwd, sudoers, /etc/shadow',
+           resources:[
+             'Youtube: Manajemen user',
+             'Artikel: Manajemen user di Linux',
+             'Artikel: Mengenal /etc/shadow'
+           ]
+         },
+         {
+           title:'Package manager: apt/yum, update, upgrade, install',
+           resources:[
+             'Youtube: Apa itu Package Manager',
+             'Artikel: Mengenal Package Manager',
+             'Artikel: Panduan YUM dan APT'
+           ]
+         },
+         {
+           title:'Proses: ps aux, top, htop, kill, systemctl, journalctl',
+           resources:[
+             'Youtube: Manajemen Proses di linux',
+             'Artikel: Proses dan Job',
+             'Artikel: Baca log lewat journalctl'
+           ]
+         },
+         {
+           title:'File permissions: rwx, numeric notation, SUID/SGID',
+           resources:[
+             'Youtube: Rahasia manajemen file',
+             'Artikel: Penjelasan manajemen file'
+           ]
+         }
+       ]},
+      {icon:'🌐',lv:'must',lvl:'MUST',t:'Jaringan Komputer',ref:'CyBOK: Network Security',
+       topics:[
+         {
+           title:'Model OSI 7 layer — fungsi tiap layer dan contoh protokolnya',
+           resources:[
+             'Professor Messer Net+: OSI Model',
+             'YouTube: Penjelasan OSI 7 layer',
+             'Cisco Packet Tracer: Intro networking'
+           ]
+         },
+         {
+           title:'TCP/IP, UDP, ICMP — perbedaan dan kapan digunakan',
+           resources:[
+             'Professor Messer Net+: TCP/IP basics',
+             'YouTube: TCP vs UDP vs ICMP',
+             'Artikel: Perbedaan TCP UDP ICMP'
+           ]
+         },
+         {
+           title:'IP addressing & subnetting CIDR — praktek sampai mahir',
+           resources:[
+             'Professor Messer Net+: IP addressing and subnetting',
+             'YouTube: Belajar subnetting CIDR',
+             'Artikel: Latihan subnetting dasar'
+           ]
+         },
+         {
+           title:'DNS, DHCP, ARP, NAT — cara kerja di jaringan nyata',
+           resources:[
+             'Professor Messer Net+: DNS DHCP ARP NAT',
+             'YouTube: Cara kerja DNS DHCP ARP NAT',
+             'Cisco Packet Tracer: Simulasi layanan jaringan'
+           ]
+         },
+         {
+           title:'Wireshark: capture, filter, dan baca packet secara dasar',
+           resources:[
+             'Wireshark Docs: Getting started',
+             'YouTube: Belajar Wireshark dasar',
+             'Artikel: Filter dasar di Wireshark'
+           ]
+         }
+       ]},
+      {icon:'🐍',lv:'must',lvl:'MUST',t:'Python & Bash Scripting',ref:'CyBOK: Software Security',
+       topics:[
+         {
+           title:'Python: variabel, kondisi, loop, fungsi, modul, file I/O',
+           resources:[
+             'Automate the Boring Stuff: Python basics',
+             'HackerRank Python: Basic challenges',
+             'YouTube: Python fundamentals'
+           ]
+         },
+         {
+           title:'String manipulation dan regex dasar untuk parsing log',
+           resources:[
+             'Automate the Boring Stuff: Strings and regex',
+             'HackerRank Python: String exercises',
+             'Artikel: Regex dasar untuk log parsing'
+           ]
+         },
+         {
+           title:'requests library: GET/POST ke API dan scraping dasar',
+           resources:[
+             'Automate the Boring Stuff: Web scraping',
+             'YouTube: Python requests library',
+             'Artikel: GET dan POST dengan requests'
+           ]
+         },
+         {
+           title:'Bash: variabel, loop, kondisi, pipe, redirect, cron job',
+           resources:[
+             'YouTube: Bash scripting dasar',
+             'Artikel: Bash pipe dan redirect',
+             'Artikel: Dasar cron job di Linux'
+           ]
+         },
+         {
+           title:'Buat tools kecil: port scanner, log parser, file encryptor',
+           resources:[
+             'TCM Python for Hackers',
+             'YouTube: Mini project Python security tools',
+             'Artikel: Ide project Python untuk pemula'
+           ]
+         }
+       ]},
+      {icon:'🔒',lv:'must',lvl:'MUST',t:'Konsep Keamanan Inti',ref:'CyBOK: Security Foundations',
+       topics:[
+         {
+           title:'CIA Triad mendalam dengan kasus nyata Indonesia',
+           resources:[
+             'CompTIA Security+ Study: CIA Triad',
+             'YouTube: CIA Triad dengan contoh kasus',
+             'SANS Reading Room: Security fundamentals'
+           ]
+         },
+         {
+           title:'AAA framework: Authentication, Authorization, Accounting',
+           resources:[
+             'CompTIA Security+ Study: AAA framework',
+             'YouTube: Authentication vs Authorization vs Accounting',
+             'Artikel: Memahami AAA dalam keamanan'
+           ]
+         },
+         {
+           title:'Threat vs Vulnerability vs Risk vs Exploit — definisi presisi',
+           resources:[
+             'CompTIA Security+ Study: Risk and vulnerability basics',
+             'YouTube: Threat vs Vulnerability vs Risk',
+             'SANS Reading Room: Risk terminology'
+           ]
+         },
+         {
+           title:'Defense in Depth, Least Privilege, Fail-Safe Defaults',
+           resources:[
+             'CompTIA Security+ Study: Defense in depth',
+             'YouTube: Least privilege and secure defaults',
+             'SANS Reading Room: Foundational security principles'
+           ]
+         },
+         {
+           title:'Attack surface, threat modeling konsep, kill chain',
+           resources:[
+             'YouTube: Attack surface and threat modeling',
+             'Artikel: Konsep cyber kill chain',
+             'SANS Reading Room: Threat modeling basics'
+           ]
+         }
+       ]},
+      {icon:'🗄️',lv:'should',lvl:'SHOULD',t:'Database & Web Dasar',ref:'CyBOK: Software Security',
+       topics:[
+         {
+           title:'SQL dasar: SELECT, INSERT, UPDATE, DELETE, JOIN, WHERE',
+           resources:[
+             'SQLZoo: SQL basics',
+             'W3Schools: SQL tutorial',
+             'YouTube: Belajar SQL dasar'
+           ]
+         },
+         {
+           title:'Client-server model dan request-response cycle',
+           resources:[
+             'W3Schools: Web architecture basics',
+             'YouTube: Client server model',
+             'Artikel: Request response cycle'
+           ]
+         },
+         {
+           title:'REST API: method, endpoint, header, body, status code',
+           resources:[
+             'Postman: API basics',
+             'YouTube: REST API untuk pemula',
+             'Artikel: HTTP status code dan endpoint'
+           ]
+         },
+         {
+           title:'HTTP methods dan developer tools browser',
+           resources:[
+             'W3Schools: HTTP methods',
+             'YouTube: Browser developer tools basics',
+             'Postman: Understanding requests'
+           ]
+         },
+         {
+           title:'Cara aplikasi web modern bekerja dari browser ke database',
+           resources:[
+             'YouTube: Cara kerja aplikasi web',
+             'Artikel: Dari browser ke server ke database',
+             'W3Schools: Web application basics'
+           ]
+         }
+       ]},
    ]},
 
   // ── L1 Fase 2 — Kriptografi + PQC ──
@@ -432,7 +631,26 @@ const RESOURCE_LINKS = {
   'Artikel: Perlindungan Data Pribadi':'https://fh.untar.ac.id/2025/09/11/perlindungan-data-pribadi-implementasi-uu-no-27-tahun-2022-dan-tantangan-penegakannya/',
   'Situs Berita: The Hacker News':'https://thehackernews.com/',
   'Situs Berita: Cyber News':'https://cybernews.com/',
-  'Situs Berita: Sindonews':'https://www.sindonews.com/topic/53184/keamanan-siber'
+  'Situs Berita: Sindonews':'https://www.sindonews.com/topic/53184/keamanan-siber',
+  'Youtube: Pengenalan Sistem Operasi':'https://youtu.be/XO6yP5PXjQA?si=qna4xvz3qaWX3f0U',
+  'Youtube: Playlist Linux Command':'https://youtube.com/playlist?list=PLC-N6VQz1oqeP2Xu86AiHCYCwNkOd5Em2&si=qZ4lJrR2m_DjUBjr',
+  'Artikel: Cara Navigasi di Terminal':'https://terminalcheatsheet.com/id/guides/navigate-terminal',
+  
+  'Youtube: Manajemen user':'https://youtu.be/rWNVcc-ukEU?si=gr1G8JuTMLuWBTt5',
+  'Artikel: Manajemen user di Linux':'https://www.idn.id/manajemen-user-linux-perintah-penting-yang-wajib-tahu/',
+  'Artikel: Mengenal /etc/shadow':'https://linuxize.com/post/etc-shadow-file/,
+  
+  'Youtube: Apa itu Package Manager':'https://youtu.be/gA0yzCz5OS8?si=X4nlX2HkIqXjavb8',
+  'Artikel: Mengenal Package Manager':'https://coolnetkid.wordpress.com/2014/06/06/mengenal-package-manager-linux/',
+  'Artikel: Panduan YUM dan APT':'https://infosecwriteups.com/mastering-linux-part-3-a-beginners-guide-to-apt-and-yum-package-management-d37742d4f822',
+  
+  'Youtube: Manajemen Proses di linux':'https://youtu.be/UE8VDP8Oa7Y?si=lfnamTBvTTn2jEEw',
+  'Artikel: Proses dan Job':'https://lucanerlich.com/linux/beginners-guide/processes-and-jobs/',
+  'Artikel: Baca log lewat journalctl':'https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs,
+  
+  'Youtube: Rahasia manajemen file':'https://youtu.be/vjBr-kIopIk?si=tw9641bmSchgjUyi',
+  'Artikel: Penjelasan manajemen file':'https://www.redhat.com/en/blog/linux-file-permissions-explained'
+
 };
 
 const state = {
