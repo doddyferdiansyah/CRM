@@ -210,41 +210,37 @@ const phases=[
          {
            title:'Python: variabel, kondisi, loop, fungsi, modul, file I/O',
            resources:[
-             'Automate the Boring Stuff: Python basics',
-             'HackerRank Python: Basic challenges',
-             'YouTube: Python fundamentals'
+             'Youtube: Python Full Course'
            ]
          },
          {
            title:'String manipulation dan regex dasar untuk parsing log',
            resources:[
-             'Automate the Boring Stuff: Strings and regex',
-             'HackerRank Python: String exercises',
-             'Artikel: Regex dasar untuk log parsing'
+             'Artikel: Regex',
+             'Artikel: Manipulasi String Bash',
+             'Youtube: Parsing file log pakai regex'
            ]
          },
          {
            title:'requests library: GET/POST ke API dan scraping dasar',
            resources:[
-             'Automate the Boring Stuff: Web scraping',
-             'YouTube: Python requests library',
-             'Artikel: GET dan POST dengan requests'
+             'Youtube: Web Scraping',
+             'Artikel: Membuat Web Scraper'
            ]
          },
          {
            title:'Bash: variabel, loop, kondisi, pipe, redirect, cron job',
            resources:[
-             'YouTube: Bash scripting dasar',
-             'Artikel: Bash pipe dan redirect',
-             'Artikel: Dasar cron job di Linux'
+             'Youtube: Bash dan Cron Job',
+             'Artikel: 6 Tips nulis bash'
            ]
          },
          {
            title:'Buat tools kecil: port scanner, log parser, file encryptor',
            resources:[
-             'TCM Python for Hackers',
-             'YouTube: Mini project Python security tools',
-             'Artikel: Ide project Python untuk pemula'
+             'Youtube: Bikin Port Scanner',
+             'Youtube: Bikin Log Parser',
+             'Youtube: Bikin File Encryptor'
            ]
          }
        ]},
@@ -647,7 +643,43 @@ const RESOURCE_LINKS = {
   'Artikel: Baca log lewat journalctl':'https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs',
   
   'Youtube: Rahasia manajemen file':'https://youtu.be/vjBr-kIopIk?si=tw9641bmSchgjUyi',
-  'Artikel: Penjelasan manajemen file':'https://www.redhat.com/en/blog/linux-file-permissions-explained'
+  'Artikel: Penjelasan manajemen file':'https://www.redhat.com/en/blog/linux-file-permissions-explained',
+
+  'Youtube: Model OSI Layer':'https://youtu.be/lWSqQb9KdVQ?si=pwlGKXwxmF9uDL-j',
+
+  'Youtube: TCP/IP Layer':'https://youtu.be/nLF53fEFCC4?si=NIXCAcK6zAeciHTI',
+  'Youtube: TCP/IP':'https://youtu.be/tN3qcuR11QQ?si=XxUKJeVWnW8Sda-2',
+  'Youtube: UDP':'https://youtu.be/8lKExTlK_f4?si=x92rlLVLpxieVZ0l',
+  'Youtube: ICMP':'https://youtu.be/SQaVz_0Bq8c?si=d-slz89LuWkDA6xC',
+  
+  'Youtube: IP Address':'https://youtu.be/J-dh-MgKl-M?si=VM3MkpglOjPcMC5n',
+  'Youtube: Subneting PART 1':'https://youtu.be/QFFnsHn3gsY?si=QNj2M6F2SjXJ1a76',
+  'Youtube: Subneting PART 2':'https://youtu.be/QTEtIVINrK8?si=aRyXXCnHR2x87X_t',
+  
+  'Youtube: DNS':'https://youtu.be/mpQZVYPuDGU?si=kJu9QcoJWgZ5o2PD',
+  'Youtube: DHCP':'https://youtu.be/scLJtJtIzh0?si=aeDLd7RAuMVuHGmA',
+  'Youtube: ARP':'https://youtu.be/cn8Zxh9bPio?si=cRuib7k-CrIu-r5e',
+  'Youtube: NAT':'https://youtu.be/KA56kj23RPU?si=FkazyvApHMAo3kFQ',
+  
+  'Youtube: Packet analysis':'https://youtu.be/g1E2D0BmdUE?si=AFLaAiNGuPaTyHct',
+  'Artikel: Wireshark Guide':'https://www.wireshark.org/docs/wsug_html_chunked/',
+  
+  'Youtube: Python Full Course':'https://youtu.be/rWC2iFlN3TM?si=_DyMrkuu5z_ZGu7t',
+  
+  'Artikel: Regex':'https://www.idn.id/mengenal-regex-alat-powerful-untuk-manipulasi-string/',
+  'Artikel: Manipulasi String Bash':'https://www.baeldung.com/linux/bash-string-manipulation',
+  'Youtube: Parsing file log pakai regex':'https://youtu.be/IbbqB6ZGGT8?si=7m8q1PoHsVVjMfcm',
+  
+  'Youtube: Web Scraping':'https://youtu.be/Ct8Gxo8StBU?si=2zsRqZXXe1qr8XT5',
+  'Artikel: Membuat Web Scraper':'https://www.dicoding.com/blog/tutorial-membuat-web-scraper-dengan-python/',
+  
+  
+  'Youtube: Bash dan Cron Job':'https://youtu.be/qdgKkI7Fy0I?si=PnH9EFs_LOa4Am5Z',
+  'Artikel: 6 Tips nulis bash':'https://yasoob.me/posts/6-tips-before-you-write-your-next-bash-cronjob/',
+  
+  'Youtube: Bikin Port Scanner':'https://youtu.be/vRhPOE2uTGA?si=HDNgG87oeZeb_-KW',
+  'Youtube: Bikin Log Parser':'https://youtu.be/OGbX6cdR1pU?si=-f8DqlixwFCIZcVq',
+  'Youtube: Bikin File Encryptor':'https://youtu.be/DZsmqUMjpdo?si=-9oPYNtpuwp3U0fV'
 
 };
 
