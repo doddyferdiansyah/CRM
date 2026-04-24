@@ -662,39 +662,49 @@ function renderResourceColumn() {
 function renderDetailPanel() {
   const rootMessage = `
     <div class="rm-empty-detail">
-      <div class="rm-empty-title">Mulai dari root roadmap</div>
-      <div class="rm-empty-text">Klik <strong>Roadmap Belajar Cybersecurity</strong>, lalu telusuri level, fase, modul, materi, sampai sumber belajar.</div>
+      <div class="rm-empty-title">Mulai dari roadmap</div>
+      <div class="rm-empty-text">Klik <strong>Roadmap Belajar Cybersecurity</strong>, lalu telusuri level, fase, modul, materi, dan sumber belajar dari kiri ke kanan.</div>
     </div>`;
 
   if (!state.rootOpen) return rootMessage;
 
+  const level = getSelectedLevel();
+  const phase = getSelectedPhase();
+  const module = getSelectedModule();
+  const topic = getSelectedTopic();
   const resource = getSelectedResource();
+
   if (resource) {
+    const resourceDesc = resource.desc && resource.desc.trim()
+      ? resource.desc
+      : 'Sumber belajar ini dapat digunakan untuk memperdalam materi yang sedang Anda pilih.';
+
     return `
       <div class="rm-detail-card">
         <div class="rm-detail-kicker">Sumber Belajar</div>
         <div class="rm-detail-title">${resource.title}</div>
-        <div class="rm-detail-desc">${resource.desc || ''}</div>
+        <div class="rm-detail-desc">${resourceDesc}</div>
         <div class="rm-detail-tags">
-          <span class="rm-tag">${resource.type || 'Resource'}</span>
-          <span class="rm-tag">${resource.prl || 'Link belum diisi'}</span>
+          <span class="rm-tag">${resource.type || 'Sumber Belajar'}</span>
+          <span class="rm-tag">${resource.prl || 'Referensi'}</span>
           <span class="rm-tag">${resource.section || 'Sumber Lain'}</span>
         </div>
         <div class="rm-detail-actions">
-          <a class="rm-detail-link ${resource.url ? '' : 'is-disabled'}" href="${resource.url || '#'}" ${resource.url ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}>
-            ${resource.url ? 'Buka Sumber Belajar' : 'Tambahkan URL di roadmap.js'}
+          <a class="rm-detail-link ${resource.url ? '' : 'is-disabled'}"
+             href="${resource.url || '#'}"
+             ${resource.url ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}>
+            ${resource.url ? 'Buka Sumber Belajar' : 'Link belum tersedia'}
           </a>
         </div>
       </div>`;
   }
 
-  const topic = getSelectedTopic();
   if (topic) {
     return `
       <div class="rm-detail-card">
         <div class="rm-detail-kicker">Materi</div>
         <div class="rm-detail-title">${topic.title}</div>
-        <div class="rm-detail-desc">Materi ini terhubung ke ${topic.resources.length} sumber belajar yang bisa Anda isi link-nya nanti di <code>RESOURCE_LINKS</code> pada <code>roadmap.js</code>.</div>
+        <div class="rm-detail-desc">Materi ini memiliki ${topic.resources.length} sumber belajar yang dapat Anda buka untuk memperdalam pemahaman secara bertahap.</div>
         <div class="rm-detail-list-head">Sumber belajar terkait</div>
         <ul class="rm-detail-list">
           ${topic.resources.map(resource => `<li>${resource.title}</li>`).join('')}
@@ -702,26 +712,26 @@ function renderDetailPanel() {
       </div>`;
   }
 
-  const module = getSelectedModule();
   if (module) {
+    const moduleResourceCount = module.topics.reduce((total, item) => total + item.resources.length, 0);
+
     return `
       <div class="rm-detail-card">
         <div class="rm-detail-kicker">Modul</div>
         <div class="rm-detail-title">${module.t}</div>
-        <div class="rm-detail-desc">${module.ref}</div>
+        <div class="rm-detail-desc">${module.ref || 'Modul ini berisi kumpulan materi yang saling terhubung dalam satu topik pembelajaran.'}</div>
         <div class="rm-detail-tags">
           <span class="rm-tag">${module.lvl}</span>
           <span class="rm-tag">${module.topics.length} materi</span>
-          <span class="rm-tag">${module.tools ? module.tools.length : module.topics.reduce((total, topic) => total + topic.resources.length, 0)} resource</span>
+          <span class="rm-tag">${moduleResourceCount} sumber belajar</span>
         </div>
         <div class="rm-detail-list-head">Daftar materi</div>
         <ul class="rm-detail-list">
-          ${module.topics.map(topic => `<li>${topic.title}</li>`).join('')}
+          ${module.topics.map(item => `<li>${item.title}</li>`).join('')}
         </ul>
       </div>`;
   }
 
-  const phase = getSelectedPhase();
   if (phase) {
     return `
       <div class="rm-detail-card">
@@ -736,7 +746,9 @@ function renderDetailPanel() {
         <div class="rm-detail-split">
           <div>
             <div class="rm-detail-list-head">Framework</div>
-            <div class="rm-detail-tags">${phase.fw.map(item => `<span class="rm-tag">${item.l}</span>`).join('')}</div>
+            <div class="rm-detail-tags">
+              ${phase.fw.map(item => `<span class="rm-tag">${item.l}</span>`).join('')}
+            </div>
           </div>
           <div>
             <div class="rm-detail-list-head">Quick Win</div>
@@ -750,13 +762,12 @@ function renderDetailPanel() {
       </div>`;
   }
 
-  const level = getSelectedLevel();
   if (level) {
     return `
       <div class="rm-detail-card">
         <div class="rm-detail-kicker">Level</div>
         <div class="rm-detail-title">${level.title}</div>
-        <div class="rm-detail-desc">Level ini berisi ${level.phases.length} fase yang bisa Anda eksplorasi dari kiri ke kanan.</div>
+        <div class="rm-detail-desc">Level ini berisi ${level.phases.length} fase yang dapat Anda pelajari secara bertahap dari kiri ke kanan.</div>
         <div class="rm-detail-tags">
           <span class="rm-tag">${level.match}</span>
           <span class="rm-tag">${level.phases.length} fase</span>
