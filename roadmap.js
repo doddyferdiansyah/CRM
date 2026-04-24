@@ -650,9 +650,8 @@ function renderResourceColumn() {
                onclick="selectResource('${resource.id}')"
                style="--rm-accent:${phase.color}"
                ${hasLink ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}>
-              <span class="rm-card-kicker">${resource.type || 'Sumber Belajar'}</span>
+              <span class="rm-card-kicker">Referensi</span>
               <span class="rm-card-title rm-resource-title">${resource.title}</span>
-              <span class="rm-card-meta rm-resource-meta">${resource.prl || 'Referensi'}</span>
             </a>`;
         }).join('')}
       </div>
