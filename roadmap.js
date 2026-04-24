@@ -45,12 +45,68 @@ const phases=[
          }
        ]},
      {icon:'🌐',lv:'must',lvl:'MUST',t:'Jaringan Internet Dasar',ref:'CyBOK: Network Security Intro',
-      topics:['IP address: apa itu dan kenapa setiap perangkat punya','Domain name dan cara DNS bekerja (penerjemah nama ke IP)','Router, WiFi, dan bagaimana data bergerak di internet','Apa itu firewall secara awam'],
-      tools:['Cisco NetAcad Free','Khan Academy']},
-     {icon:'🧠',lv:'must',lvl:'MUST',t:'Mindset & Ekosistem Keamanan',ref:'CyBOK: Human Factors',
-      topics:['CIA Triad mendalam: Confidentiality, Integrity, Availability','Threat actor dan motivasinya: finansial, ideologi, nation-state','Etika digital dan konsekuensi hukum tindakan siber','Cara membaca dan memahami berita keamanan terkini'],
-      tools:['BSSN.go.id','Krebs on Security','Dark Reading']},
-   ]},
+       topics:[
+         {
+           title:'IP address: apa itu dan kenapa setiap perangkat punya',
+           resources:[
+             'Youtube: Apa itu IP Address',
+             'Artikel: Kenapa perangkat punya alamat'
+           ]
+         },
+         {
+           title:'Domain name dan cara DNS bekerja (penerjemah nama ke IP)',
+           resources:[
+             'Cisco NetAcad Free: DNS basics',
+             'Khan Academy: DNS'
+           ]
+         },
+         {
+           title:'Router, WiFi, dan bagaimana data bergerak di internet',
+           resources:[
+             'Cisco NetAcad Free: Router and switching basics',
+             'Khan Academy: How the internet works'
+           ]
+         },
+         {
+           title:'Apa itu firewall secara awam',
+           resources:[
+             'Cisco NetAcad Free: Firewall basics',
+             'Khan Academy: Network security intro'
+           ]
+         }
+       ]},
+      {icon:'🧠',lv:'must',lvl:'MUST',t:'Mindset & Ekosistem Keamanan',ref:'CyBOK: Human Factors',
+       topics:[
+         {
+           title:'CIA Triad mendalam: Confidentiality, Integrity, Availability',
+           resources:[
+             'BSSN.go.id: Artikel dasar keamanan siber',
+             'Dark Reading: Security fundamentals'
+           ]
+         },
+         {
+           title:'Threat actor dan motivasinya: finansial, ideologi, nation-state',
+           resources:[
+             'Krebs on Security: Threat actor stories',
+             'Dark Reading: Threat intelligence basics'
+           ]
+         },
+         {
+           title:'Etika digital dan konsekuensi hukum tindakan siber',
+           resources:[
+             'BSSN.go.id: Etika dan keamanan digital',
+             'BSSN.go.id: Regulasi dan edukasi keamanan siber'
+           ]
+         },
+         {
+           title:'Cara membaca dan memahami berita keamanan terkini',
+           resources:[
+             'Krebs on Security',
+             'Dark Reading',
+             'BSSN.go.id: Berita dan peringatan siber'
+           ]
+         }
+       ]},
 
   // ── L1 Fase 1 ──
   {id:'p1',label:'L1 Fondasi',lvl:'Dasar',color:'var(--L1)',
@@ -350,7 +406,9 @@ const RESOURCE_LINKS = {
   'Youtube: Pengenalan Ekstensi':'https://youtu.be/39oArGcGyKY?si=nbf28V3xt-YNGvEd',
   'Youtube: Path absolut vs realtif':'https://youtu.be/ephId3mYu9o?si=opOtEUUnVKoTJ87z',
   'YouTube: HTTP vs HTTPS':'https://youtu.be/ClkMk4m2MRA?si=BQ2LFIf41KA3ksX8',
-  'YouTube: Browser cookie cache':'https://youtu.be/teNgS8jS-CI?si=KHF6pZEhaRTQ4zWh'
+  'YouTube: Browser cookie cache':'https://youtu.be/teNgS8jS-CI?si=KHF6pZEhaRTQ4zWh',
+  'Youtube: Apa itu IP Address':'https://youtu.be/J-dh-MgKl-M?si=LJ3HUAFznDmhhdy9',
+  'Artikel: Kenapa perangkat punya alamat':'https://csirt.teknokrat.ac.id/mengapa-setiap-perangkat-memiliki-ip-address-sendiri/'
 };
 
 const state = {
