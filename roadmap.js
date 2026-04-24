@@ -639,21 +639,21 @@ function renderResourceColumn() {
   return `
     <section class="rm-column">
       <div class="rm-column-head">Sumber Belajar</div>
-      <div class="rm-stack">
+      <div class="rm-stack rm-stack-resources">
         ${topic.resources.map(resource => {
           const isActive = state.resourceId === resource.id;
           const hasLink = Boolean(resource.url);
+
           return `
-            <div class="rm-resource-wrap">
-              <button class="${cardClass(isActive)}" onclick="selectResource('${resource.id}')" style="--rm-accent:${phase.color}">
-                <span class="rm-card-kicker">${resource.type || 'Resource'}</span>
-                <span class="rm-card-title">${resource.title}</span>
-                <span class="rm-card-meta">${resource.prl || resource.section || 'Sumber belajar'}</span>
-              </button>
-              <a class="rm-resource-link ${hasLink ? '' : 'is-disabled'}" href="${hasLink ? resource.url : '#'}" ${hasLink ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}>
-                ${hasLink ? 'Buka Link' : 'URL belum diisi'}
-              </a>
-            </div>`;
+            <a class="${cardClass(isActive)} rm-resource-card ${hasLink ? '' : 'is-disabled'}"
+               href="${hasLink ? resource.url : '#'}"
+               onclick="selectResource('${resource.id}')"
+               style="--rm-accent:${phase.color}"
+               ${hasLink ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}>
+              <span class="rm-card-kicker">${resource.type || 'Sumber Belajar'}</span>
+              <span class="rm-card-title rm-resource-title">${resource.title}</span>
+              <span class="rm-card-meta rm-resource-meta">${resource.prl || 'Referensi'}</span>
+            </a>`;
         }).join('')}
       </div>
     </section>`;
