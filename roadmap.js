@@ -168,41 +168,40 @@ const phases=[
          {
            title:'Model OSI 7 layer — fungsi tiap layer dan contoh protokolnya',
            resources:[
-             'Professor Messer Net+: OSI Model',
-             'YouTube: Penjelasan OSI 7 layer',
-             'Cisco Packet Tracer: Intro networking'
+             'Youtube: Model OSI Layer'
            ]
          },
          {
            title:'TCP/IP, UDP, ICMP — perbedaan dan kapan digunakan',
            resources:[
-             'Professor Messer Net+: TCP/IP basics',
-             'YouTube: TCP vs UDP vs ICMP',
-             'Artikel: Perbedaan TCP UDP ICMP'
+             'Youtube: TCP/IP Layer',
+             'Youtube: TCP/IP',
+             'Youtube: UDP',
+             'Youtube: ICMP'
            ]
          },
          {
            title:'IP addressing & subnetting CIDR — praktek sampai mahir',
            resources:[
-             'Professor Messer Net+: IP addressing and subnetting',
-             'YouTube: Belajar subnetting CIDR',
-             'Artikel: Latihan subnetting dasar'
+             'Youtube: IP Address',
+             'Youtube: Subneting PART 1',
+             'Youtube: Subneting PART 2'
            ]
          },
          {
            title:'DNS, DHCP, ARP, NAT — cara kerja di jaringan nyata',
            resources:[
-             'Professor Messer Net+: DNS DHCP ARP NAT',
-             'YouTube: Cara kerja DNS DHCP ARP NAT',
-             'Cisco Packet Tracer: Simulasi layanan jaringan'
+             'Youtube: DNS',
+             'Youtube: DHCP',
+             'Youtube: ARP',
+             'Youtube: ICMP'
            ]
          },
          {
            title:'Wireshark: capture, filter, dan baca packet secara dasar',
            resources:[
-             'Wireshark Docs: Getting started',
-             'YouTube: Belajar Wireshark dasar',
-             'Artikel: Filter dasar di Wireshark'
+             'Youtube: Packet analysis',
+             'Artikel: Wireshark Guide'
            ]
          }
        ]},
