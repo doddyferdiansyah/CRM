@@ -712,7 +712,7 @@ function renderDetailPanel() {
         <div class="rm-detail-tags">
           <span class="rm-tag">${module.lvl}</span>
           <span class="rm-tag">${module.topics.length} materi</span>
-          <span class="rm-tag">${module.tools.length} resource</span>
+          <span class="rm-tag">${module.tools ? module.tools.length : module.topics.reduce((total, topic) => total + topic.resources.length, 0)} resource</span>
         </div>
         <div class="rm-detail-list-head">Daftar materi</div>
         <ul class="rm-detail-list">
@@ -800,7 +800,10 @@ function renderRoadmapExplorer() {
   ].join('');
 
   breadcrumb.innerHTML = renderBreadcrumb();
-  detail.innerHTML = renderDetailPanel();
+  
+  if (detail) {
+    detail.innerHTML = renderDetailPanel();
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
