@@ -635,10 +635,9 @@ const RESOURCE_LINKS = {
   'Youtube: Pengenalan Sistem Operasi':'https://youtu.be/XO6yP5PXjQA?si=qna4xvz3qaWX3f0U',
   'Youtube: Playlist Linux Command':'https://youtube.com/playlist?list=PLC-N6VQz1oqeP2Xu86AiHCYCwNkOd5Em2&si=qZ4lJrR2m_DjUBjr',
   'Artikel: Cara Navigasi di Terminal':'https://terminalcheatsheet.com/id/guides/navigate-terminal',
-  
   'Youtube: Manajemen user':'https://youtu.be/rWNVcc-ukEU?si=gr1G8JuTMLuWBTt5',
   'Artikel: Manajemen user di Linux':'https://www.idn.id/manajemen-user-linux-perintah-penting-yang-wajib-tahu/',
-  'Artikel: Mengenal /etc/shadow':'https://linuxize.com/post/etc-shadow-file/,
+  'Artikel: Mengenal /etc/shadow':'https://linuxize.com/post/etc-shadow-file/',
   
   'Youtube: Apa itu Package Manager':'https://youtu.be/gA0yzCz5OS8?si=X4nlX2HkIqXjavb8',
   'Artikel: Mengenal Package Manager':'https://coolnetkid.wordpress.com/2014/06/06/mengenal-package-manager-linux/',
@@ -646,7 +645,7 @@ const RESOURCE_LINKS = {
   
   'Youtube: Manajemen Proses di linux':'https://youtu.be/UE8VDP8Oa7Y?si=lfnamTBvTTn2jEEw',
   'Artikel: Proses dan Job':'https://lucanerlich.com/linux/beginners-guide/processes-and-jobs/',
-  'Artikel: Baca log lewat journalctl':'https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs,
+  'Artikel: Baca log lewat journalctl':'https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs',
   
   'Youtube: Rahasia manajemen file':'https://youtu.be/vjBr-kIopIk?si=tw9641bmSchgjUyi',
   'Artikel: Penjelasan manajemen file':'https://www.redhat.com/en/blog/linux-file-permissions-explained'
