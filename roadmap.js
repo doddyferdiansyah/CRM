@@ -56,22 +56,24 @@ const phases=[
          {
            title:'Domain name dan cara DNS bekerja (penerjemah nama ke IP)',
            resources:[
-             'Cisco NetAcad Free: DNS basics',
-             'Khan Academy: DNS'
+             'Youtube: Apa itu Domain Name',
+             'Artikel: Bagaimana DNS bekerja'
            ]
          },
          {
            title:'Router, WiFi, dan bagaimana data bergerak di internet',
            resources:[
-             'Cisco NetAcad Free: Router and switching basics',
-             'Khan Academy: How the internet works'
+             'Youtube: LAN Switching',
+             'Youtube: IP Routing',
+             'Youtube: Gimana data bergerak di internet',
+             'Artikel: Perbedaan Router dan Switch'
            ]
          },
          {
            title:'Apa itu firewall secara awam',
            resources:[
-             'Cisco NetAcad Free: Firewall basics',
-             'Khan Academy: Network security intro'
+             'Youtube: Apa itu Firewall',
+             'Artikel: Cara kerja Firewall'
            ]
          }
        ]},
@@ -80,30 +82,32 @@ const phases=[
          {
            title:'CIA Triad mendalam: Confidentiality, Integrity, Availability',
            resources:[
-             'BSSN.go.id: Artikel dasar keamanan siber',
-             'Dark Reading: Security fundamentals'
+             'Youtube: CIA Triad'
            ]
          },
          {
            title:'Threat actor dan motivasinya: finansial, ideologi, nation-state',
            resources:[
-             'Krebs on Security: Threat actor stories',
-             'Dark Reading: Threat intelligence basics'
+             'Youtube: Apa itu Threat actor',
+             'Youtube: Motivasi dari Threat actor',
+             'Artikel: Threat actor dan ancaman'
            ]
          },
          {
            title:'Etika digital dan konsekuensi hukum tindakan siber',
            resources:[
-             'BSSN.go.id: Etika dan keamanan digital',
-             'BSSN.go.id: Regulasi dan edukasi keamanan siber'
+             'Youtube: Literasi Digital',
+             'Youtube: Etika di Dunia Digital',
+             'Artikel: Undang-Undang tentang Keamanan data',
+             'Artikel: Perlindungan Data Pribadi'
            ]
          },
          {
            title:'Cara membaca dan memahami berita keamanan terkini',
            resources:[
-             'Krebs on Security',
-             'Dark Reading',
-             'BSSN.go.id: Berita dan peringatan siber'
+             'Situs Berita: The Hacker News':'https://thehackernews.com/',
+             'Situs Berita: Cyber News':'https://cybernews.com/',
+             'Situs Berita: Sindonews':'https://www.sindonews.com/topic/53184/keamanan-siber'
            ]
          }
        ]},
@@ -408,7 +412,26 @@ const RESOURCE_LINKS = {
   'YouTube: HTTP vs HTTPS':'https://youtu.be/ClkMk4m2MRA?si=BQ2LFIf41KA3ksX8',
   'YouTube: Browser cookie cache':'https://youtu.be/teNgS8jS-CI?si=KHF6pZEhaRTQ4zWh',
   'Youtube: Apa itu IP Address':'https://youtu.be/J-dh-MgKl-M?si=LJ3HUAFznDmhhdy9',
-  'Artikel: Kenapa perangkat punya alamat':'https://csirt.teknokrat.ac.id/mengapa-setiap-perangkat-memiliki-ip-address-sendiri/'
+  'Artikel: Kenapa perangkat punya alamat':'https://csirt.teknokrat.ac.id/mengapa-setiap-perangkat-memiliki-ip-address-sendiri/',
+  'Youtube: Apa itu Domain Name':'https://youtu.be/DUWgPIdcpcY?si=gwtmBoeZAchYVDV6',
+  'Artikel: Bagaimana DNS bekerja':'https://nordvpn.com/id/blog/apa-itu-dns/?srsltid=AfmBOoqnoqerK5X27qAyxMJMveacM2k6tYu3R1p9TnZZj1_Ri2Tj5GKd',
+  'Youtube: LAN Switching':'https://youtu.be/sxmhYUKMXdg?si=C5fW6Glw6OmrW-we',
+  'Youtube: IP Routing':'https://youtu.be/9IfL1C51KpQ?si=yiJdARlijyUJAFXi',
+  'Youtube: Gimana data bergerak di internet':'https://youtu.be/_fl7wWbV604?si=s5cs7YJNzrQhEJyj',
+  'Artikel: Perbedaan Router dan Switch':'https://www.cloudeka.id/id/berita/teknologi/perbedaan-router-dan-switch/',
+  'Youtube: Apa itu Firewall':'https://youtu.be/VoHvL7mvlM0?si=Y7Rz1JuxbnDc1GKe',
+  'Artikel: Cara kerja Firewall':'https://sis.binus.ac.id/2023/05/01/apa-itu-firewall-dan-bagaimana-cara-kerjanya/',
+  'Youtube: CIA Triad':'https://youtu.be/hD97QM3MVvs?si=3ts7BnWuG6MQvffu',
+  'Youtube: Apa itu Threat actor':'https://youtu.be/ESi-4n02zaQ?si=uAcR_nWdnwPYOiJH',
+  'Youtube: Motivasi dari Threat actor':'https://youtu.be/5iF7uklBFjk?si=bNY_zGzDsux6NUyb',
+  'Artikel: Threat actor dan ancaman':'https://aplikas.com/blog/threat-actor/',
+  'Youtube: Literasi Digital':'https://youtu.be/ThCcmEbBLc8?si=8qbc-JflL-Q-xoKW',
+  'Youtube: Etika di Dunia Digital':'https://youtu.be/qNskX8A5I90?si=pXBBpAKW28kmJTKM',
+  'Artikel: Undang-Undang tentang Keamanan data':'https://csirt.ipkindonesia.or.id/peraturan-perundang-undangan-terkait-keamanan-data/',
+  'Artikel: Perlindungan Data Pribadi':'https://fh.untar.ac.id/2025/09/11/perlindungan-data-pribadi-implementasi-uu-no-27-tahun-2022-dan-tantangan-penegakannya/',
+  'Situs Berita: The Hacker News':'https://thehackernews.com/',
+  'Situs Berita: Cyber News':'https://cybernews.com/',
+  'Situs Berita: Sindonews':'https://www.sindonews.com/topic/53184/keamanan-siber'
 };
 
 const state = {
