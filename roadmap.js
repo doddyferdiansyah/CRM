@@ -111,6 +111,7 @@ const phases=[
            ]
          }
        ]},
+     ]},
 
   // ── L1 Fase 1 ──
   {id:'p1',label:'L1 Fondasi',lvl:'Dasar',color:'var(--L1)',
