@@ -54,7 +54,7 @@ const phases=[
 
   // ── L1 Fase 1 ──
   {id:'p1',label:'L1 Fondasi',lvl:'Dasar',color:'var(--L1)',
-   title:'Fase 1 - Fondasi: Pemahaman Dasar',dur:'6–8 Minggu',target:'Semua background',
+   title:'Fase 1 — Fondasi: Pemahaman Dasar',dur:'6–8 Minggu',target:'Semua background',
    desc:'Fondasi yang kuat adalah segalanya. Jangan terburu-buru dalam belajar dan tidak ada cara instan. Semua topik di fase berikutnya bergantung pada pemahaman yang dibangun di fase fondasi ini.',
    fw:[{c:'cy',l:'CyBOK v1.1'},{c:'ni',l:'NIST SP 800-12'},{c:'ni',l:'NIST CSF'}],
    qw:'Install Ubuntu di VirtualBox dan jalankan perintah "uname -a". Screenshot hasilnya. Kamu resmi menjadi Linux user pertama kali!',
@@ -260,7 +260,7 @@ const phases=[
      {icon:'🔵',lv:'must',lvl:'PILIH 1',t:'Blue Team / SOC Analyst',ref:'CyBOK: Security Operations',
       topics:['Advanced SIEM correlation dan tuning untuk reduce false positives','EDR/XDR: CrowdStrike, Microsoft Defender, SentinelOne — cara operasikan','Threat hunting frameworks: PEAK, TaHiTI, hypothesis-driven','Malware triage: sandbox analysis, IOC extraction, YARA rules','AI-assisted SOC: Copilot for Security, Chronicle AI'],
       tools:['Splunk Enterprise','CrowdStrike Falcon','Microsoft Sentinel','Blue Team Labs Online']},
-     {icon:'🤖',lv:'must',lvl:'PILIH 1 —',t:'AI Security Engineer',ref:'OWASP LLM + OffSec OSAI + NIST AI RMF',
+     {icon:'🤖',lv:'must',lvl:'PILIH 1',t:'AI Security Engineer',ref:'OWASP LLM + OffSec OSAI + NIST AI RMF',
       topics:['AI red teaming: attack dan assessment AI systems secara metodis','LLM security testing: prompt injection, jailbreaking, data extraction','Agentic AI defense: guardrails, input validation, output filtering','AI security architecture: secure LLM pipeline design','AI SBOM dan supply chain security untuk AI components'],
       tools:['OffSec AI-300','OWASP LLM Labs','Garak LLM Scanner','Rebuff']},
      {icon:'🟣',lv:'should',lvl:'PILIH 1',t:'Cloud Security Engineer',ref:'CyBOK: Infrastructure + CSA STAR',
@@ -395,10 +395,10 @@ function getResourceMeta(name) {
     icon:'🔗',
     type:'Sumber Belajar',
     name,
-    desc:'Tambahkan URL pada RESOURCE_LINKS di roadmap.js agar resource ini bisa langsung dibuka.',
+    desc:'Sumber belajar ini dapat digunakan untuk memperdalam materi yang sedang Anda pilih.',
     pr:'mix',
-    prl:'Link belum diisi',
-    section:'Sumber Lain'
+    prl:'Referensi',
+    section:'Referensi'
   };
 }
 
@@ -684,11 +684,11 @@ function renderDetailPanel() {
         <div class="rm-detail-kicker">Sumber Belajar</div>
         <div class="rm-detail-title">${resource.title}</div>
         <div class="rm-detail-desc">${resourceDesc}</div>
-        <div class="rm-detail-tags">
+        /* <div class="rm-detail-tags">
           <span class="rm-tag">${resource.type || 'Sumber Belajar'}</span>
           <span class="rm-tag">${resource.prl || 'Referensi'}</span>
           <span class="rm-tag">${resource.section || 'Sumber Lain'}</span>
-        </div>
+        </div> */
         <div class="rm-detail-actions">
           <a class="rm-detail-link ${resource.url ? '' : 'is-disabled'}"
              href="${resource.url || '#'}"
