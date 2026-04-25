@@ -1,159 +1,1127 @@
-// Assessment page only — sharpened version
-
-const Qs = [
-  {cat:'Latar Belakang',text:'Apa latar belakang pendidikan atau pekerjaan kamu saat ini?',hint:'Ini menentukan titik start belajarmu.',
-   opts:[{em:'💻',l:'IT / Tech',s:'Developer, sysadmin, networking, dsb.',v:'bg_it'},
-         {em:'🎓',l:'Non-IT — Akademis',s:'Mahasiswa non-IT, dosen, peneliti.',v:'bg_academic'},
-         {em:'💼',l:'Non-IT — Profesional',s:'Bisnis, hukum, keuangan, HR, dsb.',v:'bg_biz'},
-         {em:'🌱',l:'Belum berpengalaman kerja',s:'Fresh graduate atau masih sekolah.',v:'bg_fresh'}]},
-  {cat:'Kemampuan Teknis',text:'Seberapa nyaman kamu dengan command line / terminal komputer?',hint:'Terminal adalah alat wajib cybersecurity.',
-   opts:[{em:'🚀',l:'Sangat nyaman',s:'Sering pakai terminal untuk kerja harian.',v:'cli_yes'},
-         {em:'🤔',l:'Pernah pakai, tapi jarang',s:'Tahu cara buka terminal, tapi tidak rutin.',v:'cli_maybe'},
-         {em:'😨',l:'Belum pernah sama sekali',s:'Terminal terasa asing dan menakutkan.',v:'cli_no'}]},
-  {cat:'Pengetahuan Dasar',text:'Apakah kamu sudah memahami konsep CIA Triad, IP address, dan cara kerja internet?',hint:'Ini mengukur fondasi teknis kamu saat ini.',
-   opts:[{em:'✅',l:'Ya, saya paham semua itu',s:'Sudah familiar dan bisa menjelaskannya.',v:'know_high'},
-         {em:'🤷',l:'Sebagian, tidak semuanya',s:'Pernah dengar tapi tidak yakin semuanya.',v:'know_mid'},
-         {em:'❓',l:'Belum, ini baru untuk saya',s:'Ini pertama kali saya dengar istilah-istilah itu.',v:'know_low'}]},
-  {cat:'Tujuan Belajar',text:'Apa tujuan utamamu belajar cybersecurity?',hint:'Tujuan yang berbeda membutuhkan learning path yang berbeda.',
-   opts:[{em:'💼',l:'Berkarier atau pindah karier ke cybersecurity',s:'Ingin mendapat pekerjaan di bidang ini.',v:'goal_career'},
-         {em:'🤖',l:'Mengamankan sistem / produk AI yang saya bangun',s:'Developer atau data scientist yang butuh security.',v:'goal_ai'},
-         {em:'🛡️',l:'Melindungi bisnis atau organisasi saya',s:'Pemilik usaha, manajer IT, atau decision maker.',v:'goal_biz'},
-         {em:'📚',l:'Akademis, riset, atau mengajar',s:'Mahasiswa, dosen, atau peneliti.',v:'goal_academic'}]},
-  {cat:'Minat Spesifik',text:'Aspek cybersecurity mana yang paling menarik untukmu saat ini?',hint:'Jika belum tahu, pilih "Eksplorasi dulu".',
-   opts:[{em:'🔴',l:'Hacking & Penetration Testing',s:'Menemukan celah secara etis.',v:'int_red'},
-         {em:'🔵',l:'Pertahanan & SOC / Blue Team',s:'Mendeteksi dan merespons ancaman.',v:'int_blue'},
-         {em:'🤖',l:'AI Security & Agentic AI',s:'Mengamankan sistem AI, LLM, dan agen AI.',v:'int_ai'},
-         {em:'⚖️',l:'Governance, Risk & Compliance',s:'Regulasi, audit, kebijakan, ISO.',v:'int_grc'},
-         {em:'🧭',l:'Belum tahu, eksplorasi dulu',s:'Mau lihat semuanya sebelum pilih.',v:'int_explore'}]},
-  {cat:'Waktu Belajar',text:'Berapa jam per minggu yang bisa kamu dedikasikan secara konsisten?',hint:'Jawab realistis — bukan ideal.',
-   opts:[{em:'🔥',l:'15 jam+ per minggu',s:'Saya bisa fulltime atau intensif.',v:'time_high'},
-         {em:'⏰',l:'5–15 jam per minggu',s:'Ada waktu di luar kerja / kuliah.',v:'time_mid'},
-         {em:'🌙',l:'Kurang dari 5 jam per minggu',s:'Waktu sangat terbatas.',v:'time_low'}]},
-  {cat:'Target Waktu',text:'Kapan kamu ingin mulai bekerja atau menerapkan ilmu cybersecurity ini?',hint:'Menentukan prioritas dan kecepatan belajar.',
-   opts:[{em:'⚡',l:'Dalam 6 bulan',s:'Butuh hasil cepat.',v:'urgency_fast'},
-         {em:'📅',l:'Dalam 1–2 tahun',s:'Ingin fondasi kuat, tidak terburu-buru.',v:'urgency_normal'},
-         {em:'🌱',l:'Tidak ada target waktu',s:'Belajar santai sesuai kecepatan sendiri.',v:'urgency_slow'}]},
-  {cat:'AI & Teknologi',text:'Apakah kamu sudah menggunakan atau membangun produk berbasis AI (ChatGPT, LLM, API AI, dsb.)?',hint:'Relevan untuk menentukan apakah fase AI Security diprioritaskan.',
-   opts:[{em:'🤖',l:'Ya, saya aktif pakai dan membangun dengan AI',s:'Pakai API, fine-tune model, atau deploy AI agent.',v:'ai_high'},
-         {em:'👋',l:'Pakai sebagai user, belum membangun',s:'Pakai ChatGPT, Copilot, dsb. tapi tidak develop.',v:'ai_mid'},
-         {em:'🙅',l:'Belum atau sangat jarang',s:'Hampir tidak pernah pakai AI tools.',v:'ai_low'}]},
-  {cat:'Regulasi & Compliance',text:'Apakah pekerjaanmu atau organisasimu berkaitan dengan data pribadi, keuangan, atau kesehatan?',hint:'Menentukan apakah fase GRC diprioritaskan.',
-   opts:[{em:'🏦',l:'Ya — keuangan / fintech / perbankan',s:'Terikat PCI DSS, regulasi OJK.',v:'reg_finance'},
-         {em:'🏥',l:'Ya — kesehatan / healthcare',s:'Terikat HIPAA, data medis.',v:'reg_health'},
-         {em:'🏢',l:'Ya — bisnis umum dengan data pelanggan',s:'Terikat UU PDP, GDPR.',v:'reg_general'},
-         {em:'🙅',l:'Tidak, atau belum relevan sekarang',s:'Belum ada konteks regulasi spesifik.',v:'reg_none'}]},
-  {cat:'Gaya Belajar',text:'Bagaimana cara belajar yang paling efektif untukmu?',hint:'Membantu kami merekomendasikan sumber yang tepat.',
-   opts:[{em:'🎯',l:'Langsung praktik dan hands-on',s:'Belajar dengan coba-coba sendiri.',v:'style_hands'},
-         {em:'📖',l:'Baca teori dulu, baru praktik',s:'Perlu paham konsep sebelum coba.',v:'style_theory'},
-         {em:'🎥',l:'Video dan kelas terstruktur',s:'Lebih mudah dengan instruktur.',v:'style_video'}]},
-  {cat:'Komitmen',text:'Seberapa serius kamu berkomitmen menyelesaikan program belajar ini?',hint:'Jujurlah — ini hanya untuk kamu.',
-   opts:[{em:'🏆',l:'Sangat serius, ini prioritas utama',s:'Siap investasi penuh waktu dan tenaga.',v:'commit_high'},
-         {em:'👌',l:'Serius, tapi ada prioritas lain',s:'Konsisten tapi tidak bisa fulltime.',v:'commit_mid'},
-         {em:'🤷',l:'Masih menjajaki',s:'Belum pasti, ingin tahu dulu.',v:'commit_low'}]},
-  {cat:'Soft Skills',text:'Apakah kamu nyaman menulis laporan teknis atau presentasi kepada non-teknis?',hint:'Security communication adalah skill kritis yang sering diabaikan.',
-   opts:[{em:'✍️',l:'Ya, saya terbiasa menulis dan presentasi',s:'Sering buat laporan, deck, atau proposal.',v:'comm_high'},
-         {em:'📝',l:'Bisa, tapi perlu banyak latihan',s:'Sudah pernah tapi tidak terlalu percaya diri.',v:'comm_mid'},
-         {em:'😓',l:'Ini kelemahan saya',s:'Lebih nyaman dengan hal teknis daripada komunikasi.',v:'comm_low'}]},
-];
-
-const TRACK_CONFIG = {
-  red: {
-    profile: {
-      emoji:'🔴',
-      color:'var(--L5)',
-      name:'Calon Red Teamer / Ethical Hacker',
-      badge:'Red Team Track',
-      desc:'Kamu punya minat offensif yang kuat. Jalurmu akan fokus pada fondasi teknis, web security, network attack, dan pembiasaan berpikir seperti attacker secara etis.'
-    },
-    primaryCareer:'Red Team / Penetration Tester',
-    altCareer:'Application Security Engineer',
-    phase9NormalWeeks:[20, 28],
-    phase9Name:'Spesialisasi Red Team & Karier',
-    topicsStartEarly:['Sistem Operasi Linux','Jaringan Komputer','Web App Security — OWASP Top 10'],
-    topicsStartMid:['Web App Security — OWASP Top 10','Serangan & Pertahanan Jaringan','Vulnerability Assessment']
+// Assessment v3 — sharper recommendation engine with 10 careers
+const CAREERS = {
+  "pentest": {
+    "c": "#f43f5e",
+    "icon": "🔴",
+    "t": "Penetration Tester",
+    "en": "Ethical Hacker / Red Teamer",
+    "desc": "Mensimulasikan serangan untuk menemukan kelemahan sebelum attacker nyata. Peran paling ikonik dengan salary sangat kompetitif.",
+    "certs": [
+      "OSCP",
+      "PNPT",
+      "CEH",
+      "eJPT"
+    ],
+    "demand": "Stabil Tinggi"
   },
-  blue: {
-    profile: {
-      emoji:'🔵',
-      color:'var(--L1)',
-      name:'Calon Blue Teamer / SOC Analyst',
-      badge:'Blue Team Track',
-      desc:'Kamu paling cocok ke jalur pertahanan. Fokusmu akan condong ke monitoring, incident response, analisis log, dan operasi keamanan harian.'
-    },
-    primaryCareer:'Blue Team / SOC Analyst',
-    altCareer:'Threat Hunter / Incident Responder',
-    phase9NormalWeeks:[16, 24],
-    phase9Name:'Spesialisasi Blue Team & Karier',
-    topicsStartEarly:['Jaringan Komputer','Konsep Keamanan Inti','Serangan & Pertahanan Jaringan'],
-    topicsStartMid:['Serangan & Pertahanan Jaringan','SOC & Operasi Keamanan','Digital Forensics Dasar']
+  "soc": {
+    "c": "#38bdf8",
+    "icon": "🔵",
+    "t": "SOC Analyst",
+    "en": "Security Operations Center Analyst",
+    "desc": "Memantau, mendeteksi, dan merespons insiden. Posisi paling banyak tersedia di Indonesia. AI membantu tapi tidak menggantikan peran ini.",
+    "certs": [
+      "CySA+",
+      "BTL1",
+      "Splunk Core",
+      "SC-200"
+    ],
+    "demand": "Sangat Tinggi"
   },
-  ai: {
-    profile: {
-      emoji:'🤖',
-      color:'var(--red)',
-      name:'Calon AI Security Engineer',
-      badge:'AI Security Track',
-      desc:'Kamu cocok masuk ke domain AI Security. Fokusmu akan bergerak dari fondasi security ke OWASP LLM, model security, prompt injection, dan agentic AI.'
-    },
-    primaryCareer:'AI Security Engineer',
-    altCareer:'AI AppSec / Security Researcher',
-    phase9NormalWeeks:[20, 30],
-    phase9Name:'Spesialisasi AI Security & Karier',
-    topicsStartEarly:['Kriptografi Klasik','Konsep Keamanan Inti','OWASP LLM Top 10 & AI Threats'],
-    topicsStartMid:['OWASP LLM Top 10 & AI Threats','Agentic AI Security','Model Security & Data Poisoning']
+  "ai_sec": {
+    "c": "#f43f5e",
+    "icon": "🤖",
+    "t": "AI Security Engineer",
+    "en": "AI Red Teamer / AI Security Specialist",
+    "desc": "Posisi paling langka dan paling dicari. Menguji dan mengamankan sistem LLM, agentic AI, dan AI infrastructure.",
+    "certs": [
+      "OSAI (OffSec)",
+      "CAISP",
+      "ISO 42001 LA",
+      "CISSP"
+    ],
+    "demand": "Paling Dicari"
   },
-  grc: {
-    profile: {
-      emoji:'⚖️',
-      color:'var(--L4)',
-      name:'Calon GRC / Compliance Analyst',
-      badge:'GRC Track',
-      desc:'Kamu paling dekat dengan governance, risk, dan compliance. Jalurmu akan fokus pada risk thinking, ISO 27001, regulasi, dan komunikasi keamanan.'
-    },
-    primaryCareer:'GRC / Compliance Analyst',
-    altCareer:'Risk Analyst / Security Awareness Lead',
-    phase9NormalWeeks:[12, 20],
-    phase9Name:'Spesialisasi GRC & Karier',
-    topicsStartEarly:['Konsep Keamanan Inti','Security Communication','Manajemen Risiko'],
-    topicsStartMid:['Security Communication','Manajemen Risiko','ISO/IEC 27001:2022']
+  "cloud_sec": {
+    "c": "#a855f7",
+    "icon": "🟣",
+    "t": "Cloud Security Engineer",
+    "en": "Cloud Security Architect",
+    "desc": "Merancang dan mengamankan infrastruktur cloud. Permintaan sangat tinggi seiring adopsi cloud dan AI cloud workloads.",
+    "certs": [
+      "AWS Security Spec",
+      "CCSP",
+      "CCSK",
+      "AZ-500"
+    ],
+    "demand": "Sangat Tinggi"
   },
-  explorer: {
-    profile: {
-      emoji:'🧭',
-      color:'var(--L2)',
-      name:'Explorer — Full Foundation Track',
-      badge:'Full Exploration Track',
-      desc:'Kamu belum memilih minat spesifik, dan itu bagus. Jalurmu akan memprioritaskan fondasi luas supaya nanti bisa memilih spesialisasi dengan lebih yakin.'
-    },
-    primaryCareer:'SOC Analyst / Generalist Security Starter',
-    altCareer:'Application Security / GRC (setelah eksplorasi)',
-    phase9NormalWeeks:[20, 28],
-    phase9Name:'Spesialisasi & Karier',
-    topicsStartEarly:['Literasi Komputer & Internet','Jaringan Internet Dasar','Mindset & Ekosistem Keamanan'],
-    topicsStartMid:['Sistem Operasi Linux','Jaringan Komputer','Konsep Keamanan Inti']
+  "appsec": {
+    "c": "#22c55e",
+    "icon": "🟢",
+    "t": "AppSec Engineer",
+    "en": "Application Security Specialist",
+    "desc": "Memastikan aplikasi aman sejak awal. Kolaborasi erat dengan developer. Makin kritis seiring maraknya penggunaan AI dalam development.",
+    "certs": [
+      "GWEB",
+      "eWPT",
+      "CSSLP",
+      "OSWE"
+    ],
+    "demand": "Tinggi"
+  },
+  "grc": {
+    "c": "#ec4899",
+    "icon": "⚖️",
+    "t": "GRC Analyst",
+    "en": "Governance, Risk & Compliance",
+    "desc": "Memastikan kepatuhan regulasi. Sangat relevan di era UU PDP dan regulasi AI. Peran makin strategis karena AI governance.",
+    "certs": [
+      "CISM",
+      "CRISC",
+      "ISO 27001 LA",
+      "ISO 42001"
+    ],
+    "demand": "Tinggi & Tumbuh"
+  },
+  "dfir": {
+    "c": "#f97316",
+    "icon": "🔍",
+    "t": "DFIR Investigator",
+    "en": "Digital Forensics & Incident Response",
+    "desc": "Investigasi insiden siber dan kumpulkan bukti digital. Permintaan meningkat karena kompleksitas serangan modern.",
+    "certs": [
+      "GCFE",
+      "GCFA",
+      "EnCE",
+      "FOR508"
+    ],
+    "demand": "Stabil"
+  },
+  "cti": {
+    "c": "#eab308",
+    "icon": "🧠",
+    "t": "Threat Intelligence Analyst",
+    "en": "Cyber Threat Intelligence (CTI)",
+    "desc": "Menganalisis ancaman dan profil threat actor. Salah satu peran yang paling sulit diisi secara global.",
+    "certs": [
+      "GCTI",
+      "GCTIA",
+      "CTI Analyst",
+      "FOR578"
+    ],
+    "demand": "Krisis Global"
+  },
+  "devsecops": {
+    "c": "#06b6d4",
+    "icon": "🏗️",
+    "t": "DevSecOps Engineer",
+    "en": "Security in DevOps / Platform Security",
+    "desc": "Mengintegrasikan security ke seluruh pipeline development dan deployment. Salah satu peran paling sulit diisi secara global.",
+    "certs": [
+      "AWS DevOps Pro",
+      "CKS (Kubernetes)",
+      "CSSLP",
+      "Checkov Certified"
+    ],
+    "demand": "Sangat Langka"
+  },
+  "architect": {
+    "c": "#8b5cf6",
+    "icon": "🏛️",
+    "t": "Security Architect / CISO",
+    "en": "Senior Leadership Track",
+    "desc": "Merancang strategi keamanan menyeluruh. Ini jalur senior 7–10 tahun pengalaman lintas domain, bukan titik masuk tercepat.",
+    "certs": [
+      "CISSP",
+      "CISM",
+      "SABSA",
+      "TOGAF+Sec"
+    ],
+    "demand": "Premium"
   }
 };
-
-const PHASE_LIBRARY = [
-  {id:'p0', level:'Level Dasar', name:'Pra-Fondasi: Literasi Digital', normalWeeks:[2,4]},
-  {id:'p1', level:'Level Dasar', name:'Fondasi Teknis', normalWeeks:[6,8]},
-  {id:'p2', level:'Level Dasar', name:'Kriptografi & Post-Quantum', normalWeeks:[5,7]},
-  {id:'p3', level:'Level Menengah', name:'Serangan & Pertahanan', normalWeeks:[8,10]},
-  {id:'p4', level:'Level Menengah', name:'Infrastruktur & Cloud', normalWeeks:[6,8]},
-  {id:'p5', level:'Level Menengah', name:'Security Communication', normalWeeks:[3,4]},
-  {id:'p6', level:'Level Tinggi', name:'Governance, Risk & Regulasi', normalWeeks:[5,7]},
-  {id:'p7', level:'Level Tinggi', name:'SOC & Operasi Keamanan', normalWeeks:[6,8]},
-  {id:'p8', level:'Level Tinggi', name:'AI Security & Agentic AI', normalWeeks:[4,6]}
+const PHASE_CATALOG = [
+  {
+    "id": 0,
+    "name": "Pra-Fondasi: Literasi Digital",
+    "level": "Dasar",
+    "min": 2,
+    "max": 4,
+    "color": "var(--L1)"
+  },
+  {
+    "id": 1,
+    "name": "Fondasi Teknis",
+    "level": "Dasar",
+    "min": 6,
+    "max": 8,
+    "color": "var(--L1)"
+  },
+  {
+    "id": 2,
+    "name": "Kriptografi & Post-Quantum",
+    "level": "Dasar",
+    "min": 5,
+    "max": 7,
+    "color": "var(--L1)"
+  },
+  {
+    "id": 3,
+    "name": "Serangan & Pertahanan",
+    "level": "Menengah",
+    "min": 8,
+    "max": 10,
+    "color": "var(--L2)"
+  },
+  {
+    "id": 4,
+    "name": "Infrastruktur & Cloud",
+    "level": "Menengah",
+    "min": 6,
+    "max": 8,
+    "color": "var(--L2)"
+  },
+  {
+    "id": 5,
+    "name": "Security Communication",
+    "level": "Menengah",
+    "min": 3,
+    "max": 4,
+    "color": "var(--L2)"
+  },
+  {
+    "id": 6,
+    "name": "Governance, Risk & Compliance",
+    "level": "Tinggi",
+    "min": 5,
+    "max": 7,
+    "color": "var(--L3)"
+  },
+  {
+    "id": 7,
+    "name": "SOC & Operasi Keamanan",
+    "level": "Tinggi",
+    "min": 6,
+    "max": 8,
+    "color": "var(--L3)"
+  },
+  {
+    "id": 8,
+    "name": "AI Security & Agentic AI",
+    "level": "Tinggi",
+    "min": 4,
+    "max": 6,
+    "color": "var(--L3)"
+  }
 ];
-
-const PACE_CONFIG = {
-  intensif: {label:'Intensif (~15 jam+/minggu)', factor:0.65},
-  normal:   {label:'Normal (5–15 jam/minggu)', factor:1.00},
-  santai:   {label:'Santai (<5 jam/minggu)', factor:1.60}
+const SPECIALIZATION = {
+  "pentest": {
+    "min": 16,
+    "max": 24
+  },
+  "soc": {
+    "min": 12,
+    "max": 20
+  },
+  "ai_sec": {
+    "min": 20,
+    "max": 32
+  },
+  "cloud_sec": {
+    "min": 16,
+    "max": 24
+  },
+  "appsec": {
+    "min": 16,
+    "max": 24
+  },
+  "grc": {
+    "min": 12,
+    "max": 20
+  },
+  "dfir": {
+    "min": 16,
+    "max": 24
+  },
+  "cti": {
+    "min": 16,
+    "max": 24
+  },
+  "devsecops": {
+    "min": 16,
+    "max": 24
+  },
+  "architect": {
+    "min": 32,
+    "max": 52
+  }
 };
+const CAREER_TOPICS = {
+  "pentest": [
+    "Sistem Operasi Linux",
+    "Jaringan Komputer",
+    "Web App Security — OWASP Top 10"
+  ],
+  "soc": [
+    "Jaringan Komputer",
+    "Serangan & Pertahanan Jaringan",
+    "SIEM & Log Management"
+  ],
+  "ai_sec": [
+    "Python & Bash Scripting",
+    "Web App Security — OWASP Top 10",
+    "OWASP LLM Top 10 & AI Threats"
+  ],
+  "cloud_sec": [
+    "Hardening Sistem Operasi",
+    "Cloud Security Dasar",
+    "Container & DevSecOps"
+  ],
+  "appsec": [
+    "Python & Bash Scripting",
+    "Database & Web Dasar",
+    "Web App Security — OWASP Top 10"
+  ],
+  "grc": [
+    "Security Communication",
+    "Manajemen Risiko",
+    "ISO/IEC 27001:2022"
+  ],
+  "dfir": [
+    "Malware & Ancaman Modern",
+    "Incident Response & Playbook",
+    "Digital Forensics Dasar"
+  ],
+  "cti": [
+    "Mindset & Ekosistem Keamanan",
+    "Malware & Ancaman Modern",
+    "Threat Intelligence & Hunting"
+  ],
+  "devsecops": [
+    "Python & Bash Scripting",
+    "Cloud Security Dasar",
+    "Container & DevSecOps"
+  ],
+  "architect": [
+    "Konsep Keamanan Inti",
+    "Security Communication",
+    "Governance, Risk & Compliance"
+  ]
+};
+const FOUNDATION_TOPICS = {
+  "0": [
+    "Literasi Komputer & Internet",
+    "Jaringan Internet Dasar",
+    "Mindset & Ekosistem Keamanan"
+  ],
+  "1": [
+    "Sistem Operasi Linux",
+    "Jaringan Komputer",
+    "Konsep Keamanan Inti"
+  ],
+  "2": [
+    "Kriptografi Klasik",
+    "PKI, TLS & Sertifikat",
+    "Autentikasi & Token Modern"
+  ],
+  "6": [
+    "Security Communication",
+    "Manajemen Risiko",
+    "ISO/IEC 27001:2022"
+  ]
+};
+const Qs = [
+  {
+    "cat": "Latar Belakang",
+    "text": "Apa latar belakang pendidikan atau pekerjaan kamu saat ini?",
+    "hint": "Ini membantu menentukan seberapa jauh fondasi teknis kamu sudah terbentuk.",
+    "opts": [
+      {
+        "em": "💻",
+        "l": "IT / Tech",
+        "s": "Developer, sysadmin, networking, DevOps, dsb.",
+        "v": "bg_it",
+        "score": {
+          "pentest": 3,
+          "soc": 3,
+          "cloud_sec": 3,
+          "appsec": 3,
+          "devsecops": 3,
+          "dfir": 2,
+          "cti": 2,
+          "ai_sec": 2,
+          "architect": 1
+        }
+      },
+      {
+        "em": "🎓",
+        "l": "Non-IT — Akademis",
+        "s": "Mahasiswa non-IT, dosen, peneliti.",
+        "v": "bg_academic",
+        "score": {
+          "ai_sec": 3,
+          "cti": 2,
+          "grc": 2,
+          "architect": 1,
+          "appsec": 1
+        }
+      },
+      {
+        "em": "💼",
+        "l": "Non-IT — Profesional",
+        "s": "Bisnis, hukum, keuangan, HR, compliance, dsb.",
+        "v": "bg_biz",
+        "score": {
+          "grc": 4,
+          "architect": 3,
+          "cloud_sec": 1,
+          "soc": 1
+        }
+      },
+      {
+        "em": "🌱",
+        "l": "Belum berpengalaman kerja",
+        "s": "Masih sekolah, fresh graduate, atau baru eksplorasi.",
+        "v": "bg_fresh",
+        "score": {
+          "pentest": 1,
+          "soc": 1,
+          "appsec": 1,
+          "ai_sec": 1
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Kemampuan Teknis",
+    "text": "Seberapa nyaman kamu dengan command line / terminal komputer?",
+    "hint": "Terminal adalah alat penting untuk banyak jalur cybersecurity teknis.",
+    "opts": [
+      {
+        "em": "🚀",
+        "l": "Sangat nyaman",
+        "s": "Sering pakai terminal untuk kerja harian.",
+        "v": "cli_yes",
+        "score": {
+          "pentest": 3,
+          "soc": 2,
+          "cloud_sec": 3,
+          "appsec": 2,
+          "dfir": 2,
+          "cti": 1,
+          "devsecops": 3,
+          "ai_sec": 2
+        }
+      },
+      {
+        "em": "🤔",
+        "l": "Pernah pakai, tapi jarang",
+        "s": "Tahu cara buka terminal, tapi tidak rutin.",
+        "v": "cli_maybe",
+        "score": {
+          "pentest": 1,
+          "soc": 1,
+          "cloud_sec": 1,
+          "appsec": 1,
+          "dfir": 1,
+          "devsecops": 1,
+          "ai_sec": 1
+        }
+      },
+      {
+        "em": "😨",
+        "l": "Belum pernah sama sekali",
+        "s": "Terminal masih terasa asing.",
+        "v": "cli_no",
+        "score": {
+          "grc": 2,
+          "architect": 1
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Pengetahuan Dasar",
+    "text": "Apakah kamu sudah memahami konsep CIA Triad, IP address, dan cara kerja internet?",
+    "hint": "Ini mengukur apakah kamu perlu mulai dari fondasi paling awal.",
+    "opts": [
+      {
+        "em": "✅",
+        "l": "Ya, saya paham semua itu",
+        "s": "Sudah familiar dan cukup percaya diri menjelaskannya.",
+        "v": "know_high",
+        "score": {
+          "pentest": 3,
+          "soc": 3,
+          "cloud_sec": 2,
+          "appsec": 2,
+          "dfir": 2,
+          "cti": 2,
+          "devsecops": 2,
+          "ai_sec": 2,
+          "architect": 2
+        }
+      },
+      {
+        "em": "🤷",
+        "l": "Sebagian, tidak semuanya",
+        "s": "Pernah dengar, tapi belum mantap.",
+        "v": "know_mid",
+        "score": {
+          "pentest": 1,
+          "soc": 1,
+          "cloud_sec": 1,
+          "appsec": 1,
+          "dfir": 1,
+          "cti": 1,
+          "devsecops": 1,
+          "ai_sec": 1,
+          "grc": 1
+        }
+      },
+      {
+        "em": "❓",
+        "l": "Belum, ini baru untuk saya",
+        "s": "Istilah-istilah itu masih baru.",
+        "v": "know_low",
+        "score": {
+          "grc": 1
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Tujuan Belajar",
+    "text": "Apa tujuan utamamu belajar cybersecurity?",
+    "hint": "Tujuan yang berbeda biasanya berujung pada jalur karier yang berbeda.",
+    "opts": [
+      {
+        "em": "💼",
+        "l": "Berkarier atau pindah karier ke cybersecurity",
+        "s": "Saya ingin punya jalur kerja yang jelas di bidang ini.",
+        "v": "goal_career",
+        "score": {
+          "pentest": 2,
+          "soc": 2,
+          "cloud_sec": 2,
+          "appsec": 2,
+          "dfir": 2,
+          "cti": 2,
+          "devsecops": 2
+        }
+      },
+      {
+        "em": "🤖",
+        "l": "Mengamankan sistem / produk AI yang saya bangun",
+        "s": "Saya bekerja dekat dengan AI atau ingin fokus ke AI security.",
+        "v": "goal_ai",
+        "score": {
+          "ai_sec": 5,
+          "appsec": 2,
+          "cloud_sec": 1,
+          "devsecops": 1
+        }
+      },
+      {
+        "em": "🛡️",
+        "l": "Melindungi bisnis atau organisasi saya",
+        "s": "Saya ingin mengamankan operasi, data, dan risiko organisasi.",
+        "v": "goal_biz",
+        "score": {
+          "grc": 4,
+          "architect": 4,
+          "cloud_sec": 2,
+          "soc": 1
+        }
+      },
+      {
+        "em": "📚",
+        "l": "Akademis, riset, atau mengajar",
+        "s": "Saya tertarik di kajian, riset, dan pengajaran.",
+        "v": "goal_academic",
+        "score": {
+          "cti": 4,
+          "ai_sec": 3,
+          "grc": 2
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Minat Utama",
+    "text": "Bidang mana yang paling membuatmu penasaran saat ini?",
+    "hint": "Pilih yang paling menggambarkan rasa ingin tahu terkuatmu.",
+    "opts": [
+      {
+        "em": "🔴",
+        "l": "Simulasi serangan / ethical hacking",
+        "s": "Saya suka mencari celah dan berpikir seperti attacker.",
+        "v": "int_pentest",
+        "score": {
+          "pentest": 5,
+          "appsec": 3,
+          "dfir": 1
+        }
+      },
+      {
+        "em": "🔵",
+        "l": "Monitoring, deteksi, dan respon insiden",
+        "s": "Saya suka memantau sistem dan menangani alert.",
+        "v": "int_soc",
+        "score": {
+          "soc": 5,
+          "dfir": 3,
+          "cti": 2
+        }
+      },
+      {
+        "em": "🤖",
+        "l": "LLM, agentic AI, dan AI security",
+        "s": "Saya paling tertarik ke keamanan AI modern.",
+        "v": "int_ai",
+        "score": {
+          "ai_sec": 6,
+          "appsec": 1,
+          "devsecops": 1
+        }
+      },
+      {
+        "em": "☁️",
+        "l": "Cloud, platform, dan infrastructure security",
+        "s": "Saya tertarik mengamankan environment cloud dan platform.",
+        "v": "int_cloud",
+        "score": {
+          "cloud_sec": 4,
+          "devsecops": 4,
+          "architect": 1
+        }
+      },
+      {
+        "em": "🟢",
+        "l": "Secure coding / application security",
+        "s": "Saya tertarik menjaga aplikasi aman sejak awal.",
+        "v": "int_appsec",
+        "score": {
+          "appsec": 5,
+          "devsecops": 4,
+          "pentest": 1
+        }
+      },
+      {
+        "em": "⚖️",
+        "l": "Audit, regulasi, risiko, dan kebijakan",
+        "s": "Saya tertarik pada governance dan compliance.",
+        "v": "int_grc",
+        "score": {
+          "grc": 6,
+          "architect": 3
+        }
+      },
+      {
+        "em": "🔍",
+        "l": "Forensik, malware, dan investigasi",
+        "s": "Saya ingin menganalisis insiden dan bukti digital.",
+        "v": "int_dfir",
+        "score": {
+          "dfir": 6,
+          "cti": 3,
+          "soc": 2
+        }
+      },
+      {
+        "em": "🏛️",
+        "l": "Arsitektur dan strategi keamanan",
+        "s": "Saya tertarik pada pandangan big picture dan desain menyeluruh.",
+        "v": "int_arch",
+        "score": {
+          "architect": 5,
+          "grc": 2,
+          "cloud_sec": 2,
+          "devsecops": 1
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Aktivitas Harian",
+    "text": "Kalau harus memilih aktivitas kerja harian, mana yang paling kamu nikmati?",
+    "hint": "Ini membantu membedakan karier yang kelihatannya mirip tapi ritme kerjanya berbeda.",
+    "opts": [
+      {
+        "em": "🧪",
+        "l": "Eksperimen hands-on di lab",
+        "s": "Saya suka mencoba tool, exploit, sample, atau lab teknis.",
+        "v": "daily_lab",
+        "score": {
+          "pentest": 4,
+          "dfir": 2,
+          "appsec": 2
+        }
+      },
+      {
+        "em": "🚨",
+        "l": "Monitoring alert dan insiden",
+        "s": "Saya suka melihat sinyal, pola, dan respons cepat.",
+        "v": "daily_monitor",
+        "score": {
+          "soc": 4,
+          "dfir": 4,
+          "cti": 2
+        }
+      },
+      {
+        "em": "⚙️",
+        "l": "Membangun automation, pipeline, dan tooling",
+        "s": "Saya suka integrasi sistem dan pengamanan otomatis.",
+        "v": "daily_build",
+        "score": {
+          "devsecops": 5,
+          "cloud_sec": 4,
+          "appsec": 2,
+          "ai_sec": 1
+        }
+      },
+      {
+        "em": "🧠",
+        "l": "Riset, analisis, dan intelijen ancaman",
+        "s": "Saya suka menganalisis aktor, pola serangan, dan tren.",
+        "v": "daily_research",
+        "score": {
+          "cti": 5,
+          "ai_sec": 3,
+          "dfir": 1
+        }
+      },
+      {
+        "em": "📝",
+        "l": "Dokumentasi, kebijakan, dan presentasi",
+        "s": "Saya nyaman menyusun laporan dan menjelaskan risiko.",
+        "v": "daily_docs",
+        "score": {
+          "grc": 4,
+          "architect": 5,
+          "soc": 1
+        }
+      },
+      {
+        "em": "💻",
+        "l": "Review code, API, dan desain aplikasi",
+        "s": "Saya suka menyentuh software secara dekat.",
+        "v": "daily_code",
+        "score": {
+          "appsec": 5,
+          "devsecops": 2,
+          "pentest": 2
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Waktu Belajar",
+    "text": "Berapa jam per minggu yang bisa kamu dedikasikan secara konsisten?",
+    "hint": "Jawab realistis — ini akan memengaruhi estimasi total durasi.",
+    "opts": [
+      {
+        "em": "🔥",
+        "l": "15 jam+ per minggu",
+        "s": "Saya bisa belajar intensif dan konsisten.",
+        "v": "time_high",
+        "score": {}
+      },
+      {
+        "em": "⏰",
+        "l": "5–15 jam per minggu",
+        "s": "Saya punya waktu rutin tapi tidak penuh.",
+        "v": "time_mid",
+        "score": {}
+      },
+      {
+        "em": "🌙",
+        "l": "Kurang dari 5 jam per minggu",
+        "s": "Waktu saya sangat terbatas.",
+        "v": "time_low",
+        "score": {}
+      }
+    ]
+  },
+  {
+    "cat": "Target Waktu",
+    "text": "Kapan kamu ingin mulai menerapkan atau bekerja di bidang ini?",
+    "hint": "Ini membantu sistem memilih jalur yang lebih agresif atau lebih landai.",
+    "opts": [
+      {
+        "em": "⚡",
+        "l": "Dalam 6 bulan",
+        "s": "Saya butuh progres yang relatif cepat.",
+        "v": "urgency_fast",
+        "score": {
+          "soc": 3,
+          "grc": 3,
+          "cloud_sec": 2,
+          "pentest": 1,
+          "appsec": 1,
+          "devsecops": 1
+        }
+      },
+      {
+        "em": "📅",
+        "l": "Dalam 1–2 tahun",
+        "s": "Saya ingin berkembang stabil dengan fondasi kuat.",
+        "v": "urgency_normal",
+        "score": {}
+      },
+      {
+        "em": "🌱",
+        "l": "Tidak ada target waktu ketat",
+        "s": "Saya rela menempuh jalur yang lebih panjang.",
+        "v": "urgency_slow",
+        "score": {
+          "architect": 2,
+          "cti": 1,
+          "ai_sec": 1
+        }
+      }
+    ]
+  },
+  {
+    "cat": "AI & Teknologi",
+    "text": "Apakah kamu sudah menggunakan atau membangun produk berbasis AI (ChatGPT, LLM, API AI, dsb.)?",
+    "hint": "Pertanyaan ini penting untuk menilai apakah AI Security perlu diprioritaskan.",
+    "opts": [
+      {
+        "em": "🤖",
+        "l": "Ya, aktif memakai dan membangun dengan AI",
+        "s": "Saya dekat dengan API AI, agent, automation, atau produk AI.",
+        "v": "ai_high",
+        "score": {
+          "ai_sec": 5,
+          "appsec": 2,
+          "devsecops": 2,
+          "cloud_sec": 1
+        }
+      },
+      {
+        "em": "👋",
+        "l": "Pakai sebagai user, belum membangun",
+        "s": "Saya sering menggunakan AI, tapi belum develop serius.",
+        "v": "ai_mid",
+        "score": {
+          "ai_sec": 2
+        }
+      },
+      {
+        "em": "🙅",
+        "l": "Belum atau sangat jarang",
+        "s": "AI belum banyak saya sentuh.",
+        "v": "ai_low",
+        "score": {}
+      }
+    ]
+  },
+  {
+    "cat": "Regulasi & Compliance",
+    "text": "Apakah pekerjaan atau organisasimu berkaitan erat dengan data pribadi, keuangan, atau kesehatan?",
+    "hint": "Ini menentukan apakah jalur governance dan compliance perlu diprioritaskan.",
+    "opts": [
+      {
+        "em": "🏦",
+        "l": "Ya — keuangan / fintech / perbankan",
+        "s": "Banyak tuntutan kepatuhan dan risk management.",
+        "v": "reg_finance",
+        "score": {
+          "grc": 4,
+          "architect": 2,
+          "cloud_sec": 1,
+          "soc": 1
+        }
+      },
+      {
+        "em": "🏥",
+        "l": "Ya — kesehatan / healthcare",
+        "s": "Ada isu privasi, data sensitif, dan tata kelola.",
+        "v": "reg_health",
+        "score": {
+          "grc": 4,
+          "architect": 2,
+          "cloud_sec": 1,
+          "soc": 1
+        }
+      },
+      {
+        "em": "🏢",
+        "l": "Ya — bisnis umum dengan data pelanggan",
+        "s": "Privasi dan kepatuhan mulai relevan.",
+        "v": "reg_general",
+        "score": {
+          "grc": 3,
+          "architect": 2,
+          "appsec": 1
+        }
+      },
+      {
+        "em": "🙅",
+        "l": "Tidak, atau belum relevan sekarang",
+        "s": "Belum ada konteks regulasi spesifik.",
+        "v": "reg_none",
+        "score": {}
+      }
+    ]
+  },
+  {
+    "cat": "Gaya Belajar",
+    "text": "Bagaimana cara belajar yang paling efektif untukmu?",
+    "hint": "Ini membantu memperkaya konteks, meski bukan penentu tunggal karier.",
+    "opts": [
+      {
+        "em": "🎯",
+        "l": "Langsung praktik dan hands-on",
+        "s": "Saya belajar paling cepat saat mencoba sendiri.",
+        "v": "style_hands",
+        "score": {
+          "pentest": 2,
+          "soc": 1,
+          "dfir": 1,
+          "appsec": 1
+        }
+      },
+      {
+        "em": "📖",
+        "l": "Baca teori dulu, baru praktik",
+        "s": "Saya butuh konsep yang rapi sebelum mencoba.",
+        "v": "style_theory",
+        "score": {
+          "grc": 2,
+          "cti": 2,
+          "architect": 1,
+          "ai_sec": 1
+        }
+      },
+      {
+        "em": "🎥",
+        "l": "Video dan kelas terstruktur",
+        "s": "Saya paling nyaman dengan penjelasan bertahap.",
+        "v": "style_video",
+        "score": {
+          "soc": 1,
+          "cloud_sec": 1
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Komitmen",
+    "text": "Seberapa serius kamu berkomitmen menyelesaikan program belajar ini?",
+    "hint": "Jujurlah — ini hanya untuk membantu rekomendasi yang realistis.",
+    "opts": [
+      {
+        "em": "🏆",
+        "l": "Sangat serius, ini prioritas utama",
+        "s": "Saya siap konsisten dan berinvestasi waktu.",
+        "v": "commit_high",
+        "score": {
+          "pentest": 1,
+          "soc": 1,
+          "ai_sec": 1,
+          "cloud_sec": 1,
+          "appsec": 1,
+          "grc": 1,
+          "dfir": 1,
+          "cti": 1,
+          "devsecops": 1,
+          "architect": 1
+        }
+      },
+      {
+        "em": "👌",
+        "l": "Serius, tapi ada prioritas lain",
+        "s": "Saya akan jalan konsisten, tapi tidak penuh waktu.",
+        "v": "commit_mid",
+        "score": {}
+      },
+      {
+        "em": "🤷",
+        "l": "Masih menjajaki",
+        "s": "Saya ingin menguji kecocokan dulu.",
+        "v": "commit_low",
+        "score": {
+          "grc": 1
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Komunikasi",
+    "text": "Apakah kamu nyaman menulis laporan teknis atau presentasi kepada non-teknis?",
+    "hint": "Beberapa karier sangat diuntungkan oleh kekuatan komunikasi.",
+    "opts": [
+      {
+        "em": "✍️",
+        "l": "Ya, saya terbiasa menulis dan presentasi",
+        "s": "Saya nyaman menjelaskan hal kompleks dengan sederhana.",
+        "v": "comm_high",
+        "score": {
+          "grc": 4,
+          "architect": 5,
+          "cti": 2,
+          "soc": 1
+        }
+      },
+      {
+        "em": "📝",
+        "l": "Bisa, tapi perlu banyak latihan",
+        "s": "Saya bisa, walau belum jadi kekuatan utama.",
+        "v": "comm_mid",
+        "score": {
+          "grc": 2,
+          "architect": 2
+        }
+      },
+      {
+        "em": "😓",
+        "l": "Ini kelemahan saya",
+        "s": "Saya jauh lebih nyaman dengan hal teknis.",
+        "v": "comm_low",
+        "score": {
+          "pentest": 1,
+          "dfir": 1,
+          "appsec": 1,
+          "devsecops": 1
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Lingkungan Utama",
+    "text": "Lingkungan atau aset mana yang paling ingin kamu amankan?",
+    "hint": "Pilihan ini sangat membantu membedakan jalur teknis yang sering terlihat mirip.",
+    "opts": [
+      {
+        "em": "🌍",
+        "l": "Aplikasi web, API, dan software",
+        "s": "Saya tertarik pada keamanan aplikasi dan logic bisnis.",
+        "v": "env_web",
+        "score": {
+          "appsec": 5,
+          "pentest": 3,
+          "devsecops": 1
+        }
+      },
+      {
+        "em": "🖥️",
+        "l": "Endpoint, jaringan, log, dan sistem operasi",
+        "s": "Saya tertarik ke observabilitas dan pertahanan sistem.",
+        "v": "env_ops",
+        "score": {
+          "soc": 4,
+          "dfir": 4,
+          "cti": 2
+        }
+      },
+      {
+        "em": "☁️",
+        "l": "Cloud, container, CI/CD, dan platform",
+        "s": "Saya tertarik pada keamanan infra modern.",
+        "v": "env_cloud",
+        "score": {
+          "cloud_sec": 5,
+          "devsecops": 5,
+          "appsec": 1
+        }
+      },
+      {
+        "em": "📋",
+        "l": "Data, privasi, governance, dan kepatuhan",
+        "s": "Saya tertarik pada kontrol, audit, dan risiko.",
+        "v": "env_data",
+        "score": {
+          "grc": 5,
+          "architect": 3
+        }
+      },
+      {
+        "em": "🤖",
+        "l": "LLM, agentic AI, dan AI workflow",
+        "s": "Saya ingin fokus mengamankan sistem AI.",
+        "v": "env_ai",
+        "score": {
+          "ai_sec": 6,
+          "appsec": 1,
+          "cloud_sec": 1
+        }
+      },
+      {
+        "em": "🏛️",
+        "l": "Strategi enterprise lintas domain",
+        "s": "Saya tertarik pada gambaran menyeluruh dan arah organisasi.",
+        "v": "env_arch",
+        "score": {
+          "architect": 6,
+          "grc": 2,
+          "cloud_sec": 1,
+          "soc": 1
+        }
+      }
+    ]
+  },
+  {
+    "cat": "Aspirasi Jangka Panjang",
+    "text": "Apakah kamu tertarik pada jalur kepemimpinan dan strategi keamanan jangka panjang?",
+    "hint": "Ini tidak harus jadi target awal, tapi bisa memengaruhi arah karier alternatifmu.",
+    "opts": [
+      {
+        "em": "🏛️",
+        "l": "Ya, saya tertarik ke arah arsitektur / leadership",
+        "s": "Saya ingin berkembang ke desain strategi keamanan lintas domain.",
+        "v": "lead_yes",
+        "score": {
+          "architect": 6,
+          "grc": 2,
+          "cloud_sec": 1
+        }
+      },
+      {
+        "em": "🧭",
+        "l": "Mungkin nanti, tapi bukan fokus awal",
+        "s": "Saya terbuka, tapi ingin kuat dulu secara fondasi.",
+        "v": "lead_maybe",
+        "score": {
+          "architect": 3,
+          "grc": 1
+        }
+      },
+      {
+        "em": "🛠️",
+        "l": "Tidak, saya lebih suka jalur teknis hands-on",
+        "s": "Saya lebih tertarik jadi spesialis teknis.",
+        "v": "lead_no",
+        "score": {
+          "pentest": 1,
+          "soc": 1,
+          "ai_sec": 1,
+          "cloud_sec": 1,
+          "appsec": 1,
+          "dfir": 1,
+          "cti": 1,
+          "devsecops": 1
+        }
+      }
+    ]
+  }
+];
 
 let answers = {};
 let curQ = 0;
+
+function careerKeys() {
+  return Object.keys(CAREERS);
+}
+
+function addScore(bucket, scoreMap) {
+  Object.entries(scoreMap || {}).forEach(([k, v]) => {
+    bucket[k] = (bucket[k] || 0) + v;
+  });
+}
 
 function buildAssess(){
   const area = document.getElementById('qArea');
@@ -181,7 +1149,7 @@ function pickOpt(qi,val,el){
   answers[qi] = val;
   document.querySelectorAll(`#qc${qi} .q-opt`).forEach(o=>o.classList.remove('sel'));
   el.classList.add('sel');
-  setTimeout(()=>nextQ(qi),380);
+  setTimeout(()=>nextQ(qi),340);
 }
 
 function nextQ(qi){
@@ -205,137 +1173,271 @@ function prevQ(qi){
 
 function updProg(done=false){
   const pct = done ? 100 : Math.round(((curQ + 1) / Qs.length) * 100);
-  document.getElementById('pFill').style.width = pct + '%';
-  document.getElementById('pLabel').textContent = done
-    ? `Selesai — ${Qs.length} pertanyaan dijawab`
-    : `Pertanyaan ${curQ + 1} dari ${Qs.length}`;
-  document.getElementById('pPct').textContent = pct + '%';
+  const fill = document.getElementById('pFill');
+  const label = document.getElementById('pLabel');
+  const pctEl = document.getElementById('pPct');
+  if (fill) fill.style.width = pct + '%';
+  if (label) label.textContent = done ? `Selesai — ${Qs.length} pertanyaan dijawab` : `Pertanyaan ${curQ + 1} dari ${Qs.length}`;
+  if (pctEl) pctEl.textContent = pct + '%';
 }
 
-function weeksToMonths(weeks){
-  return weeks / 4.3;
+function getAnswerValue(index) {
+  return answers[index];
 }
 
-function fmtMonths(minW, maxW){
-  const minM = weeksToMonths(minW);
-  const maxM = weeksToMonths(maxW);
-  if (Math.abs(minM - maxM) < 0.3) {
-    return `${maxM.toFixed(1)} bulan`;
-  }
-  return `${minM.toFixed(1)}–${maxM.toFixed(1)} bulan`;
+function getPace() {
+  if (getAnswerValue(6) === 'time_high' && getAnswerValue(11) === 'commit_high') return 'intensif';
+  if (getAnswerValue(6) === 'time_low' || getAnswerValue(11) === 'commit_low') return 'santai';
+  return 'normal';
 }
 
-function fmtWeeks(minW, maxW){
-  const a = Math.round(minW);
-  const b = Math.round(maxW);
-  if (a === b) return `${a} mgg`;
-  return `${a}–${b} mgg`;
+function getPaceLabel(pace) {
+  return {
+    intensif:'Intensif (~15 jam+/minggu)',
+    normal:'Normal (5–15 jam/minggu)',
+    santai:'Santai (<5 jam/minggu)'
+  }[pace];
 }
 
-function calcProfile(){
-  const a = answers;
+function monthRangeFromWeeks(minWeeks, maxWeeks) {
+  const minMonths = Math.max(1, Math.ceil(minWeeks / 4.345));
+  const maxMonths = Math.max(minMonths, Math.ceil(maxWeeks / 4.345));
+  return {
+    minWeeks: Math.round(minWeeks),
+    maxWeeks: Math.round(maxWeeks),
+    minMonths,
+    maxMonths,
+    label: minMonths === maxMonths ? `${minMonths} bulan` : `${minMonths}–${maxMonths} bulan`,
+    weeksLabel: minWeeks === maxWeeks ? `${Math.round(minWeeks)} minggu` : `${Math.round(minWeeks)}–${Math.round(maxWeeks)} minggu`
+  };
+}
 
-  let track = 'explorer';
-  if(a[4] === 'int_red') track = 'red';
-  else if(a[4] === 'int_blue') track = 'blue';
-  else if(a[4] === 'int_ai' || a[3] === 'goal_ai') track = 'ai';
-  else if(a[4] === 'int_grc') track = 'grc';
-
-  const isIT = a[0] === 'bg_it';
-  const knowHigh = a[2] === 'know_high';
-  const knowMid = a[2] === 'know_mid';
-  const cliYes = a[1] === 'cli_yes';
-  const cliMaybe = a[1] === 'cli_maybe';
-
-  const paceKey =
-    (a[5] === 'time_high' && a[10] === 'commit_high') ? 'intensif' :
-    (a[5] === 'time_low' || a[10] === 'commit_low') ? 'santai' : 'normal';
-
-  const pace = PACE_CONFIG[paceKey];
-  const aiPriority = a[7] === 'ai_high' || a[4] === 'int_ai' || a[3] === 'goal_ai';
-  const grcPriority = a[8] !== 'reg_none' || a[4] === 'int_grc';
-  const needComm = a[11] === 'comm_low';
-  const urgent = a[6] === 'urgency_fast';
-
-  let startPhaseId = 'p0';
-  if (isIT && knowHigh && cliYes) startPhaseId = 'p1';
-  else if (isIT && (knowHigh || knowMid) && (cliYes || cliMaybe)) startPhaseId = 'p1';
-  else if ((a[3] === 'goal_biz' || track === 'grc') && !isIT && a[2] !== 'know_low') startPhaseId = 'p0';
-
-  const startPhaseIndex = PHASE_LIBRARY.findIndex(p => p.id === startPhaseId);
-
-  const phasePlan = PHASE_LIBRARY.map((phase, idx) => {
-    let skip = idx < startPhaseIndex;
-    if (phase.id === 'p8' && !aiPriority && track === 'grc' && urgent) skip = true;
-    if (phase.id === 'p6' && track === 'red' && !grcPriority) skip = true;
-
-    const minWeeks = phase.normalWeeks[0] * pace.factor;
-    const maxWeeks = phase.normalWeeks[1] * pace.factor;
-
-    return {
-      ...phase,
-      skip,
-      minWeeks,
-      maxWeeks,
-      durLabel: fmtWeeks(minWeeks, maxWeeks)
-    };
+function computeScores() {
+  const scores = {};
+  careerKeys().forEach(k => scores[k] = 0);
+  Qs.forEach((q, i) => {
+    const picked = q.opts.find(o => o.v === answers[i]);
+    if (picked) addScore(scores, picked.score);
   });
 
-  const phase9Base = TRACK_CONFIG[track].phase9NormalWeeks;
-  const phase9 = {
-    id:'p9',
-    level:'Level Ahli / Spesialis',
-    name:TRACK_CONFIG[track].phase9Name,
-    skip:false,
-    minWeeks:phase9Base[0] * pace.factor,
-    maxWeeks:phase9Base[1] * pace.factor
-  };
-  phase9.durLabel = fmtWeeks(phase9.minWeeks, phase9.maxWeeks);
-  phasePlan.push(phase9);
-
-  const activePhases = phasePlan.filter(p => !p.skip);
-  const totalMinWeeks = activePhases.reduce((sum, p) => sum + p.minWeeks, 0);
-  const totalMaxWeeks = activePhases.reduce((sum, p) => sum + p.maxWeeks, 0);
-
-  const startPhase = phasePlan.find(p => p.id === startPhaseId);
-  const startLevel = startPhase.level;
-
-  let priorityTopics = TRACK_CONFIG[track].topicsStartEarly;
-  if (startPhaseId !== 'p0') {
-    priorityTopics = TRACK_CONFIG[track].topicsStartMid;
+  const isIT = getAnswerValue(0) === 'bg_it';
+  const strongBasics = getAnswerValue(1) === 'cli_yes' && getAnswerValue(2) === 'know_high';
+  const commHigh = getAnswerValue(12) === 'comm_high';
+  const strongRiskContext = ['reg_finance', 'reg_health', 'reg_general'].includes(getAnswerValue(9));
+  if (!(isIT || strongBasics || commHigh || strongRiskContext)) {
+    scores.architect -= 4;
   }
 
-  if (track === 'explorer' && startPhaseId === 'p1') {
-    priorityTopics = ['Sistem Operasi Linux','Jaringan Komputer','Konsep Keamanan Inti'];
+  return scores;
+}
+
+function sortedCareerKeys(scores) {
+  return Object.entries(scores)
+    .sort((a,b) => b[1] - a[1])
+    .map(([k]) => k);
+}
+
+function determinePrimaryCareer() {
+  const scores = computeScores();
+  return sortedCareerKeys(scores)[0];
+}
+
+function determineCareerPair() {
+  const scores = computeScores();
+  const ranked = sortedCareerKeys(scores);
+  let primaryKey = ranked[0];
+  let altKey = ranked[1];
+
+  const commHigh = getAnswerValue(12) === 'comm_high';
+  const bizGoal = getAnswerValue(3) === 'goal_biz';
+  const strongRiskContext = getAnswerValue(9) !== 'reg_none';
+  const matureForArchitect = commHigh && (bizGoal || strongRiskContext);
+  if (primaryKey === 'architect' && !matureForArchitect) {
+    primaryKey = ranked.find(k => k !== 'architect') || 'grc';
+    altKey = 'architect';
   }
 
-  if (track === 'grc' && grcPriority && startPhaseId === 'p0') {
-    priorityTopics = ['Mindset & Ekosistem Keamanan','Security Communication','Manajemen Risiko'];
+  if (!altKey || altKey === primaryKey) {
+    altKey = ranked.find(k => k !== primaryKey) || primaryKey;
   }
 
-  const notes = [];
-  if (startPhaseId === 'p1') notes.push('✓ Fondasi digital dasar bisa dipadatkan; kamu bisa langsung masuk ke fase teknis.');
-  if (aiPriority) notes.push('→ Topik AI Security sebaiknya tidak ditunda terlalu lama.');
-  if (grcPriority) notes.push('📋 Konteks kerja/regulasi membuat jalur GRC perlu diprioritaskan.');
-  if (needComm) notes.push('💬 Security Communication perlu dijadikan fokus penguat, bukan pelengkap.');
-  if (urgent) notes.push('⚡ Gunakan pendekatan cepat: fokus pada topik MUST, jangan buka terlalu banyak jalur sekaligus.');
+  return {scores, primaryKey, altKey};
+}
+
+function determineStart() {
+  const bg = getAnswerValue(0);
+  const cli = getAnswerValue(1);
+  const know = getAnswerValue(2);
+  const primary = determinePrimaryCareer();
+
+  if ((primary === 'grc' || primary === 'architect') &&
+      ['goal_biz','goal_academic'].includes(getAnswerValue(3)) &&
+      ['comm_high','comm_mid'].includes(getAnswerValue(12)) &&
+      getAnswerValue(9) !== 'reg_none') {
+    return {level:'Tinggi', phaseId:6};
+  }
+
+  if (bg === 'bg_it' && cli === 'cli_yes' && know === 'know_high') {
+    return {level:'Dasar', phaseId:2};
+  }
+  if ((bg === 'bg_it' && cli !== 'cli_no') || know === 'know_mid') {
+    return {level:'Dasar', phaseId:1};
+  }
+  return {level:'Dasar', phaseId:0};
+}
+
+function buildPhasePlan(primaryKey, startPhaseId, pace) {
+  const include = new Set(PHASE_CATALOG.map(p => p.id));
+
+  if (primaryKey === 'grc') {
+    include.delete(7);
+    if (getAnswerValue(8) !== 'ai_high') include.delete(8);
+  }
+  if (primaryKey === 'architect') {
+    if (getAnswerValue(8) === 'ai_low') include.delete(8);
+  }
+  if (primaryKey === 'pentest') {
+    if (getAnswerValue(9) === 'reg_none') include.delete(6);
+    if (getAnswerValue(8) !== 'ai_high') include.delete(8);
+  }
+  if (primaryKey === 'soc' || primaryKey === 'dfir' || primaryKey === 'cti') {
+    if (getAnswerValue(8) !== 'ai_high') include.delete(8);
+  }
+  if (primaryKey === 'cloud_sec' || primaryKey === 'devsecops') {
+    if (getAnswerValue(9) === 'reg_none') include.delete(6);
+  }
+  if (primaryKey === 'appsec') {
+    if (getAnswerValue(8) !== 'ai_high') include.delete(8);
+  }
+
+  const phaseRows = [];
+  let totalMin = 0;
+  let totalMax = 0;
+
+  PHASE_CATALOG.forEach(phase => {
+    const skippedByStart = phase.id < startPhaseId;
+    const skippedByTrack = !include.has(phase.id);
+    const skip = skippedByStart || skippedByTrack;
+
+    if (!skip) {
+      let paceMin = phase.min;
+      let paceMax = phase.max;
+      if (pace === 'intensif') {
+        paceMin *= 0.75;
+        paceMax *= 0.80;
+      } else if (pace === 'santai') {
+        paceMin *= 1.55;
+        paceMax *= 1.65;
+      }
+      totalMin += paceMin;
+      totalMax += paceMax;
+      phaseRows.push({
+        id: phase.id,
+        name: phase.name,
+        color: phase.color,
+        skip: false,
+        dur: monthRangeFromWeeks(paceMin, paceMax).weeksLabel
+      });
+    } else {
+      phaseRows.push({
+        id: phase.id,
+        name: phase.name,
+        color: phase.color,
+        skip: true,
+        dur: 'Dapat dilewati'
+      });
+    }
+  });
+
+  const spec = SPECIALIZATION[primaryKey];
+  let specMin = spec.min;
+  let specMax = spec.max;
+  if (pace === 'intensif') {
+    specMin *= 0.80;
+    specMax *= 0.85;
+  } else if (pace === 'santai') {
+    specMin *= 1.35;
+    specMax *= 1.50;
+  }
+
+  totalMin += specMin;
+  totalMax += specMax;
+
+  phaseRows.push({
+    id: 9,
+    name: 'Spesialisasi & Karier',
+    color: 'var(--L4)',
+    skip: false,
+    dur: monthRangeFromWeeks(specMin, specMax).weeksLabel
+  });
 
   return {
-    prof: TRACK_CONFIG[track].profile,
-    paceLabel: pace.label,
-    track,
-    startLevel,
-    startPhase: startPhase.name,
-    startPhaseId,
-    priorityTopics,
-    primaryCareer: TRACK_CONFIG[track].primaryCareer,
-    altCareer: TRACK_CONFIG[track].altCareer,
+    phaseRows,
+    total: monthRangeFromWeeks(totalMin, totalMax)
+  };
+}
+
+function buildTopTopics(startPhaseId, primaryKey) {
+  const foundation = FOUNDATION_TOPICS[String(startPhaseId)] || [];
+  const careerSpecific = CAREER_TOPICS[primaryKey] || [];
+  const merged = [];
+  [...foundation, ...careerSpecific].forEach(item => {
+    if (!merged.includes(item)) merged.push(item);
+  });
+  return merged.slice(0, 3);
+}
+
+function buildNotes(primaryKey, altKey, startPhaseId, totalLabel) {
+  const notes = [];
+  if (startPhaseId === 0) notes.push('✓ Kamu disarankan membangun fondasi dari level paling dasar terlebih dahulu.');
+  if (startPhaseId === 1) notes.push('→ Kamu bisa langsung masuk fondasi teknis tanpa terlalu lama di pra-fondasi.');
+  if (startPhaseId === 2) notes.push('→ Fondasimu cukup baik, jadi kamu bisa mulai dari materi dasar lanjutan.');
+  if (startPhaseId === 6) notes.push('📋 Karena konteksmu dekat dengan risiko/regulasi, jalur governance diprioritaskan lebih cepat.');
+  if (primaryKey === 'architect') notes.push('🏛️ Jalur Security Architect / CISO adalah aspirasi jangka panjang, bukan target entry-level tercepat.');
+  if (altKey === 'architect') notes.push('🧭 Security Architect / CISO cocok dijadikan arah jangka panjang setelah fondasi lintas domain terbentuk.');
+  notes.push(`⏳ Dengan tempo belajarmu saat ini, estimasi total realistis berada di kisaran ${totalLabel}.`);
+  return notes;
+}
+
+function calcProfile() {
+  const {scores, primaryKey, altKey} = determineCareerPair();
+  const pace = getPace();
+  const paceLabel = getPaceLabel(pace);
+  const start = determineStart();
+  const phasePlan = buildPhasePlan(primaryKey, start.phaseId, pace);
+  const topTopics = buildTopTopics(start.phaseId, primaryKey);
+  const primary = CAREERS[primaryKey];
+  const alternative = CAREERS[altKey];
+  const notes = buildNotes(primaryKey, altKey, start.phaseId, phasePlan.total.label);
+
+  return {
+    primaryKey,
+    altKey,
+    primary,
+    alternative,
+    scores,
+    paceLabel,
+    startLevel: start.level,
+    startPhaseId: start.phaseId,
+    startPhaseName: [...PHASE_CATALOG, {id:9, name:'Spesialisasi & Karier'}].find(p => p.id === start.phaseId)?.name || 'Pra-Fondasi: Literasi Digital',
+    topTopics,
     phasePlan,
-    totalMinWeeks,
-    totalMaxWeeks,
-    totalMonthsLabel: fmtMonths(totalMinWeeks, totalMaxWeeks),
+    totalLabel: phasePlan.total.label,
+    totalWeeksLabel: phasePlan.total.weeksLabel,
     notes
   };
+}
+
+function renderCareerCard(label, career) {
+  const certs = (career.certs || []).slice(0, 3);
+  return `
+    <div class="res-career-card">
+      <div class="res-career-kicker">${label}</div>
+      <div class="res-career-title" style="color:${career.c}">${career.icon} ${career.t}</div>
+      <div class="res-career-sub">${career.en} · Demand: ${career.demand}</div>
+      <div class="res-career-desc">${career.desc}</div>
+      <div class="res-chips">${certs.map(cert => `<span class="res-chip">${cert}</span>`).join('')}</div>
+    </div>`;
 }
 
 function showResult(){
@@ -346,66 +1448,62 @@ function showResult(){
   qArea.style.display = 'none';
   rArea.style.display = 'block';
 
-  const result = calcProfile();
+  const profile = calcProfile();
 
   rArea.innerHTML = `
-    <div class="result-card on" style="border-color:${result.prof.color}">
+    <div class="result-card on" style="border-color:${profile.primary.c}">
       <div class="res-top">
-        <div class="res-emoji">${result.prof.emoji}</div>
+        <div class="res-emoji">${profile.primary.icon}</div>
         <div>
-          <div class="res-badge" style="border-color:${result.prof.color};color:${result.prof.color}">${result.prof.badge}</div>
-          <div class="res-name">${result.prof.name}</div>
-          <div class="res-desc">${result.prof.desc}</div>
-          <div class="res-pace">Tempo belajar: <strong>${result.paceLabel}</strong></div>
-          ${result.notes.length ? `<div class="res-notes">${result.notes.map(n => `<div class="res-note">${n}</div>`).join('')}</div>` : ''}
+          <div class="res-badge" style="border-color:${profile.primary.c};color:${profile.primary.c}">Assessment v3 — hasil utama</div>
+          <div class="res-name">${profile.primary.t}</div>
+          <div class="res-desc">${profile.primary.desc}</div>
+          <div class="res-pace">Tempo belajar: <strong>${profile.paceLabel}</strong></div>
+          <div class="res-notes">${profile.notes.map(n => `<div class="res-note">${n}</div>`).join('')}</div>
         </div>
       </div>
 
       <div class="res-summary">
-        <div class="res-summary-card">
-          <div class="res-summary-label">Rekomendasi Level Awal</div>
-          <div class="res-summary-value"><strong>${result.startLevel}</strong></div>
+        <div class="res-box">
+          <div class="res-box-label">Rekomendasi level awal</div>
+          <div class="res-box-value"><strong>${profile.startLevel}</strong></div>
         </div>
-        <div class="res-summary-card">
-          <div class="res-summary-label">Fase Awal</div>
-          <div class="res-summary-value"><strong>${result.startPhase}</strong></div>
+        <div class="res-box">
+          <div class="res-box-label">Fase awal</div>
+          <div class="res-box-value"><strong>Fase ${profile.startPhaseId}</strong> — ${profile.startPhaseName}</div>
         </div>
-        <div class="res-summary-card">
-          <div class="res-summary-label">Karier Utama</div>
-          <div class="res-summary-value">${result.primaryCareer}</div>
+        <div class="res-box">
+          <div class="res-box-label">Estimasi total durasi</div>
+          <div class="res-box-value"><strong>${profile.totalLabel}</strong><br>${profile.totalWeeksLabel}</div>
         </div>
-        <div class="res-summary-card">
-          <div class="res-summary-label">Karier Alternatif</div>
-          <div class="res-summary-value">${result.altCareer}</div>
-        </div>
-        <div class="res-summary-card">
-          <div class="res-summary-label">Estimasi Total Belajar</div>
-          <div class="res-summary-value"><strong>${result.totalMonthsLabel}</strong></div>
-        </div>
-        <div class="res-summary-card">
-          <div class="res-summary-label">Estimasi Mingguan</div>
-          <div class="res-summary-value">${Math.round(result.totalMinWeeks)}–${Math.round(result.totalMaxWeeks)} minggu</div>
+        <div class="res-box">
+          <div class="res-box-label">Karier alternatif</div>
+          <div class="res-box-value"><strong>${profile.alternative.t}</strong></div>
         </div>
       </div>
 
+      <div class="res-path-title">3 Topik Utama untuk Mulai</div>
       <div class="res-topics">
-        <div class="res-section-title">3 Topik Utama untuk Dimulai</div>
-        <div class="res-topic-list">
-          ${result.priorityTopics.map(item => `<div class="res-topic-item">${item}</div>`).join('')}
-        </div>
+        ${profile.topTopics.map((topic, index) => `<div class="res-topic">${index + 1}. ${topic}</div>`).join('')}
+      </div>
+
+      <div class="res-path-title" style="margin-top:18px">Karier yang Paling Dekat dengan Profilmu</div>
+      <div class="res-career-grid">
+        ${renderCareerCard('Karier utama', profile.primary)}
+        ${renderCareerCard('Karier alternatif', profile.alternative)}
       </div>
 
       <div class="res-path-title">Learning Path Personalisasi Kamu</div>
       <div class="rp-list">
-        ${result.phasePlan.map((p,i)=>`
-          <div class="rp-row ${p.skip ? 'skip' : ''}">
-            <div class="rp-n" style="color:${i <= 2 ? 'var(--L1)' : i <= 5 ? 'var(--L2)' : i <= 8 ? 'var(--L3)' : 'var(--L4)'};border-color:${i <= 2 ? 'var(--L1)' : i <= 5 ? 'var(--L2)' : i <= 8 ? 'var(--L3)' : 'var(--L4)'}">${p.id.replace('p','')}</div>
+        ${profile.phasePlan.phaseRows.map((p) => `
+          <div class="rp-row ${p.skip?'skip':''}">
+            <div class="rp-n" style="color:${p.color};border-color:${p.color}">${p.id}</div>
             <div class="rp-name">${p.name}</div>
-            <div class="rp-dur">${p.skip ? 'Dapat dilewati' : p.durLabel}</div>
+            <div class="rp-dur">${p.dur}</div>
             ${p.skip
               ? `<span class="rp-tag" style="border-color:var(--text2);color:var(--text2)">SKIP</span>`
-              : p.id === result.startPhaseId
-                ? `<span class="rp-tag" style="border-color:var(--L1);color:var(--L1)">MULAI SINI</span>`
+              : p.id === profile.startPhaseId
+                ? `<span class="rp-tag" style="border-color:${p.color};color:${p.color}">MULAI SINI</span>`
                 : ''
             }
           </div>`).join('')}
@@ -422,15 +1520,15 @@ function showResult(){
 function resetAssess(){
   answers = {};
   curQ = 0;
-  document.getElementById('qArea').style.display = 'block';
-  document.getElementById('rArea').style.display = 'none';
+  const qArea = document.getElementById('qArea');
+  const rArea = document.getElementById('rArea');
+  if (qArea) qArea.style.display = 'block';
+  if (rArea) rArea.style.display = 'none';
   document.querySelectorAll('.qcard').forEach((c,i)=>{
-    c.classList.toggle('on', i === 0);
+    c.classList.toggle('on', i===0);
     c.querySelectorAll('.q-opt').forEach(o=>o.classList.remove('sel'));
   });
-  document.getElementById('pFill').style.width = '0%';
-  document.getElementById('pLabel').textContent = 'Pertanyaan 1 dari 12';
-  document.getElementById('pPct').textContent = '0%';
+  updProg();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
