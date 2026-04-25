@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberRoadMap — Mulai Dari Mana?</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assess.css">
+</head>
+<body>
+<nav>
+  <div class="logo">Cyber<span>Roadmap</span></div>
+  <div class="navs">
+    <button class="ntab" onclick="window.location.href='index.html'">Home</button>
+    <button class="ntab" onclick="window.location.href='roadmap.html'">Roadmap</button>
+    <button class="ntab" onclick="window.location.href='lp.html'">Learning Path</button>
+    <button class="ntab" onclick="window.location.href='fw.html'">Frameworks</button>
+    <button class="ntab" onclick="window.location.href='res.html'">Tempat Belajar</button>
+    <button class="ntab" onclick="window.location.href='cert.html'">Sertifikasi</button>
+    <button class="ntab" onclick="window.location.href='career.html'">Karier</button>
+    <button class="ntab on" onclick="window.location.href='assess.html'">Mulai Dari Mana?</button>
+  </div>
+  <div class="nav-levels">
+    <span class="nl" style="border-color:var(--L1);color:var(--L1)" title="Dasar">Dasar</span>
+    <span class="nl" style="border-color:var(--L2);color:var(--L2)" title="Menengah">Menengah</span>
+    <span class="nl" style="border-color:var(--L3);color:var(--L3)" title="Tinggi">Tinggi</span>
+    <span class="nl" style="border-color:var(--L4);color:var(--L4)" title="Ahli / Spesialis">Ahli</span>
+  </div>
+</nav>
+
+<div id="page-assess" class="page on">
+  <div class="assess-wrap">
+    <div class="sh">
+      <div class="sl">Mulai Dari Mana?</div>
+      <div class="st">Assessment Pribadi — 12 Pertanyaan</div>
+      <div class="ss">Jawab jujur. Sistem akan menentukan learning path personal yang paling efisien untukmu — termasuk fase mana yang bisa kamu lewati dan mana yang wajib.</div>
+    </div>
+
+    <div class="prog-wrap">
+      <div class="prog-track"><div class="prog-fill" id="pFill" style="width:0%"></div></div>
+      <div class="prog-info"><span id="pLabel">Pertanyaan 1 dari 12</span><span id="pPct">0%</span></div>
+    </div>
+
+    <div id="qArea"></div>
+    <div id="rArea" style="display:none"></div>
+  </div>
+</div>
+
+<script src="assess.js"></script>
+</body>
+</html>
