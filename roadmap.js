@@ -1,7 +1,3 @@
-// Roadmap Explorer — khusus halaman roadmap
-// Konten roadmap dan resource diambil dari source asli, lalu dirender ulang
-// dalam bentuk hirarki interaktif kiri ke kanan.
-
 const phases=[
 
   // ── L0 ──
@@ -451,41 +447,42 @@ const phases=[
          {
            title:'Kenapa RSA dan ECC akan "broken" oleh quantum computer',
            resources:[
-             'NIST PQC Project',
-             'Artikel: Quantum threat to RSA and ECC',
-             'YouTube: Why quantum computers threaten current cryptography'
+             'Artikel: Post-Quantum Cryptography',
+             'Artikel: Ancaman quantum pada RSA dan ECC',
+             'Youtube: Bagaimana computer quantum hancurkan enkripsi'
            ]
          },
          {
-           title:'Konsep "Harvest Now, Decrypt Later" (HNDL) — ancaman nyata hari ini',
+           title:'Konsep "Harvest Now, Decrypt Later" (HNDL) risiko terbesar saat ini',
            resources:[
-             'NIST PQC Project',
-             'Cloudflare PQC Blog',
-             'Artikel: Harvest now decrypt later'
+             'Jurnal: Harvest Now Decrypt Later',
+             'Youtube: HNDL',
+             'Artikel: Ancaman di era quantum HNDL'
            ]
          },
          {
            title:'NIST PQC Standards: ML-KEM (FIPS 203), ML-DSA (FIPS 204), SLH-DSA',
            resources:[
-             'NIST PQC Project',
-             'NIST PQC Standards Overview',
-             'Cloudflare PQC Blog'
+             'NIST FISP 203: Module-Lattice-Based Key-Encapsulation Mechanism Standard',
+             'NIST FISP 204: Module-Lattice-Based Digital Signature Standard',
+             'NIST FISP 205: Stateless Hash-Based Digital Signature Standard'
            ]
          },
          {
            title:'Lattice-based cryptography — prinsip dasar yang membuatnya quantum-safe',
            resources:[
-             'CryptoHack: Lattices',
-             'NIST PQC Project',
-             'Artikel: Lattice cryptography basics'
+             'Youtube: Cara kerja Lattice-Based',
+             'Youtube: Tricky math of dots',
+             'Artikel: Lattice-Based cryptography',
+             'Jurnal: Pengenalan Lattice-based cryptography'
            ]
          },
          {
            title:'PQC migration planning: inventarisasi enkripsi dan roadmap transisi',
            resources:[
-             'PQC Migration Guide',
-             'NIST PQC Project',
-             'Cloudflare PQC Blog'
+             'Dokumen: PQC migration roadmap',
+             'Artikel: PQC migration planning',
+             'Artikel: NIST PQC migration'
            ]
          }
        ]},
@@ -494,41 +491,51 @@ const phases=[
          {
            title:'Password hashing: bcrypt, Argon2, PBKDF2 — jangan MD5/SHA1!',
            resources:[
-             'NIST SP 800-63B',
-             'Artikel: bcrypt vs Argon2 vs PBKDF2',
-             'YouTube: Password hashing fundamentals'
+             'NIST SP 800-63: Digital Identity Guidelines',
+             'Artikel: Argon2, bcrypt, scrypt, PBKDF2',
+             'Youtube: Password hashing, salts, papers',
+             'Youtube: Penjelasan fungsi hash',
+             'Artikel: Password storage cheat sheet',
+             'Jurnal: Security analysis of salt'
            ]
          },
          {
            title:'Multi-Factor Authentication: TOTP, FIDO2, Passkeys',
            resources:[
-             'FIDO Alliance Passkeys',
-             'NIST SP 800-63B',
-             'YouTube: MFA, FIDO2, dan passkeys'
+             'Youtube: Apa itu MFA',
+             'Youtube: Bagaimana cara kerja MFA',
+             'NIST SP 800-63B-4: Authentication and Authenticator Management',
+             'Artikel: Multifactor authentication cheat sheet',
+             'Youtube: TOTP, FIDO2, Passkeys'
+
            ]
          },
          {
            title:'JSON Web Token (JWT): struktur, signing, validasi, dan risiko',
            resources:[
-             'jwt.io',
-             'jwt.io Introduction',
-             'YouTube: JWT explained'
+             'Youtube: Penjelasan JWT',
+             'Youtube: Konsep dan implementasi JWT',
+             'Tools: JWT encode & decode',
+             'Artikel: Memahami JSON web token'
            ]
          },
          {
            title:'OAuth 2.0 & OpenID Connect — authorization flow lengkap',
            resources:[
-             'Artikel: OAuth 2.0 basics',
-             'Artikel: OpenID Connect basics',
-             'YouTube: OAuth vs OpenID Connect'
+             'Youtube: Penjelasan Oauth 2.0',
+             'Youtube: Contoh dan penjelasan Oauth 2.0',
+             'Youtube: Perbedaan Oauth 2.0 vs OpenID connect',
+             'Artikel: Oauth 2.0 vs OpenID',
+             'Artikel: OpenID vs Oauth'
            ]
          },
          {
            title:'Passkeys dan masa depan passwordless authentication',
            resources:[
-             'FIDO Alliance Passkeys',
-             'FIDO Alliance Passkey Implementation Overview',
-             'Artikel: Passwordless authentication with passkeys'
+             'Youtube: Priciple of FIDO',
+             'Youtube: Password vs Passkeys',
+             'Artikel: Passwordless Authentication',
+             'Artikel: FIDO passkey'
            ]
          }
        ]},
@@ -961,7 +968,57 @@ const RESOURCE_LINKS = {
   'Artikel: Testing for weak SSL/TLS':'https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_SSL_TLS_Ciphers_Insufficient_Transport_Layer_Protection',
   'Tools: SSL test':'https://www.ssllabs.com/ssltest/',
   'Youtube: SSL Inspection':'https://youtu.be/CmTc-XHYWVs?si=yRL2m3K1WdNrmt4d',
-  'Youtube: SSL/TLS misconfiguration':'https://youtu.be/FKscrL9ICs4?si=TIFsdk21R2QUr6iE'
+  'Youtube: SSL/TLS misconfiguration':'https://youtu.be/FKscrL9ICs4?si=TIFsdk21R2QUr6iE',
+
+  'Artikel: Post-Quantum Cryptography':'https://csrc.nist.gov/projects/post-quantum-cryptography',
+  'Artikel: Ancaman quantum pada RSA dan ECC':'https://hackernoon.com/the-quantum-threat-to-rsa-ecc-and-modern-encryption-systems',
+  'Youtube: Bagaimana computer quantum hancurkan enkripsi':'https://youtu.be/lvTqbM5Dq4Q?si=RdZUIvDc2JaEsjU_',
+  
+  'Jurnal: Harvest Now Decrypt Later':'https://www.federalreserve.gov/econres/feds/harvest-now-decrypt-later-examining-post-quantum-cryptography-and-the-data-privacy-risks-for-distributed-ledger-networks.htm',
+  'Youtube: HNDL':'https://youtu.be/Bz_qPdJdu28?si=mVvxiUWzGQBK1F-n',
+  'Artikel: Ancaman di era quantum HNDL':'https://www.paloaltonetworks.com/cyberpedia/harvest-now-decrypt-later-hndl',
+  
+  'NIST FISP 203: Module-Lattice-Based Key-Encapsulation Mechanism Standard':'https://csrc.nist.gov/pubs/fips/203/final',
+  'NIST FISP 204: Module-Lattice-Based Digital Signature Standard':'https://csrc.nist.gov/pubs/fips/204/final',
+  'NIST FISP 205: Stateless Hash-Based Digital Signature Standard':'https://csrc.nist.gov/pubs/fips/205/final',
+  
+  'Youtube: Cara kerja Lattice-Based':'https://youtu.be/GT8kt06ETQI?si=49joujsG0OQUVsaR',
+  'Youtube: Tricky math of dots':'https://youtu.be/QDdOoYdb748?si=xR8Dtwc3BOJstjbl',
+  'Artikel: Lattice-Based cryptography':'https://www.redhat.com/en/blog/post-quantum-cryptography-lattice-based-cryptography',
+  'Jurnal: Pengenalan Lattice-based cryptography':'https://arxiv.org/abs/2208.08125',
+  
+  'Dokumen: PQC migration roadmap':'https://pqcc.org/wp-content/uploads/2025/05/PQC-Migration-Roadmap-PQCC-2.pdf',
+  'Artikel: PQC migration planning':'https://qramm.org/learn/pqc-migration-planning.html',
+  'Artikel: NIST PQC migration':'https://www.nist.gov/news-events/news/2025/09/new-draft-white-paper-pqc-migration-mappings-risk-framework-docs',
+  
+  'NIST SP 800-63: Digital Identity Guidelines':'https://pages.nist.gov/800-63-4/',
+  'Artikel: Argon2, bcrypt, scrypt, PBKDF2':'https://guptadeepak.com/comparative-analysis-of-password-hashing-algorithms-argon2-bcrypt-scrypt-and-pbkdf2/',
+  'Youtube: Password hashing, salts, papers':'https://youtu.be/--tnZMuoK3E?si=jzWAloJjEXye8EcW',
+  'Youtube: Penjelasan fungsi hash':'https://youtu.be/cczlpiiu42M?si=DxohcV6pve4Ok0GA',
+  'Artikel: Password storage cheat sheet':'https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html',
+  'Jurnal: Security analysis of salt':'https://ieeexplore.ieee.org/document/6516321',
+  
+  'Youtube: Apa itu MFA':'https://youtu.be/L3alw3iXaio?si=ffz7m6KAGE_KUhcM',
+  'Youtube: Bagaimana cara kerja MFA':'https://youtu.be/lEHhivPJQ5w?si=CCYFSAGKGm3JH_AZ',
+  'NIST SP 800-63B-4: Authentication and Authenticator Management':'https://csrc.nist.gov/pubs/sp/800/63/B/4/final',
+  'Artikel: Multifactor authentication cheat sheet':'https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html',
+  'Youtube: TOTP, FIDO2, Passkeys':'https://youtu.be/ZYbp0Zp3V8Q?si=Bc9iPBl41Y8kfvng',
+  
+  'Youtube: Penjelasan JWT':'https://youtu.be/Y2H3DXDeS3Q?si=aTYgkkGioo5hizJv',
+  'Youtube: Konsep dan implementasi JWT':'https://youtu.be/3FzuHlWqDfQ?si=UDjDvSLeUbR3JTvI',
+  'Tools: JWT encode & decode':'https://www.jwt.io/',
+  'Artikel: Memahami JSON web token':'https://supertokens.com/blog/what-is-jwt',
+  
+  'Youtube: Penjelasan Oauth 2.0':'https://youtu.be/ZV5yTm4pT8g?si=BFZnVW6TAxGuGFOD',
+  'Youtube: Contoh dan penjelasan Oauth 2.0':'https://youtu.be/ZDuRmhLSLOY?si=YtkKpgRTkqEVJ3BK',
+  'Youtube: Perbedaan Oauth 2.0 vs OpenID connect':'https://youtu.be/HsbNDDfLvio?si=WnsoOBXc9Zsb08_j',
+  'Artikel: Oauth 2.0 vs OpenID':'https://developer.okta.com/docs/concepts/oauth-openid/',
+  'Artikel: OpenID vs Oauth':'supertokens.com/blog/openid-connect-vs-oauth2',
+  
+  'Youtube: Priciple of FIDO':'https://youtu.be/KRlyv9mftTo?si=j5nEootziZMs-yek',
+  'Youtube: Password vs Passkeys':'https://youtu.be/9nrE4t4-IXA?si=XZLGHmW673rFD2nJ',
+  'Artikel: Passwordless Authentication':'https://www.passkeys.com/what-is-passwordless-authentication',
+  'Artikel: FIDO passkey':'https://fidoalliance.org/passkeys/'
 };
 
 const state = {
