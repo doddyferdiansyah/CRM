@@ -682,7 +682,7 @@ const RESOURCE_LINKS = {
   
   'Youtube: Bikin Port Scanner':'https://youtu.be/vRhPOE2uTGA?si=HDNgG87oeZeb_-KW',
   'Youtube: Bikin Log Parser':'https://youtu.be/OGbX6cdR1pU?si=-f8DqlixwFCIZcVq',
-  'Youtube: Bikin File Encryptor':'https://youtu.be/DZsmqUMjpdo?si=-9oPYNtpuwp3U0fV'
+  'Youtube: Bikin File Encryptor':'https://youtu.be/DZsmqUMjpdo?si=-9oPYNtpuwp3U0fV',
 
   'Artikel: 10 Kasus cyber crime di indonesia':'https://binus.ac.id/bandung/2024/08/inilah-10-kasus-cyber-crime-yang-bikin-heboh-di-indonesia/',
   'Jurnal: Analisis keamanan data Tokopedia 2020':'https://journal.dcircle.org/index.php/jikum/article/download/174/120',
