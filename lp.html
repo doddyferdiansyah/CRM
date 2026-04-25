@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CyberRoadMap — From Zero to Professional</title>
+<title>CyberRoadMap — Learning Path</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="lp.css">
 </head>
 <body>
 <nav>
@@ -28,17 +29,45 @@
   </div>
 </nav>
 
-<!-- LEARNING PATH -->
 <div id="page-lp" class="page on">
-<div class="lp-wrap">
-  <div class="sh">
-    <div class="sl">Learning Path · 18–26 Bulan</div>
-    <div class="st">Program Terukur Mingguan</div>
-    <div class="ss">Breakdown materi per minggu yang terstruktur. Setiap fase dipecah menjadi modul-modul spesifik dengan outcome yang jelas.</div>
+  <div class="lp-wrap">
+    <div class="sh">
+      <div class="sl">Learning Path · Career & Profile Based</div>
+      <div class="st">Jalur Belajar Terpilih</div>
+      <div class="ss">Learning Path tidak mengulang seluruh roadmap. Halaman ini membantu peserta memilih jalur belajar yang paling relevan berdasarkan tujuan karier, background, dan tempo belajar.</div>
+    </div>
+
+    <div class="lpv-builder">
+      <div class="lpv-card">
+        <div class="lpv-kicker">Pilih Karier Tujuan</div>
+        <div class="lpv-career-grid" id="careerGrid"></div>
+      </div>
+
+      <div class="lpv-card">
+        <div class="lpv-kicker">Sesuaikan Profil Belajar</div>
+
+        <div class="lpv-section">
+          <div class="lpv-label">Background Saat Ini</div>
+          <div class="lpv-pills" id="bgOptions"></div>
+        </div>
+
+        <div class="lpv-section">
+          <div class="lpv-label">Tempo Belajar</div>
+          <div class="lpv-pills" id="paceOptions"></div>
+        </div>
+
+        <div class="lpv-note">
+          Kamu bisa memilih jalur berdasarkan karier sekaligus menyesuaikannya dengan background. Assessment nanti cukup mengarahkan ke jalur yang paling cocok, sedangkan halaman ini menjadi peta eksekusi yang lebih konkret.
+        </div>
+      </div>
+    </div>
+
+    <div id="lpSummary"></div>
+
+    <div class="lp-line" id="lpContent"></div>
   </div>
-  <div class="lp-line" id="lpContent"></div>
 </div>
-</div>
-<script src="script.js"></script>
+
+<script src="lp.js"></script>
 </body>
 </html>
