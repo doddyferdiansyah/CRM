@@ -344,17 +344,194 @@ const phases=[
    gate:{title:'Siap lanjut ke Fase 3 jika kamu bisa…',items:['Menjelaskan perbedaan enkripsi simetris vs asimetris dengan analogi yang tepat dan kapan masing-masing digunakan','Menggunakan OpenSSL CLI untuk generate RSA key pair, enkripsi, dan dekripsi file','Menjelaskan TLS handshake step-by-step dari ClientHello sampai data transfer','Menjelaskan apa itu "harvest now, decrypt later" dan mengapa PQC menjadi urgent sekarang']},
    nodes:[
      {icon:'🔐',lv:'must',lvl:'MUST',t:'Kriptografi Klasik',ref:'CyBOK: Cryptography',
-      topics:['Enkripsi simetris: AES-128/256, DES (kelemahan), 3DES','Enkripsi asimetris: RSA, ECC, Diffie-Hellman key exchange','Hashing: SHA-256, SHA-3, MD5 (broken), BLAKE2','MAC & HMAC untuk integritas dan autentikasi pesan','Cryptographic randomness dan kenapa PRNG bisa berbahaya'],
-      tools:['CryptoHack.org','Practical Cryptography for Devs','OpenSSL CLI']},
-     {icon:'📜',lv:'must',lvl:'MUST',t:'PKI, TLS & Sertifikat',ref:'CyBOK: Cryptography',
-      topics:['Public Key Infrastructure (PKI) — arsitektur dan chain of trust','Certificate Authority, X.509, dan validasi sertifikat','TLS 1.3 handshake lengkap step-by-step','HTTPS: certificate pinning, HSTS, OCSP stapling','Common TLS misconfigurations: weak cipher, expired cert, MITM'],
-      tools:["Let's Encrypt Docs",'SSL Labs','Wireshark TLS']},
-     {icon:'🔮',lv:'must',lvl:'MUST',t:'Post-Quantum Cryptography (PQC)',ref:'NIST FIPS 203/204/205 (2024) —',
-      topics:['Kenapa RSA dan ECC akan "broken" oleh quantum computer','Konsep "Harvest Now, Decrypt Later" (HNDL) — ancaman nyata hari ini','NIST PQC Standards: ML-KEM (FIPS 203), ML-DSA (FIPS 204), SLH-DSA','Lattice-based cryptography — prinsip dasar yang membuatnya quantum-safe','PQC migration planning: inventarisasi enkripsi dan roadmap transisi'],
-      tools:['NIST PQC Project','PQC Migration Guide','Cloudflare PQC Blog']},
-     {icon:'🗝️',lv:'should',lvl:'SHOULD',t:'Autentikasi & Token Modern',ref:'CyBOK: Authentication',
-      topics:['Password hashing: bcrypt, Argon2, PBKDF2 — jangan MD5/SHA1!','Multi-Factor Authentication: TOTP, FIDO2, Passkeys','JSON Web Token (JWT): struktur, signing, validasi, dan risiko','OAuth 2.0 & OpenID Connect — authorization flow lengkap','Passkeys dan masa depan passwordless authentication'],
-      tools:['jwt.io','NIST SP 800-63B','FIDO Alliance Docs']},
+       topics:[
+         {
+           title:'Enkripsi simetris: AES-128/256, DES (kelemahan), 3DES',
+           resources:[
+             'Youtube: Playlist Kriptografi Klasik',
+             'Youtube: AES 128/256',
+             'Youtube: DES',
+             'Artikel: Symetric Encryption',
+             'Tools: Cryptool',
+             'Tools: Dcode'
+           ]
+         },
+         {
+           title:'Enkripsi asimetris: RSA, ECC, Diffie-Hellman key exchange',
+           resources:[
+             'Youtube: Penjelasan Enkripsi Asimetris',
+             'Youtube: Apa itu kriptografi',
+             'Youtube: 5 Tempat belajar kriptografi',
+             'Artikel: Asymetric Encryption',
+             'Youtube: RSA',
+             'Youtube: ECC',
+             'Youtube: Diffie-Hellman'
+           ]
+         },
+         {
+           title:'Hashing: SHA-256, SHA-3, MD5 (broken), BLAKE2',
+           resources:[
+             'Youtube: Pengenalan Hashing',
+             'Artikel: MD5 vs SHA3-256',
+             'Artikel: Perbandingan SHA-1,2, dan 3',
+             'Artikel: SHA 256',
+             'Artikel: BLAKE2',
+             'Artikel: Cara penggunaan BLAKE2'
+           ]
+         },
+         {
+           title:'MAC & HMAC untuk integritas dan autentikasi pesan',
+           resources:[
+             'Youtube: MAC dan HMAC',
+             'Youtube: Kenapa Hashing saja tidak cukup'
+           ]
+         },
+         {
+           title:'Cryptographic randomness dan kenapa PRNG bisa berbahaya',
+           resources:[
+             'Youtube: Randomness dan Pseudorandomness',
+             'Youtube: Secure random numbers',
+             'Youtube: Cara memprediksi random numbers',
+             'Youtube: PRNG',
+             'Artikel: Randomness Pseudorandomness'
+           ]
+         }
+       ]},
+      {icon:'📜',lv:'must',lvl:'MUST',t:'PKI, TLS & Sertifikat',ref:'CyBOK: Cryptography',
+       topics:[
+         {
+           title:'Public Key Infrastructure (PKI) — arsitektur dan chain of trust',
+           resources:[
+             'Youtube: Pengenalan PKI',
+             'Youtube: Chain of trust',
+             'Artikel: Kriptografi Kunci Publik'
+           ]
+         },
+         {
+           title:'Certificate Authority, X.509, dan validasi sertifikat',
+           resources:[
+             'Youtube: Certificate Authority',
+             'Youtube: Certificate chain validation',
+             'Youtube: X.509',
+             'RFC 5820 X.509'
+           ]
+         },
+         {
+           title:'TLS 1.3 handshake lengkap step-by-step',
+           resources:[
+             'Youtube: Penjelasan TLS1.3',
+             'Youtube: SSL, TLS, HTTPS',
+             'Youtube: TLS1.3 Handshake',
+             'RFC 8446 TLS1.3'
+           ]
+         },
+         {
+           title:'HTTPS: certificate pinning, HSTS, OCSP stapling',
+           resources:[
+             'Youtube: Penjelasan HTTPS',
+             'Youtube: Konsep dan Praktek SSL/TLS',
+             'Youtube: HSTS',
+             'Artikel: OSCP stapling',
+             'Artikel: SSL pinning'
+           ]
+         },
+         {
+           title:'Common TLS misconfigurations: weak cipher, expired cert, MITM',
+           resources:[
+             'Artikel: SSL/TLS misconfiguration',
+             'Artikel: Testing for weak SSL/TLS',
+             'Tools: SSL test',
+             'Youtube: SSL Inspection',
+             'Youtube: SSL/TLS misconfiguration'
+           ]
+         }
+       ]},
+      {icon:'🔮',lv:'must',lvl:'MUST',t:'Post-Quantum Cryptography (PQC)',ref:'NIST FIPS 203/204/205 (2024) —',
+       topics:[
+         {
+           title:'Kenapa RSA dan ECC akan "broken" oleh quantum computer',
+           resources:[
+             'NIST PQC Project',
+             'Artikel: Quantum threat to RSA and ECC',
+             'YouTube: Why quantum computers threaten current cryptography'
+           ]
+         },
+         {
+           title:'Konsep "Harvest Now, Decrypt Later" (HNDL) — ancaman nyata hari ini',
+           resources:[
+             'NIST PQC Project',
+             'Cloudflare PQC Blog',
+             'Artikel: Harvest now decrypt later'
+           ]
+         },
+         {
+           title:'NIST PQC Standards: ML-KEM (FIPS 203), ML-DSA (FIPS 204), SLH-DSA',
+           resources:[
+             'NIST PQC Project',
+             'NIST PQC Standards Overview',
+             'Cloudflare PQC Blog'
+           ]
+         },
+         {
+           title:'Lattice-based cryptography — prinsip dasar yang membuatnya quantum-safe',
+           resources:[
+             'CryptoHack: Lattices',
+             'NIST PQC Project',
+             'Artikel: Lattice cryptography basics'
+           ]
+         },
+         {
+           title:'PQC migration planning: inventarisasi enkripsi dan roadmap transisi',
+           resources:[
+             'PQC Migration Guide',
+             'NIST PQC Project',
+             'Cloudflare PQC Blog'
+           ]
+         }
+       ]},
+      {icon:'🗝️',lv:'should',lvl:'SHOULD',t:'Autentikasi & Token Modern',ref:'CyBOK: Authentication',
+       topics:[
+         {
+           title:'Password hashing: bcrypt, Argon2, PBKDF2 — jangan MD5/SHA1!',
+           resources:[
+             'NIST SP 800-63B',
+             'Artikel: bcrypt vs Argon2 vs PBKDF2',
+             'YouTube: Password hashing fundamentals'
+           ]
+         },
+         {
+           title:'Multi-Factor Authentication: TOTP, FIDO2, Passkeys',
+           resources:[
+             'FIDO Alliance Passkeys',
+             'NIST SP 800-63B',
+             'YouTube: MFA, FIDO2, dan passkeys'
+           ]
+         },
+         {
+           title:'JSON Web Token (JWT): struktur, signing, validasi, dan risiko',
+           resources:[
+             'jwt.io',
+             'jwt.io Introduction',
+             'YouTube: JWT explained'
+           ]
+         },
+         {
+           title:'OAuth 2.0 & OpenID Connect — authorization flow lengkap',
+           resources:[
+             'Artikel: OAuth 2.0 basics',
+             'Artikel: OpenID Connect basics',
+             'YouTube: OAuth vs OpenID Connect'
+           ]
+         },
+         {
+           title:'Passkeys dan masa depan passwordless authentication',
+           resources:[
+             'FIDO Alliance Passkeys',
+             'FIDO Alliance Passkey Implementation Overview',
+             'Artikel: Passwordless authentication with passkeys'
+           ]
+         }
+       ]},
    ]},
 
   // ── L2 Fase 3 ──
@@ -726,7 +903,65 @@ const RESOURCE_LINKS = {
   
   'Youtube: Cara kerja aplikasi web':'https://youtu.be/ggzYcBvzUTY?si=r9DkOyfG32hNXqMv',
   'Youtube: Cara kerja Backend':'https://youtu.be/gOghS3BmaxI?si=MUisikCtjy88a_2j',
-  'Chapter: Web Application Basic':'https://www.cs.cityu.edu.hk/~hwchun/Courses/Docs/Internet/0201730383.pdf'
+  'Chapter: Web Application Basic':'https://www.cs.cityu.edu.hk/~hwchun/Courses/Docs/Internet/0201730383.pdf',
+
+  'Youtube: Playlist Kriptografi Klasik':'https://youtube.com/playlist?list=PLC-N6VQz1oqdKD2Nqep0CFaTpV6U34lyz&si=JdaossUBAYvLoxVV',
+  'Youtube: AES 128/256':'https://youtu.be/O4xNJsjtN6E?si=9xDDtDqmfrdZnDcu',
+  'Youtube: DES':'https://youtu.be/j53iXhTSi_s?si=dcQ_s-NdJvMEQ5x9',
+  'Artikel: Symetric Encryption':'https://www.thesslstore.com/blog/symmetric-encryption-101-definition-how-it-works-when-its-used/',
+  'Tools: Cryptool':'https://www.cryptool.org/en/cto/',
+  'Tools: Dcode':'https://www.dcode.fr/en',
+  
+  'Youtube: Penjelasan Enkripsi Asimetris':'https://youtu.be/AQDCe585Lnc?si=cx2T1AloCY_KUrdd',
+  'Youtube: Apa itu kriptografi':'https://youtu.be/mEbBnrJPL2U?si=wpCZN_kh9htbgQf6',
+  'Youtube: 5 Tempat belajar kriptografi':'https://youtu.be/fq4zJRp-DtE?si=qeWdXE6hJZQ7zsH7',
+  'Artikel: Asymetric Encryption':'https://www.1kosmos.com/resources/blog/asymmetric-encryption',
+  'Youtube: RSA':'https://youtu.be/hm8s6FAc4pg?si=Z_x3PYvdLTsK6hod',
+  'Youtube: ECC':'https://youtu.be/EnRzBHk4UZw?si=sZkP47joOLkX77qk',
+  'Youtube: Diffie-Hellman':'https://youtu.be/85oMrKd8afY?si=gICL5LrQT4VqGe5B',
+  
+  'Youtube: Pengenalan Hashing':'https://youtu.be/amfZ-id6H4c?si=lkb8OeRhf4jq8VRG',
+  'Artikel: MD5 vs SHA3-256':'https://mojoauth.com/compare-hashing-algorithms/md5-vs-sha3-256',
+  'Artikel: Perbandingan SHA-1,2, dan 3':'https://rublon.com/blog/sha-3-vs-sha-2-vs-sha-1-vs-md5/',
+  'Artikel: SHA 256':'https://www.boot.dev/blog/computer-science/how-sha-2-works-step-by-step-sha-256/',
+  'Artikel: BLAKE2':'https://www.blake2.net/',
+  'Artikel: Cara penggunaan BLAKE2':'https://github.com/BLAKE3-team/BLAKE3',
+  
+  'Youtube: MAC dan HMAC':'https://youtu.be/fzMIjWFYQl0?si=ZYWt6motM8PY_rYT',
+  'Youtube: Kenapa Hashing saja tidak cukup':'https://youtu.be/vdzB5Rraeb4?si=smTdP91-9EZw-18-',
+  
+  'Youtube: Randomness dan Pseudorandomness':'https://youtu.be/vW4ji0F_VZw?si=ONbSavE8ap1HIObg',
+  'Youtube: Secure random numbers':'https://youtu.be/AAbcOs22hg0?si=OkWlI31CyUFuPMY9',
+  'Youtube: Cara memprediksi random numbers':'https://youtu.be/-h_rj2-HP2E?si=LSbYBsMIKoh5y4qF',
+  'Youtube: PRNG':'https://youtu.be/q2XVhTWJ-Oo?si=2a_9X60X0_nv0FPw',
+  'Artikel: Randomness Pseudorandomness':'https://www.ias.edu/ideas/2009/wigderson-randomness-pseudorandomness',
+  
+  
+  'Youtube: Pengenalan PKI':'https://youtu.be/0ctat6RBrFo?si=YANmg72R6_8MV1uo',
+  'Youtube: Chain of trust':'https://youtu.be/heacxYUnFHA?si=bSnh_pIeZUSa_FrZ',
+  'Artikel: Kriptografi Kunci Publik':'https://www.ssldragon.com/id/blog/public-key-cryptography/#What-Is-Public-Key-Cryptography',
+  
+  'Youtube: Certificate Authority':'https://youtu.be/duc4Dz219ro?si=Q2o6UQ1WfBH4FhD8',
+  'Youtube: Certificate chain validation':'https://youtu.be/lLw0dICMA_Y?si=TnMhFDeFnLmPvLul',
+  'Youtube: X.509':'https://youtu.be/kAaIYRJoJkc?si=ymTFn8k9173Dubm-',
+  'RFC 5820 X.509':'https://datatracker.ietf.org/doc/html/rfc5280',
+  
+  'Youtube: Penjelasan TLS1.3':'https://youtu.be/yPdJVvSyMqk?si=oJQog3AXmKb3AFkv',
+  'Youtube: SSL, TLS, HTTPS':'https://youtu.be/j9QmMEWmcfo?si=2OO7TTTf18y8ZDu9',
+  'Youtube: TLS1.3 Handshake':'https://youtu.be/yXmQjjAWqws?si=77ZD2uzcHVmH14Xi',
+  'RFC 8446 TLS1.3':'https://datatracker.ietf.org/doc/html/rfc8446',
+  
+  'Youtube: Penjelasan HTTPS':'https://youtu.be/58jE8n_Clkc?si=K0-Ceg1xpHRCZ3Np',
+  'Youtube: Konsep dan Praktek SSL/TLS':'https://youtu.be/QJAjLIaqH_s?si=jCRnel7iD1f9GcVL',
+  'Youtube: HSTS':'https://youtu.be/-MWqSD2_37E?si=3kgIJyd5IBBz2AFu',
+  'Artikel: OSCP stapling':'https://www.ssl.com/id/artikel/ocsp-stapling-validasi-sertifikat-yang-aman-dan-efisien/',
+  'Artikel: SSL pinning':'https://www.ethic.ninja/2020/09/apa-itu-ssl-pinning-manfaat-dan-implementasinya-pada-aplikasi-mobile.html',
+  
+  'Artikel: SSL/TLS misconfiguration':'https://haxoris.com/haxoris-wiki/web-owasp-top-10/cryptographic-failures/ssl-tls-misconfiguration',
+  'Artikel: Testing for weak SSL/TLS':'https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_SSL_TLS_Ciphers_Insufficient_Transport_Layer_Protection',
+  'Tools: SSL test':'https://www.ssllabs.com/ssltest/',
+  'Youtube: SSL Inspection':'https://youtu.be/CmTc-XHYWVs?si=yRL2m3K1WdNrmt4d',
+  'Youtube: SSL/TLS misconfiguration':'https://youtu.be/FKscrL9ICs4?si=TIFsdk21R2QUr6iE'
 };
 
 const state = {
