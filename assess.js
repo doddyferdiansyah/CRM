@@ -1424,8 +1424,49 @@ function calcProfile() {
     phasePlan,
     totalLabel: phasePlan.total.label,
     totalWeeksLabel: phasePlan.total.weeksLabel,
+    paceId: pace,
     notes
   };
+}
+
+function mapCareerToLearningPath(primaryKey) {
+  const map = {
+    cloud_sec: 'cloud'
+  };
+  return map[primaryKey] || primaryKey;
+}
+
+function mapBackgroundToLearningPath(primaryKey) {
+  const rawBg = answers[0];
+  const cli = answers[1];
+  const knowledge = answers[2];
+
+  if (rawBg === 'bg_biz') return 'biz';
+
+  if (rawBg === 'bg_it') {
+    if (['soc', 'cloud', 'dfir', 'cti'].includes(mapCareerToLearningPath(primaryKey))) return 'infra';
+    return 'dev';
+  }
+
+  if (rawBg === 'bg_academic' || rawBg === 'bg_fresh') {
+    if (cli === 'cli_no' && knowledge === 'know_low') return 'nonit';
+    return 'student';
+  }
+
+  return 'nonit';
+}
+
+function buildLearningPathUrl(profile) {
+  const career = mapCareerToLearningPath(profile.primaryKey);
+  const bg = mapBackgroundToLearningPath(profile.primaryKey);
+  const pace = profile.paceId || 'normal';
+  const params = new URLSearchParams({
+    career,
+    bg,
+    pace,
+    source: 'assessment'
+  });
+  return `lp.html?${params.toString()}`;
 }
 
 function renderCareerCard(label, career) {
@@ -1449,6 +1490,7 @@ function showResult(){
   rArea.style.display = 'block';
 
   const profile = calcProfile();
+  const learningPathUrl = buildLearningPathUrl(profile);
 
   rArea.innerHTML = `
     <div class="result-card on" style="border-color:${profile.primary.c}">
@@ -1510,7 +1552,7 @@ function showResult(){
       </div>
 
       <div class="res-actions">
-        <button class="btn btn-p" onclick="window.location.href='lp.html'">Lihat Learning Path Lengkap →</button>
+        <button class="btn btn-p" onclick="window.location.href='${learningPathUrl}'">Lihat Learning Path Saya →</button>
         <button class="btn btn-g" onclick="window.location.href='roadmap.html'">Lihat Roadmap Detail</button>
         <button class="btn btn-g" onclick="resetAssess()">↩ Ulangi</button>
       </div>
