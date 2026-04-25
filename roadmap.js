@@ -249,41 +249,44 @@ const phases=[
          {
            title:'CIA Triad mendalam dengan kasus nyata Indonesia',
            resources:[
-             'CompTIA Security+ Study: CIA Triad',
-             'YouTube: CIA Triad dengan contoh kasus',
-             'SANS Reading Room: Security fundamentals'
+             'Artikel: 10 Kasus cyber crime di indonesia',
+             'Jurnal: Analisis keamanan data Tokopedia 2020',
+             'Artikel: Penyalahgunaan situs peduli lindungi',
+             'Youtube: Serangan Pusat Data Indonesia',
+             'Jurnal: Tantangan Etika dan Privasi',
+             'Jurnal: Implementasi cyber security'
            ]
          },
          {
            title:'AAA framework: Authentication, Authorization, Accounting',
            resources:[
-             'CompTIA Security+ Study: AAA framework',
-             'YouTube: Authentication vs Authorization vs Accounting',
-             'Artikel: Memahami AAA dalam keamanan'
+             'Youtube: Penjelasan AAA Framework',
+             'Jurnal: Penerapan AAA',
+             'Artikel: Server AAA'
            ]
          },
          {
            title:'Threat vs Vulnerability vs Risk vs Exploit — definisi presisi',
            resources:[
-             'CompTIA Security+ Study: Risk and vulnerability basics',
-             'YouTube: Threat vs Vulnerability vs Risk',
-             'SANS Reading Room: Risk terminology'
+             'Youtube: Risk, Threat, & Vulnerability',
+             'Youtube: Threat, Vulnerabilities, Exploit',
+             'Youtube: Payload, Exploit, Vulnerability'
            ]
          },
          {
            title:'Defense in Depth, Least Privilege, Fail-Safe Defaults',
            resources:[
-             'CompTIA Security+ Study: Defense in depth',
-             'YouTube: Least privilege and secure defaults',
-             'SANS Reading Room: Foundational security principles'
+             'Youtube: Defense in Depth',
+             'Youtube: Least Privilege',
+             'Youtube: Fail-Safe Default'
            ]
          },
          {
            title:'Attack surface, threat modeling konsep, kill chain',
            resources:[
-             'YouTube: Attack surface and threat modeling',
-             'Artikel: Konsep cyber kill chain',
-             'SANS Reading Room: Threat modeling basics'
+             'Youtube: Attack Surface',
+             'Youtube: Threat Modeling',
+             'Youtube: Kill Chain'
            ]
          }
        ]},
@@ -292,41 +295,41 @@ const phases=[
          {
            title:'SQL dasar: SELECT, INSERT, UPDATE, DELETE, JOIN, WHERE',
            resources:[
-             'SQLZoo: SQL basics',
-             'W3Schools: SQL tutorial',
-             'YouTube: Belajar SQL dasar'
+             'Youtube: Pengenalan SQL',
+             'Artikel: SQL Cheat Sheet'
            ]
          },
          {
            title:'Client-server model dan request-response cycle',
            resources:[
-             'W3Schools: Web architecture basics',
-             'YouTube: Client server model',
-             'Artikel: Request response cycle'
+             'Youtube: Model Client-Server',
+             'Youtube: Arsitektur Web',
+             'Youtube: Request Response Cycle',
+             'Youtube: Properti HTTP'
            ]
          },
          {
            title:'REST API: method, endpoint, header, body, status code',
            resources:[
-             'Postman: API basics',
-             'YouTube: REST API untuk pemula',
-             'Artikel: HTTP status code dan endpoint'
+             'Youtube: Apa itu REST API',
+             'Youtube: REST API method',
+             'Artikel: HTTP status code'
            ]
          },
          {
            title:'HTTP methods dan developer tools browser',
            resources:[
-             'W3Schools: HTTP methods',
-             'YouTube: Browser developer tools basics',
-             'Postman: Understanding requests'
+             'Youtube: HTTP Method',
+             'Youtube: Browser developer tools basic',
+             'Youtube: Postman Beginer'
            ]
          },
          {
            title:'Cara aplikasi web modern bekerja dari browser ke database',
            resources:[
-             'YouTube: Cara kerja aplikasi web',
-             'Artikel: Dari browser ke server ke database',
-             'W3Schools: Web application basics'
+             'Youtube: Cara kerja aplikasi web',
+             'Youtube: Cara kerja Backend',
+             'Chapter: Web Application Basic'
            ]
          }
        ]},
@@ -681,6 +684,49 @@ const RESOURCE_LINKS = {
   'Youtube: Bikin Log Parser':'https://youtu.be/OGbX6cdR1pU?si=-f8DqlixwFCIZcVq',
   'Youtube: Bikin File Encryptor':'https://youtu.be/DZsmqUMjpdo?si=-9oPYNtpuwp3U0fV'
 
+  'Artikel: 10 Kasus cyber crime di indonesia':'https://binus.ac.id/bandung/2024/08/inilah-10-kasus-cyber-crime-yang-bikin-heboh-di-indonesia/',
+  'Jurnal: Analisis keamanan data Tokopedia 2020':'https://journal.dcircle.org/index.php/jikum/article/download/174/120',
+  'Artikel: Penyalahgunaan situs peduli lindungi':'https://www.kompasiana.com/brownsugar7002/685abb0ec925c403e35a6112/penyalahgunaan-situs-peduli-lindungi-menjadi-situs-judi-online-tinjauan-sistem-informasi-dan-sosiologis?page=all&page_images=2',
+  'Youtube: Serangan Pusat Data Indonesia':'https://www.youtube.com/watch?v=c9CAAM5MhkE&t=1s',
+  'Jurnal: Tantangan Etika dan Privasi':'https://jurnal.kopusindo.com/index.php/jkhkp/article/download/1646/1387/4545',
+  'Jurnal: Implementasi cyber security':'https://ejurnal.kampusakademik.my.id/index.php/jemba/article/download/1157/959',  
+  
+  'Youtube: Penjelasan AAA Framework':'https://youtu.be/NXCn2G7wL0s?si=IamRL48VI9Ma49v_',
+  'Jurnal: Penerapan AAA':'https://j-ptiik.ub.ac.id/index.php/j-ptiik/article/view/10522',
+  'Artikel: Server AAA':'https://www.linuxid.net/istilah/aaa-server-authentication-authorization-and-accounting/',
+  
+  'Youtube: Risk, Threat, & Vulnerability':'https://youtu.be/cJ6n3Fhbft0?si=3p0ihgMAoh-LOQzo',
+  'Youtube: Threat, Vulnerabilities, Exploit':'https://youtu.be/8zSoyAmHHc4?si=RQc2jdoIjmGDHK27',
+  'Youtube: Payload, Exploit, Vulnerability':'https://youtu.be/jzTj6wg2tUM?si=X0k68MlvC9UNLJA6',
+  
+  'Youtube: Defense in Depth':'https://youtu.be/7FfoyWdNcYE?si=86Iokfu52K5hpqm5',
+  'Youtube: Least Privilege':'https://youtu.be/_UGEGYb5z-8?si=NnA3bIp5cMUAGoBi',
+  'Youtube: Fail-Safe Default':'https://youtu.be/k2Xhvk3-4kw?si=FP5V-Y1laehuVZqj',
+  'Artikel: Principles of Security':'https://devguide.owasp.org/en/02-foundations/03-security-principles/',
+  
+  'Youtube: Attack Surface':'https://youtu.be/6D-iK8_sMw0?si=nvGxxwVI5crpYwgf',
+  'Youtube: Threat Modeling':'https://youtu.be/eOCwfXaMDU8?si=LSzspqVJDk6Oi-UD',
+  'Youtube: Kill Chain':'https://youtu.be/19hw_CHO0X8?si=szs2wsfE772hlxz5',
+  
+  'Youtube: Pengenalan SQL':'https://youtu.be/DPGMBa0srPA?si=hpK-HqnbzTfPoKSP',
+  'Artikel: SQL Cheat Sheet':'https://www.geeksforgeeks.org/sql/sql-cheat-sheet/',
+  
+  'Youtube: Model Client-Server':'https://youtu.be/L5BlpPU_muY?si=M6MAmK-2dqeSmmLx',
+  'Youtube: Arsitektur Web':'https://youtu.be/apXQVaftKdM?si=wuMDrX4nikKpNsTh',
+  'Youtube: Request Response Cycle':'https://youtu.be/zgb4uuaowQw?si=WIuEy132b7ZRVYlF',
+  'Youtube: Properti HTTP':'https://youtu.be/snUTUeGjbPQ?si=T3KMO3o0ko0FwUdx',
+  
+  'Youtube: Apa itu REST API':'https://youtu.be/vQJJ_K1JbEA?si=1HB2zVhvmR-bOLCf',
+  'Youtube: REST API method':'https://youtu.be/KF-3jtGH6Yk?si=J1q_q5y-JnkXcKVF',
+  'Artikel: HTTP status code':'https://www.restapitutorial.com/httpstatuscodes',
+  
+  'Youtube: HTTP Method':'https://youtu.be/Dxq-dMVIubA?si=1TggyI4Yo68SkFT2',
+  'Youtube: Browser developer tools basic':'https://youtu.be/Xg72SiTgxRk?si=VSKn11FUtdoVjMs1',
+  'Youtube: Postman Beginer':'https://youtu.be/VywxIQ2ZXw4?si=r14vyL-_WmUhMOwq',
+  
+  'Youtube: Cara kerja aplikasi web':'https://youtu.be/ggzYcBvzUTY?si=r9DkOyfG32hNXqMv',
+  'Youtube: Cara kerja Backend':'https://youtu.be/gOghS3BmaxI?si=MUisikCtjy88a_2j',
+  'Chapter: Web Application Basic':'https://www.cs.cityu.edu.hk/~hwchun/Courses/Docs/Internet/0201730383.pdf'
 };
 
 const state = {
