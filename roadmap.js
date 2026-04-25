@@ -550,20 +550,234 @@ const phases=[
    gate:{title:'Siap lanjut ke Fase 4 jika kamu bisa…',items:['Menjalankan Nmap scan terhadap target lab dan menginterpretasikan hasilnya dengan benar','Mengeksploitasi manual setidaknya 3 dari OWASP Top 10 di DVWA atau PortSwigger labs','Menulis vulnerability report sederhana dengan CVSS score dan rekomendasi remediation','Mengkonfigurasi Snort/Suricata rule dasar untuk mendeteksi port scan']},
    nodes:[
      {icon:'🦠',lv:'must',lvl:'MUST',t:'Malware & Ancaman Modern',ref:'CyBOK: Malware & Attack Technologies',
-      topics:['Virus, Worm, Trojan, RAT, Backdoor — cara kerja & bedanya','Ransomware : double extortion, RaaS (Ransomware-as-a-Service)','Spyware, Adware, Rootkit, Bootkit, Fileless malware','Supply chain attacks: SolarWinds, XZ Utils, npm poisoning','APT (Advanced Persistent Threat) dan nation-state actors'],
-      tools:['VirusTotal','ANY.RUN','MalwareBazaar','Hybrid Analysis']},
-     {icon:'🎭',lv:'must',lvl:'MUST',t:'Social Engineering & AI-Powered Attacks',ref:'CyBOK: Human Factors',
-      topics:['Phishing, Spear Phishing, Whaling — evolusi ','AI-generated phishing: deepfake voice, hyper-realistic email','Vishing & Smishing yang makin canggih dengan AI','Business Email Compromise (BEC) — kerugian terbesar secara finansial','Defense: security awareness training dan email security (SPF, DKIM, DMARC)'],
-      tools:['GoPhish','KnowBe4 Resources','PhishTank']},
-     {icon:'🌐',lv:'must',lvl:'MUST',t:'Serangan & Pertahanan Jaringan',ref:'CyBOK: Network Security',
-      topics:['MITM: ARP spoofing, DNS poisoning, SSL stripping','DoS & DDoS: volumetric, protocol, application layer (L7)','Port scanning dengan Nmap — timing, stealth, service detection','Sniffing & packet injection — Scapy basics','Pertahanan: Firewall next-gen, IDS/IPS Snort/Suricata, network segmentation'],
-      tools:['Nmap','Ettercap','Wireshark','Snort','pfSense']},
-     {icon:'🌍',lv:'must',lvl:'MUST',t:'Web App Security — OWASP Top 10',ref:'OWASP Top 10 2021 + CyBOK: Web Security',
-      topics:['A01 Broken Access Control — IDOR, privilege escalation, path traversal','A03 SQL Injection — error-based, blind, time-based, out-of-band','A07 XSS — stored, reflected, DOM-based; cara eksploitasi & mitigasi','CSRF, SSRF, XXE, Insecure Deserialization','Burp Suite Community: intercept, repeater, intruder, scanner'],
-      tools:['PortSwigger Web Academy','DVWA','Burp Suite Community','OWASP ZAP']},
-     {icon:'🔍',lv:'should',lvl:'SHOULD',t:'Vulnerability Assessment',ref:'CyBOK: Adversarial Behaviors',
-      topics:['CVE database dan CVSS v3.1 scoring — cara baca dan interpretasi','OpenVAS / Nessus Essentials — setup, scan, dan laporan','ExploitDB dan cara menemukan PoC yang relevan','Patch management lifecycle dan risk-based prioritization','Vulnerability report writing: executive summary + technical detail'],
-      tools:['OpenVAS','Nessus Essentials','ExploitDB','NVD NIST']},
+       topics:[
+         {
+           title:'Virus, Worm, Trojan, RAT, Backdoor — cara kerja & bedanya',
+           resources:[
+             'Youtube: Penjelasan malware',
+             'Youtube: Logic Bomb',
+             'Artikel: 22 jenis malware',
+             'Tools: VirusTotal',
+             'Tools: Run.Any'
+           ]
+         },
+         {
+           title:'Ransomware : double extortion, RaaS (Ransomware-as-a-Service)',
+           resources:[
+             'Youtube: Penjelasan Ransomware & RaaS',
+             'Artikel: Apa itu Ransomware',
+             'Tools: Malware bazaar',
+             'Tools: Hybrid Analysis'
+           ]
+         },
+         {
+           title:'Spyware, Adware, Rootkit, Bootkit, Fileless malware',
+           resources:[
+             'Artikel: 12 Jenis malware',
+             'Youtube: Penjelasan Fileless malware',
+             'Artikel: Serangan Fileless'
+           ]
+         },
+         {
+           title:'Supply chain attacks: SolarWinds, XZ Utils, npm poisoning',
+           resources:[
+             'Youtube: Penjelasan Supplay chain attack',
+             'Youtube: NPM massive exploit',
+             'Artikel: Mitigasi serangan suplay chain NPM',
+             'Artikel: Mitigasi serangan SolarWinds',
+             'Artikel: Mitigasi serangan XZ utils backdoor'
+           ]
+         },
+         {
+           title:'APT (Advanced Persistent Threat) dan nation-state actors',
+           resources:[
+             'Youtube: Penjelasan APT',
+             'Artikel: Nation state actors & contoh real'
+           ]
+         }
+       ]},
+      {icon:'🎭',lv:'must',lvl:'MUST',t:'Social Engineering & AI-Powered Attacks',ref:'CyBOK: Human Factors',
+       topics:[
+         {
+           title:'Phishing, Spear Phishing, Whaling',
+           resources:[
+             'Youtube: Email phishing',
+             'Artikel: Phishing, spear-phishing, whaling',
+             'Tools: Gophish',
+             'Tools: PhishTank'
+           ]
+         },
+         {
+           title:'AI-generated phishing: deepfake voice, hyper-realistic email',
+           resources:[
+             'Artikel: AI untuk phishing',
+             'Artikel: Anatomi deepfake voice',
+             'Youtube: Contoh deepfake',
+             'Youtube: Apa itu deepfake'
+           ]
+         },
+         {
+           title:'Vishing & Smishing yang makin canggih dengan AI',
+           resources:[
+             'Youtube: Vishing',
+             'Youtube: Smishing',
+             'Youtube: Contoh voice scam',
+             'Artikel: Contoh sms scam'
+           ]
+         },
+         {
+           title:'Business Email Compromise (BEC) — kerugian terbesar secara finansial',
+           resources:[
+             'Youtube: Business Email Compromise',
+             'Jurnal: BEC fraud',
+             'Artikel: Penjelasan BEC'
+           ]
+         },
+         {
+           title:'Defense: security awareness training dan email security (SPF, DKIM, DMARC)',
+           resources:[
+             'Artikel: Apa itu security awareness training',
+             'Youtube: Security awareness',
+             'Artikel: Email security',
+             'Youtube: dmarc, dkim, spf'
+           ]
+         }
+       ]},
+      {icon:'🌐',lv:'must',lvl:'MUST',t:'Serangan & Pertahanan Jaringan',ref:'CyBOK: Network Security',
+       topics:[
+         {
+           title:'MITM: ARP spoofing, DNS poisoning, SSL stripping',
+           resources:[
+             'Artikel: Mengenali serangan MITM',
+             'Youtube: Penjelasan ARP spoofing',
+             'Youtube: Penjelasan DSN poisoning',
+             'Youtube: SSL stripping'
+           ]
+         },
+         {
+           title:'DoS & DDoS: volumetric, protocol, application layer (L7)',
+           resources:[
+             'Youtube: Penjelasan DoS',
+             'Youtube: Penjelasan DDoS',
+             'Youtube: 7 Jenis serangan DoS',
+             'Youtube: Cara ngatasin DoS',
+             'Artikel: Memahami serangan DDoS di layer aplikasi'
+           ]
+         },
+         {
+           title:'Port scanning dengan Nmap — timing, stealth, service detection',
+           resources:[
+             'Youtube: Penjelasan IP dan Port scanning',
+             'Youtube: Playlist Nmap',
+             'Tools: Nmap',
+             'Artikel: Nmap Cheat Sheet'
+           ]
+         },
+         {
+           title:'Sniffing & packet injection — Scapy basics',
+           resources:[
+             'Youtube: Packet sniffing',
+             'Artikel: Scapy basics',
+             'Youtube: Packet manipulasi dan sniffing dengan scapy'
+           ]
+         },
+         {
+           title:'Pertahanan: Firewall next-gen, IDS/IPS Snort/Suricata, network segmentation',
+           resources:[
+             'Youtube: Penjelasan Next Generation Firewall',
+             'Youtube: IDS vs IPS',
+             'Artikel: Snort vs Suricata',
+             'Artikel: Network segmentation'
+           ]
+         }
+       ]},
+      {icon:'🌍',lv:'must',lvl:'MUST',t:'Web App Security — OWASP Top 10',ref:'OWASP Top 10 2021 + CyBOK: Web Security',
+       topics:[
+         {
+           title:'A01 Broken Access Control — IDOR, privilege escalation, path traversal',
+           resources:[
+             'Artikel: OWASP A01 Broken Authentication',
+             'Lab: IDOR',
+             'Lab: Path Traversal',
+             'Lab: Privilege escalation'
+           ]
+         },
+         {
+           title:'A03 SQL Injection — error-based, blind, time-based, out-of-band',
+           resources:[
+             'Youtube: Penjelasan SQLi',
+             'Lab: SQL Injection'
+           ]
+         },
+         {
+           title:'A07 XSS — stored, reflected, DOM-based; cara eksploitasi & mitigasi',
+           resources:[
+             'Youtube: Penjelasan XSS',
+             'Lab: XSS'
+           ]
+         },
+         {
+           title:'CSRF, SSRF, XXE, Insecure Deserialization',
+           resources:[
+             'Lab: XXE',
+             'Lab: CSRF',
+             'Lab: SSRF',
+             'Lab: Insecure deserialization'
+           ]
+         },
+         {
+           title:'Burp Suite Community: intercept, repeater, intruder, scanner',
+           resources:[
+             'Artikel: Mengenali Burp Suite',
+             'Youtube: Tutorial Burp Suite',
+             'Tools: Burp Suite Community Edition'
+           ]
+         }
+       ]},
+      {icon:'🔍',lv:'should',lvl:'SHOULD',t:'Vulnerability Assessment',ref:'CyBOK: Adversarial Behaviors',
+       topics:[
+         {
+           title:'CVE database dan CVSS v3.1 scoring — cara baca dan interpretasi',
+           resources:[
+             'Artikel: Pengenalan CVE',
+             'Tools: CVE database',
+             'Tools: CVE Calculator Scoring 3.1',
+             'Artikel: NVD NIST',
+             'Youtube: Cara baca CVE'
+           ]
+         },
+         {
+           title:'OpenVAS / Nessus Essentials — setup, scan, dan laporan',
+           resources:[
+             'Youtube: Vulnerability scanning',
+             'Youtube: Perbedaan VA dan PT',
+             'Tools: Nessus',
+             'Tools: Open VAS'
+           ]
+         },
+         {
+           title:'ExploitDB dan cara menemukan PoC yang relevan',
+           resources:[
+             'Youtube: Penjelasan Exploitdb',
+             'Tools: Exploitdb',
+             'Tools: Searchsploit'
+           ]
+         },
+         {
+           title:'Patch management lifecycle dan risk-based prioritization',
+           resources:[
+             'Youtube: Patch & lifecycle management',
+             'Artikel: Patch management lifecycle',
+             'Artikel: Risk-based vulnerability'
+           ]
+         },
+         {
+           title:'Vulnerability report writing: executive summary + technical detail',
+           resources:[
+             'Artikel: Cara membuat laporan VA'
+           ]
+         }
+       ]},
    ]},
 
   // ── L2 Fase 4 ──
@@ -1018,7 +1232,121 @@ const RESOURCE_LINKS = {
   'Youtube: Priciple of FIDO':'https://youtu.be/KRlyv9mftTo?si=j5nEootziZMs-yek',
   'Youtube: Password vs Passkeys':'https://youtu.be/9nrE4t4-IXA?si=XZLGHmW673rFD2nJ',
   'Artikel: Passwordless Authentication':'https://www.passkeys.com/what-is-passwordless-authentication',
-  'Artikel: FIDO passkey':'https://fidoalliance.org/passkeys/'
+  'Artikel: FIDO passkey':'https://fidoalliance.org/passkeys/',
+
+  'Youtube: Penjelasan malware':'https://youtu.be/5shyqpPB-qc?si=DcDarPj03LFPOJey',
+  'Youtube: Logic Bomb':'https://youtu.be/4hjYjBqFO0U?si=49wPPJhO9hm_JoMN',
+  'Artikel: 22 jenis malware':'https://diskominfosp.lebakkab.go.id/22-jenis-malware-dan-cara-mengenalinya/',
+  'Tools: VirusTotal':'https://www.virustotal.com/gui/',
+  'Tools: Run.Any':'https://any.run/',
+  
+  'Youtube: Penjelasan Ransomware & RaaS':'https://youtu.be/46Awo8ztAf4?si=4GPhde1EUtdxdaTf',
+  'Artikel: Apa itu Ransomware':'https://www.fortinet.com/resources/cyberglossary/ransomware',
+  'Tools: Malware bazaar':'https://bazaar.abuse.ch/',
+  'Tools: Hybrid Analysis':'https://hybrid-analysis.com/',
+  
+  'Artikel: 12 Jenis malware':'https://www.crowdstrike.com/en-us/cybersecurity-101/malware/types-of-malware/',
+  'Youtube: Penjelasan Fileless malware':'https://youtu.be/F0RpOUxe1Z8?si=_fXZZqHfJ2yGqx8r',
+  'Artikel: Serangan Fileless':'https://www.cyberarmy.id/publication/cybersecurity-awareness/serangan-fileless-cara-kerja-malware-dan-tips-menghindarinya',
+  
+  'Youtube: Penjelasan Supplay chain attack':'https://www.youtube.com/live/LIkxOiNOkec?si=p0stRZbd4ULQBm77',
+  'Youtube: NPM massive exploit':'https://youtu.be/QVqIx-Y8s-s?si=qh5Ax-U3cmWq6SCU',
+  'Artikel: Mitigasi serangan suplay chain NPM':'https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/',
+  'Artikel: Mitigasi serangan SolarWinds':'https://www.fortinet.com/resources/cyberglossary/solarwinds-cyber-attack',
+  'Artikel: Mitigasi serangan XZ utils backdoor':'https://www.akamai.com/blog/security-research/critical-linux-backdoor-xz-utils-discovered-what-to-know',
+  
+  'Youtube: Penjelasan APT':'https://youtu.be/foSyqwiGBf4?si=oEuonmqMECU1xWAR',
+  'Artikel: Nation state actors & contoh real':'https://www.cisa.gov/topics/cyber-threats-and-advisories/nation-state-cyber-actors',
+  
+  'Youtube: Email phishing':'https://youtu.be/EUYUTxeoTYc?si=lrkNZ9XKcsiVzo9v',
+  'Artikel: Phishing, spear-phishing, whaling':'https://www.mantra.ms/blog/phishing-spear-phishing-smishing-vishing-whaling-guide',
+  'Tools: Gophish':'https://getgophish.com/',
+  'Tools: PhishTank':'https://www.phishtank.net/',
+  
+  'Artikel: AI untuk phishing':'www.checkpoint.com/cyber-hub/threat-prevention/what-is-phishing/ai-phishing-attacks/',
+  'Artikel: Anatomi deepfake voice':'https://www.group-ib.com/blog/voice-deepfake-scams/',
+  'Youtube: Contoh deepfake':'https://youtu.be/3wVpVH0Wa6E?si=fXi3OxkzTjfVnMYJ',
+  'Youtube: Apa itu deepfake':'https://youtu.be/PpqGFHdVoUo?si=RwbQ6ge-7VBr4k3o',
+  
+  'Youtube: Vishing':'https://youtu.be/_81Sq2tV2BE?si=LQDxHgCUbektyMV7',
+  'Youtube: Smishing':'https://youtu.be/6INueq0JqPM?si=sZy99CfLzITkfMg-',
+  'Youtube: Contoh voice scam':'https://youtu.be/r8KfG5KW1vc?si=uJm2r3hZ1Fkvz4XK',
+  'Artikel: Contoh sms scam':'https://www.ocbc.id/id/article/2024/07/04/contoh-sms-penipuan-pinjaman-online-yang-perlu-kamu-waspadai',
+  
+  'Youtube: Business Email Compromise':'https://youtu.be/UGTNTwkWiFk?si=FLlWhAhNM3hN_48C',
+  'Jurnal: BEC fraud':'https://apfjournal.or.id/index.php/apf/article/view/307',
+  'Artikel: Penjelasan BEC':'https://www.cisco.com/site/us/en/learn/topics/security/what-is-business-email-compromise-bec.html',
+  
+  'Artikel: Apa itu security awareness training':'https://www.primacs.co.id/post/apa-itu-security-awareness-training-dan-manfaatnya',
+  'Youtube: Security awareness':'https://youtu.be/W_Npxwk4fbI?si=Hw-kM-qTJcc-DRC1',
+  'Artikel: Email security':'https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/',
+  'Youtube: dmarc, dkim, spf':'https://youtu.be/6TjUrX7lB7I?si=VprVMij70KXOPzMj',
+  
+  'Artikel: Mengenali serangan MITM':'https://www.ibm.com/id-id/think/topics/man-in-the-middle',
+  'Youtube: Penjelasan ARP spoofing':'https://youtu.be/cZ-7R8juECk?si=nexiWlwPZJuexwvT',
+  'Youtube: Penjelasan DSN poisoning':'https://youtu.be/2QijB5GtNE4?si=YI5j_LAxyMW_UanK',
+  'Youtube: SSL stripping':'https://youtu.be/1MIlywzKSt0?si=wfYdTj39AGG07ne6',
+  
+  'Youtube: Penjelasan DoS':'https://youtu.be/TQ4TKPdD7YI?si=wFH62fcjK-PcW8Nm',
+  'Youtube: Penjelasan DDoS':'https://youtu.be/bnisk1wpyJE?si=yR0CEKlbXnEh0tAk',
+  'Youtube: 7 Jenis serangan DoS':'https://youtu.be/W09cfc3Fl1Q?si=PVNlxuGW8VIrxSS1',
+  'Youtube: Cara ngatasin DoS':'https://youtu.be/zRpGtFu3uWw?si=bMIAyySxs8tDIGl4',
+  'Artikel: Memahami serangan DDoS di layer aplikasi':'https://www.cloudflare.com/learning/ddos/application-layer-ddos-attack/',
+  
+  'Youtube: Penjelasan IP dan Port scanning':'https://youtu.be/wW8hntf4S-c?si=drPMt9pHAr-nP5uq',
+  'Youtube: Playlist Nmap':'https://youtube.com/playlist?list=PLC-N6VQz1oqco1c2WRBxnJ-1kyc0ADEzg&si=8gb3KK5GS9ILVxao',
+  'Tools: Nmap':'https://nmap.org/',
+  'Artikel: Nmap Cheat Sheet':'https://www.stationx.net/nmap-cheat-sheet/',
+  
+  'Youtube: Packet sniffing':'https://youtu.be/h6bPC7H6j48?si=na1TJt7kQZqF-SDr',
+  'Artikel: Scapy basics':'https://scapy.readthedocs.io/en/latest/usage.html',
+  'Youtube: Packet manipulasi dan sniffing dengan scapy':'https://youtu.be/LvaII2PEwcQ?si=QXWphN9xUo91NGiR',
+  
+  'Youtube: Penjelasan Next Generation Firewall':'https://youtu.be/KsELeMSYZN0?si=lNDJ3EWB7DZX5Wt4',
+  'Youtube: IDS vs IPS':'https://youtu.be/NLLN4ynrono?si=AweLipm490guaG1U',
+  'Artikel: Snort vs Suricata':'https://www.stamus-networks.com/suricata-vs-snort',
+  'Artikel: Network segmentation':'https://www.cisco.com/site/us/en/learn/topics/security/what-is-network-segmentation.html',
+  
+  'Artikel: OWASP A01 Broken Authentication':'https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/',
+  'Lab: IDOR':'https://portswigger.net/web-security/access-control/idor',
+  'Lab: Path Traversal':'https://portswigger.net/web-security/file-path-traversal',
+  'Lab: Privilege escalation':'https://portswigger.net/web-security/prototype-pollution/server-side/lab-privilege-escalation-via-server-side-prototype-pollution',
+  
+  'Youtube: Penjelasan SQLi':'https://youtu.be/d1EotsACUl0?si=AIqAJHyb7z4dxGat',
+  'Lab: SQL Injection':'https://portswigger.net/web-security/sql-injection',
+  
+  'Youtube: Penjelasan XSS':'https://youtu.be/k80RPTpRLDc?si=qbaloRJIXG2NEOvp',
+  'Lab: XSS':'https://portswigger.net/web-security/cross-site-scripting',
+  
+  'Lab: XXE':'https://portswigger.net/web-security/xxe',
+  'Lab: CSRF':'https://portswigger.net/web-security/csrf',
+  'Lab: SSRF':'https://portswigger.net/web-security/ssrf',
+  'Lab: Insecure deserialization':'https://portswigger.net/web-security/deserialization',
+  
+  'Artikel: Mengenali Burp Suite':'https://idcloudhost.com/blog/kenali-burp-suite-tools/',
+  'Youtube: Tutorial Burp Suite':'https://youtu.be/qw4JzhjASDc?si=Ulmx19jdUgPcsaJN',
+  'Tools: Burp Suite Community Edition':'https://portswigger.net/burp/communitydownload',
+  
+  'Artikel: Pengenalan CVE':'https://www.ibm.com/id-id/think/topics/cve',
+  'Tools: CVE database':'https://www.cve.org/',
+  'Tools: CVE Calculator Scoring 3.1':'https://www.first.org/cvss/calculator/3.1',
+  'Artikel: NVD NIST':'https://nvd.nist.gov/vuln-metrics/cvss',
+  'Youtube: Cara baca CVE':'https://youtu.be/kM1eVOZNxR8?si=6NiuesIiK6aWvlDS',
+  
+  'Youtube: Vulnerability scanning':'https://youtu.be/9qirxbJzWS8?si=hmVywzPyBOGRCNda',
+  'Youtube: Perbedaan VA dan PT':'https://youtu.be/M7SeO85tQ90?si=stTRIlilDRC5QBbB',
+  'Tools: Nessus':'https://www.tenable.com/products/nessus',
+  'Tools: Open VAS':'https://www.greenbone.net/en/openvas-free/',
+  
+  'Youtube: Penjelasan Exploitdb':'https://youtu.be/ixtOykwoPUY?si=9V6-D2hGQM0dSMTR',
+  'Tools: Exploitdb':'https://www.exploit-db.com/',
+  'Tools: Searchsploit':'https://hackviser.com/tactics/tools/searchsploit',
+  
+  'Youtube: Patch & lifecycle management':'https://youtu.be/JlGmDwHGIf8?si=1Uz25mbehXvHQm_5',
+  'Artikel: Patch management lifecycle':'https://www.ninjaone.com/blog/patch-management-lifecycle-explained/',
+  'Artikel: Risk-based vulnerability':'https://www.paloaltonetworks.com/cyberpedia/risk-based-vulnerability-management',
+  
+  'Artikel: Cara membuat laporan VA':'https://medium.com/@YoKoKho/tips-menulis-laporan-kerentanan-3deaeaf29a7d'
 };
 
 const state = {
