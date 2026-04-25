@@ -370,8 +370,26 @@ const CAREERS = {
 const state = {
   career:'soc',
   bg:'student',
-  pace:'normal'
+  pace:'normal',
+  source:'manual'
 };
+
+function normalizeCareerId(career){
+  const aliases = {
+    cloud_sec:'cloud'
+  };
+  return aliases[career] || career;
+}
+
+function normalizeBgId(bg){
+  const aliases = {
+    bg_it:'dev',
+    bg_biz:'biz',
+    bg_academic:'student',
+    bg_fresh:'student'
+  };
+  return aliases[bg] || bg;
+}
 
 function toTitle(str){
   return str.replace(/_/g,' ').replace(/\b\w/g, s => s.toUpperCase());
@@ -606,6 +624,12 @@ function renderSummary(data){
         </div>
       </div>
 
+      ${state.source === 'assessment' ? `
+        <div class="lpv-assess-banner">
+          Jalur ini dibuka dari hasil assessment kamu. Kamu tetap bisa mengganti karier, background, dan tempo belajar di halaman ini untuk membandingkan skenario lain.
+        </div>
+      ` : ''}
+
       <div class="lpv-grid">
         <div class="lpv-box">
           <div class="lpv-box-head">3 Topik Utama</div>
@@ -692,19 +716,22 @@ function syncUrl(){
   params.set('career', state.career);
   params.set('bg', state.bg);
   params.set('pace', state.pace);
+  if (state.source) params.set('source', state.source);
   const newUrl = `${window.location.pathname}?${params.toString()}`;
   window.history.replaceState({}, '', newUrl);
 }
 
 function hydrateFromUrl(){
   const params = new URLSearchParams(window.location.search);
-  const career = params.get('career');
-  const bg = params.get('bg');
+  const career = normalizeCareerId(params.get('career'));
+  const bg = normalizeBgId(params.get('bg'));
   const pace = params.get('pace');
+  const source = params.get('source');
 
   if (career && CAREERS[career]) state.career = career;
   if (bg && BACKGROUNDS.some(b => b.id === bg)) state.bg = bg;
   if (pace && PACES.some(p => p.id === pace)) state.pace = pace;
+  if (source) state.source = source;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
