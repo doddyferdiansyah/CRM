@@ -1,6 +1,6 @@
-/* Assessment page only */
+/* Assessment v3 — keeps the same visual language */
 .assess-wrap{
-  max-width:780px;
+  max-width:760px;
   margin:0 auto;
   padding:52px 20px;
   position:relative;
@@ -44,9 +44,9 @@
 .result-card{
   background:var(--card);
   border:1px solid;
-  padding:32px;
+  padding:28px;
   display:none;
-  animation:fu .5s ease both;
+  animation:fu .45s ease both;
 }
 .result-card.on{display:block}
 .res-top{
@@ -81,56 +81,82 @@
   gap:10px;
   margin-bottom:18px;
 }
-.res-summary-card{
+.res-box{
   background:var(--s1);
   border:1px solid var(--border);
-  padding:14px 16px;
+  padding:12px 14px;
 }
-.res-summary-label{
+.res-box-label{
+  font-size:9px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--text2);
+  margin-bottom:5px;
+}
+.res-box-value{
+  font-size:12px;
+  color:var(--white);
+  line-height:1.6;
+}
+.res-box-value strong{color:var(--white)}
+.res-topics{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.res-topic{
+  background:var(--s1);
+  border:1px solid var(--border);
+  padding:10px 12px;
+  font-size:11px;
+  color:var(--white);
+}
+.res-career-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-bottom:18px;
+}
+.res-career-card{
+  background:var(--s1);
+  border:1px solid var(--border);
+  padding:14px;
+}
+.res-career-kicker{
   font-size:9px;
   letter-spacing:1.5px;
   text-transform:uppercase;
   color:var(--text2);
   margin-bottom:6px;
 }
-.res-summary-value{
+.res-career-title{
   font-size:12px;
   color:var(--white);
-  line-height:1.6;
+  margin-bottom:4px;
+  font-weight:700;
 }
-.res-summary-value strong{color:var(--L1)}
-
-.res-topics{
-  background:var(--s1);
-  border:1px solid var(--border);
-  padding:16px;
-  margin-bottom:18px;
-}
-.res-section-title{
+.res-career-sub{
   font-size:10px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
   color:var(--text2);
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
-.res-topic-list{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:8px;
-}
-.res-topic-item{
-  padding:10px 12px;
-  background:var(--card2);
-  border:1px solid var(--border);
-  color:var(--white);
+.res-career-desc{
   font-size:11px;
-  line-height:1.6;
+  color:var(--text);
+  line-height:1.7;
+}
+.res-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.res-chip{
+  font-size:9px;
+  padding:2px 8px;
+  border:1px solid var(--border2);
+  color:var(--text2);
 }
 
 .res-path-title{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:12px}
 .rp-list{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
 .rp-row{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--s1);border:1px solid var(--border)}
-.rp-row.skip{opacity:.3}
+.rp-row.skip{opacity:.35}
 .rp-row.skip .rp-name{text-decoration:line-through}
 .rp-n{
   font-family:var(--sans);
@@ -155,10 +181,10 @@
   to{opacity:1;transform:none}
 }
 
-@media (max-width: 640px){
+@media (max-width: 680px){
   .assess-wrap{padding:32px 16px}
   .qcard,.result-card{padding:20px}
   .q-foot{gap:10px;align-items:flex-start;flex-direction:column}
   .rp-row{align-items:flex-start;flex-wrap:wrap}
-  .res-summary{grid-template-columns:1fr}
+  .res-summary,.res-career-grid{grid-template-columns:1fr}
 }
