@@ -1,4 +1,4 @@
-// Assessment page only
+// Assessment page only — sharpened version
 
 const Qs = [
   {cat:'Latar Belakang',text:'Apa latar belakang pendidikan atau pekerjaan kamu saat ini?',hint:'Ini menentukan titik start belajarmu.',
@@ -33,11 +33,11 @@ const Qs = [
    opts:[{em:'⚡',l:'Dalam 6 bulan',s:'Butuh hasil cepat.',v:'urgency_fast'},
          {em:'📅',l:'Dalam 1–2 tahun',s:'Ingin fondasi kuat, tidak terburu-buru.',v:'urgency_normal'},
          {em:'🌱',l:'Tidak ada target waktu',s:'Belajar santai sesuai kecepatan sendiri.',v:'urgency_slow'}]},
-  {cat:'AI & Teknologi',text:'Apakah kamu sudah menggunakan atau membangun produk berbasis AI (ChatGPT, LLM, API AI, dsb.)?',hint:'Relevan untuk menentukan apakah Fase AI Security diprioritaskan.',
+  {cat:'AI & Teknologi',text:'Apakah kamu sudah menggunakan atau membangun produk berbasis AI (ChatGPT, LLM, API AI, dsb.)?',hint:'Relevan untuk menentukan apakah fase AI Security diprioritaskan.',
    opts:[{em:'🤖',l:'Ya, saya aktif pakai dan membangun dengan AI',s:'Pakai API, fine-tune model, atau deploy AI agent.',v:'ai_high'},
          {em:'👋',l:'Pakai sebagai user, belum membangun',s:'Pakai ChatGPT, Copilot, dsb. tapi tidak develop.',v:'ai_mid'},
          {em:'🙅',l:'Belum atau sangat jarang',s:'Hampir tidak pernah pakai AI tools.',v:'ai_low'}]},
-  {cat:'Regulasi & Compliance',text:'Apakah pekerjaanmu atau organisasimu berkaitan dengan data pribadi, keuangan, atau kesehatan?',hint:'Menentukan apakah Fase GRC diprioritaskan.',
+  {cat:'Regulasi & Compliance',text:'Apakah pekerjaanmu atau organisasimu berkaitan dengan data pribadi, keuangan, atau kesehatan?',hint:'Menentukan apakah fase GRC diprioritaskan.',
    opts:[{em:'🏦',l:'Ya — keuangan / fintech / perbankan',s:'Terikat PCI DSS, regulasi OJK.',v:'reg_finance'},
          {em:'🏥',l:'Ya — kesehatan / healthcare',s:'Terikat HIPAA, data medis.',v:'reg_health'},
          {em:'🏢',l:'Ya — bisnis umum dengan data pelanggan',s:'Terikat UU PDP, GDPR.',v:'reg_general'},
@@ -55,6 +55,102 @@ const Qs = [
          {em:'📝',l:'Bisa, tapi perlu banyak latihan',s:'Sudah pernah tapi tidak terlalu percaya diri.',v:'comm_mid'},
          {em:'😓',l:'Ini kelemahan saya',s:'Lebih nyaman dengan hal teknis daripada komunikasi.',v:'comm_low'}]},
 ];
+
+const TRACK_CONFIG = {
+  red: {
+    profile: {
+      emoji:'🔴',
+      color:'var(--L5)',
+      name:'Calon Red Teamer / Ethical Hacker',
+      badge:'Red Team Track',
+      desc:'Kamu punya minat offensif yang kuat. Jalurmu akan fokus pada fondasi teknis, web security, network attack, dan pembiasaan berpikir seperti attacker secara etis.'
+    },
+    primaryCareer:'Red Team / Penetration Tester',
+    altCareer:'Application Security Engineer',
+    phase9NormalWeeks:[20, 28],
+    phase9Name:'Spesialisasi Red Team & Karier',
+    topicsStartEarly:['Sistem Operasi Linux','Jaringan Komputer','Web App Security — OWASP Top 10'],
+    topicsStartMid:['Web App Security — OWASP Top 10','Serangan & Pertahanan Jaringan','Vulnerability Assessment']
+  },
+  blue: {
+    profile: {
+      emoji:'🔵',
+      color:'var(--L1)',
+      name:'Calon Blue Teamer / SOC Analyst',
+      badge:'Blue Team Track',
+      desc:'Kamu paling cocok ke jalur pertahanan. Fokusmu akan condong ke monitoring, incident response, analisis log, dan operasi keamanan harian.'
+    },
+    primaryCareer:'Blue Team / SOC Analyst',
+    altCareer:'Threat Hunter / Incident Responder',
+    phase9NormalWeeks:[16, 24],
+    phase9Name:'Spesialisasi Blue Team & Karier',
+    topicsStartEarly:['Jaringan Komputer','Konsep Keamanan Inti','Serangan & Pertahanan Jaringan'],
+    topicsStartMid:['Serangan & Pertahanan Jaringan','SOC & Operasi Keamanan','Digital Forensics Dasar']
+  },
+  ai: {
+    profile: {
+      emoji:'🤖',
+      color:'var(--red)',
+      name:'Calon AI Security Engineer',
+      badge:'AI Security Track',
+      desc:'Kamu cocok masuk ke domain AI Security. Fokusmu akan bergerak dari fondasi security ke OWASP LLM, model security, prompt injection, dan agentic AI.'
+    },
+    primaryCareer:'AI Security Engineer',
+    altCareer:'AI AppSec / Security Researcher',
+    phase9NormalWeeks:[20, 30],
+    phase9Name:'Spesialisasi AI Security & Karier',
+    topicsStartEarly:['Kriptografi Klasik','Konsep Keamanan Inti','OWASP LLM Top 10 & AI Threats'],
+    topicsStartMid:['OWASP LLM Top 10 & AI Threats','Agentic AI Security','Model Security & Data Poisoning']
+  },
+  grc: {
+    profile: {
+      emoji:'⚖️',
+      color:'var(--L4)',
+      name:'Calon GRC / Compliance Analyst',
+      badge:'GRC Track',
+      desc:'Kamu paling dekat dengan governance, risk, dan compliance. Jalurmu akan fokus pada risk thinking, ISO 27001, regulasi, dan komunikasi keamanan.'
+    },
+    primaryCareer:'GRC / Compliance Analyst',
+    altCareer:'Risk Analyst / Security Awareness Lead',
+    phase9NormalWeeks:[12, 20],
+    phase9Name:'Spesialisasi GRC & Karier',
+    topicsStartEarly:['Konsep Keamanan Inti','Security Communication','Manajemen Risiko'],
+    topicsStartMid:['Security Communication','Manajemen Risiko','ISO/IEC 27001:2022']
+  },
+  explorer: {
+    profile: {
+      emoji:'🧭',
+      color:'var(--L2)',
+      name:'Explorer — Full Foundation Track',
+      badge:'Full Exploration Track',
+      desc:'Kamu belum memilih minat spesifik, dan itu bagus. Jalurmu akan memprioritaskan fondasi luas supaya nanti bisa memilih spesialisasi dengan lebih yakin.'
+    },
+    primaryCareer:'SOC Analyst / Generalist Security Starter',
+    altCareer:'Application Security / GRC (setelah eksplorasi)',
+    phase9NormalWeeks:[20, 28],
+    phase9Name:'Spesialisasi & Karier',
+    topicsStartEarly:['Literasi Komputer & Internet','Jaringan Internet Dasar','Mindset & Ekosistem Keamanan'],
+    topicsStartMid:['Sistem Operasi Linux','Jaringan Komputer','Konsep Keamanan Inti']
+  }
+};
+
+const PHASE_LIBRARY = [
+  {id:'p0', level:'Level Dasar', name:'Pra-Fondasi: Literasi Digital', normalWeeks:[2,4]},
+  {id:'p1', level:'Level Dasar', name:'Fondasi Teknis', normalWeeks:[6,8]},
+  {id:'p2', level:'Level Dasar', name:'Kriptografi & Post-Quantum', normalWeeks:[5,7]},
+  {id:'p3', level:'Level Menengah', name:'Serangan & Pertahanan', normalWeeks:[8,10]},
+  {id:'p4', level:'Level Menengah', name:'Infrastruktur & Cloud', normalWeeks:[6,8]},
+  {id:'p5', level:'Level Menengah', name:'Security Communication', normalWeeks:[3,4]},
+  {id:'p6', level:'Level Tinggi', name:'Governance, Risk & Regulasi', normalWeeks:[5,7]},
+  {id:'p7', level:'Level Tinggi', name:'SOC & Operasi Keamanan', normalWeeks:[6,8]},
+  {id:'p8', level:'Level Tinggi', name:'AI Security & Agentic AI', normalWeeks:[4,6]}
+];
+
+const PACE_CONFIG = {
+  intensif: {label:'Intensif (~15 jam+/minggu)', factor:0.65},
+  normal:   {label:'Normal (5–15 jam/minggu)', factor:1.00},
+  santai:   {label:'Santai (<5 jam/minggu)', factor:1.60}
+};
 
 let answers = {};
 let curQ = 0;
@@ -116,6 +212,26 @@ function updProg(done=false){
   document.getElementById('pPct').textContent = pct + '%';
 }
 
+function weeksToMonths(weeks){
+  return weeks / 4.3;
+}
+
+function fmtMonths(minW, maxW){
+  const minM = weeksToMonths(minW);
+  const maxM = weeksToMonths(maxW);
+  if (Math.abs(minM - maxM) < 0.3) {
+    return `${maxM.toFixed(1)} bulan`;
+  }
+  return `${minM.toFixed(1)}–${maxM.toFixed(1)} bulan`;
+}
+
+function fmtWeeks(minW, maxW){
+  const a = Math.round(minW);
+  const b = Math.round(maxW);
+  if (a === b) return `${a} mgg`;
+  return `${a}–${b} mgg`;
+}
+
 function calcProfile(){
   const a = answers;
 
@@ -127,79 +243,99 @@ function calcProfile(){
 
   const isIT = a[0] === 'bg_it';
   const knowHigh = a[2] === 'know_high';
+  const knowMid = a[2] === 'know_mid';
   const cliYes = a[1] === 'cli_yes';
-  const skipL0 = isIT && knowHigh && cliYes;
+  const cliMaybe = a[1] === 'cli_maybe';
 
-  const pace =
+  const paceKey =
     (a[5] === 'time_high' && a[10] === 'commit_high') ? 'intensif' :
     (a[5] === 'time_low' || a[10] === 'commit_low') ? 'santai' : 'normal';
 
+  const pace = PACE_CONFIG[paceKey];
   const aiPriority = a[7] === 'ai_high' || a[4] === 'int_ai' || a[3] === 'goal_ai';
   const grcPriority = a[8] !== 'reg_none' || a[4] === 'int_grc';
   const needComm = a[11] === 'comm_low';
   const urgent = a[6] === 'urgency_fast';
 
-  const profiles = {
-    red:{
-      emoji:'🔴',
-      color:'var(--L5)',
-      name:'Calon Red Teamer / Ethical Hacker',
-      badge:'Red Team Track',
-      desc:'Kamu punya minat offensif yang kuat. Learning path-mu akan fokus pada exploitation, pentesting methodology, dan fondasi untuk jalur pentest.'
-    },
-    blue:{
-      emoji:'🔵',
-      color:'var(--L1)',
-      name:'Calon Blue Teamer / SOC Analyst',
-      badge:'Blue Team Track',
-      desc:'Peran SOC Analyst sangat relevan untuk kebutuhan industri. Learning path-mu memprioritaskan SIEM, threat hunting, dan incident response.'
-    },
-    ai:{
-      emoji:'🤖',
-      color:'var(--red)',
-      name:'Calon AI Security Engineer',
-      badge:'AI Security Track',
-      desc:'Kamu paling cocok masuk ke jalur AI Security. Fokus utamamu akan mengarah ke OWASP LLM, prompt injection, model security, dan agentic AI.'
-    },
-    grc:{
-      emoji:'⚖️',
-      color:'var(--L4)',
-      name:'Calon GRC / Compliance Analyst',
-      badge:'GRC Track',
-      desc:'Kamu cocok ke jalur governance, risk, dan compliance. Learning path-mu fokus pada ISO 27001, manajemen risiko, serta regulasi.'
-    },
-    explorer:{
-      emoji:'🧭',
-      color:'var(--L2)',
-      name:'Explorer — Full Foundation Track',
-      badge:'Full Exploration Track',
-      desc:'Kamu belum memilih minat spesifik, dan itu keputusan yang baik. Learning path-mu akan memberi fondasi menyeluruh sebelum memilih spesialisasi.'
-    },
+  let startPhaseId = 'p0';
+  if (isIT && knowHigh && cliYes) startPhaseId = 'p1';
+  else if (isIT && (knowHigh || knowMid) && (cliYes || cliMaybe)) startPhaseId = 'p1';
+  else if ((a[3] === 'goal_biz' || track === 'grc') && !isIT && a[2] !== 'know_low') startPhaseId = 'p0';
+
+  const startPhaseIndex = PHASE_LIBRARY.findIndex(p => p.id === startPhaseId);
+
+  const phasePlan = PHASE_LIBRARY.map((phase, idx) => {
+    let skip = idx < startPhaseIndex;
+    if (phase.id === 'p8' && !aiPriority && track === 'grc' && urgent) skip = true;
+    if (phase.id === 'p6' && track === 'red' && !grcPriority) skip = true;
+
+    const minWeeks = phase.normalWeeks[0] * pace.factor;
+    const maxWeeks = phase.normalWeeks[1] * pace.factor;
+
+    return {
+      ...phase,
+      skip,
+      minWeeks,
+      maxWeeks,
+      durLabel: fmtWeeks(minWeeks, maxWeeks)
+    };
+  });
+
+  const phase9Base = TRACK_CONFIG[track].phase9NormalWeeks;
+  const phase9 = {
+    id:'p9',
+    level:'Level Ahli / Spesialis',
+    name:TRACK_CONFIG[track].phase9Name,
+    skip:false,
+    minWeeks:phase9Base[0] * pace.factor,
+    maxWeeks:phase9Base[1] * pace.factor
   };
+  phase9.durLabel = fmtWeeks(phase9.minWeeks, phase9.maxWeeks);
+  phasePlan.push(phase9);
 
-  const prof = profiles[track];
-  const paceLabel = {
-    intensif:'Intensif (~15 jam+/minggu)',
-    normal:'Normal (5–15 jam/minggu)',
-    santai:'Santai (<5 jam/minggu)'
-  }[pace];
+  const activePhases = phasePlan.filter(p => !p.skip);
+  const totalMinWeeks = activePhases.reduce((sum, p) => sum + p.minWeeks, 0);
+  const totalMaxWeeks = activePhases.reduce((sum, p) => sum + p.maxWeeks, 0);
 
-  const phases = [
-    {n:'0',name:'Pra-Fondasi: Literasi Digital',c:'var(--L1)',skip:skipL0,dur:pace==='intensif'?'1 mgg':pace==='santai'?'4 mgg':'2–3 mgg'},
-    {n:'1',name:'Fondasi Teknis',c:'var(--L1)',skip:false,dur:pace==='intensif'?'4 mgg':pace==='santai'?'12 mgg':'6–8 mgg'},
-    {n:'2',name:'Kriptografi & Post-Quantum',c:'var(--L1)',skip:false,dur:pace==='intensif'?'3 mgg':pace==='santai'?'8 mgg':'4–6 mgg'},
-    {n:'3',name:'Serangan & Pertahanan',c:'var(--L2)',skip:false,dur:pace==='intensif'?'5 mgg':pace==='santai'?'14 mgg':'8–10 mgg'},
-    {n:'4',name:'Infrastruktur & Cloud',c:'var(--L2)',skip:false,dur:pace==='intensif'?'4 mgg':pace==='santai'?'10 mgg':'6–8 mgg'},
-    {n:'5',name:'Governance, Risk & Regulasi',c:'var(--L3)',skip:track==='red' && !grcPriority,dur:pace==='intensif'?'3 mgg':pace==='santai'?'8 mgg':'4–6 mgg'},
-    {n:'6',name:'SOC & Operasi Keamanan',c:'var(--L3)',skip:track==='grc' && !urgent,dur:pace==='intensif'?'4 mgg':pace==='santai'?'10 mgg':'6–8 mgg'},
-    {n:'7',name:'AI Security & Agentic AI',c:'var(--L3)',skip:!aiPriority && urgent && track==='grc',dur:pace==='intensif'?'3 mgg':pace==='santai'?'8 mgg':'4–6 mgg'},
-    {n:'8',name:'Security Communication',c:'var(--L2)',skip:false,dur:pace==='intensif'?'2 mgg':pace==='santai'?'5 mgg':'3–4 mgg'},
-    {n:'9',name:'Spesialisasi & Karier',c:'var(--L4)',skip:false,dur:pace==='intensif'?'12 mgg':'6–12 bln'},
-  ];
+  const startPhase = phasePlan.find(p => p.id === startPhaseId);
+  const startLevel = startPhase.level;
 
-  const startIdx = phases.findIndex(p=>!p.skip);
+  let priorityTopics = TRACK_CONFIG[track].topicsStartEarly;
+  if (startPhaseId !== 'p0') {
+    priorityTopics = TRACK_CONFIG[track].topicsStartMid;
+  }
 
-  return {prof, phases, paceLabel, aiPriority, grcPriority, needComm, urgent, isIT, startIdx};
+  if (track === 'explorer' && startPhaseId === 'p1') {
+    priorityTopics = ['Sistem Operasi Linux','Jaringan Komputer','Konsep Keamanan Inti'];
+  }
+
+  if (track === 'grc' && grcPriority && startPhaseId === 'p0') {
+    priorityTopics = ['Mindset & Ekosistem Keamanan','Security Communication','Manajemen Risiko'];
+  }
+
+  const notes = [];
+  if (startPhaseId === 'p1') notes.push('✓ Fondasi digital dasar bisa dipadatkan; kamu bisa langsung masuk ke fase teknis.');
+  if (aiPriority) notes.push('→ Topik AI Security sebaiknya tidak ditunda terlalu lama.');
+  if (grcPriority) notes.push('📋 Konteks kerja/regulasi membuat jalur GRC perlu diprioritaskan.');
+  if (needComm) notes.push('💬 Security Communication perlu dijadikan fokus penguat, bukan pelengkap.');
+  if (urgent) notes.push('⚡ Gunakan pendekatan cepat: fokus pada topik MUST, jangan buka terlalu banyak jalur sekaligus.');
+
+  return {
+    prof: TRACK_CONFIG[track].profile,
+    paceLabel: pace.label,
+    track,
+    startLevel,
+    startPhase: startPhase.name,
+    startPhaseId,
+    priorityTopics,
+    primaryCareer: TRACK_CONFIG[track].primaryCareer,
+    altCareer: TRACK_CONFIG[track].altCareer,
+    phasePlan,
+    totalMinWeeks,
+    totalMaxWeeks,
+    totalMonthsLabel: fmtMonths(totalMinWeeks, totalMaxWeeks),
+    notes
+  };
 }
 
 function showResult(){
@@ -210,39 +346,66 @@ function showResult(){
   qArea.style.display = 'none';
   rArea.style.display = 'block';
 
-  const {prof, phases, paceLabel, aiPriority, grcPriority, needComm, urgent, isIT, startIdx} = calcProfile();
-
-  const notes = [];
-  if(isIT) notes.push('✓ Background IT kamu memungkinkan melewati beberapa fase awal');
-  if(aiPriority) notes.push('→ Fase AI Security diprioritaskan dalam jalurmu');
-  if(grcPriority) notes.push('📋 Fase GRC & Regulasi diprioritaskan berdasarkan konteks kerjamu');
-  if(needComm) notes.push('💬 Security Communication direkomendasikan sebagai fokus tambahan');
-  if(urgent) notes.push('⚡ Mode cepat: fokus pada topik MUST terlebih dahulu');
+  const result = calcProfile();
 
   rArea.innerHTML = `
-    <div class="result-card on" style="border-color:${prof.color}">
+    <div class="result-card on" style="border-color:${result.prof.color}">
       <div class="res-top">
-        <div class="res-emoji">${prof.emoji}</div>
+        <div class="res-emoji">${result.prof.emoji}</div>
         <div>
-          <div class="res-badge" style="border-color:${prof.color};color:${prof.color}">${prof.badge}</div>
-          <div class="res-name">${prof.name}</div>
-          <div class="res-desc">${prof.desc}</div>
-          <div class="res-pace">Tempo: <strong>${paceLabel}</strong></div>
-          ${notes.length ? `<div class="res-notes">${notes.map(n=>`<div class="res-note">${n}</div>`).join('')}</div>` : ''}
+          <div class="res-badge" style="border-color:${result.prof.color};color:${result.prof.color}">${result.prof.badge}</div>
+          <div class="res-name">${result.prof.name}</div>
+          <div class="res-desc">${result.prof.desc}</div>
+          <div class="res-pace">Tempo belajar: <strong>${result.paceLabel}</strong></div>
+          ${result.notes.length ? `<div class="res-notes">${result.notes.map(n => `<div class="res-note">${n}</div>`).join('')}</div>` : ''}
+        </div>
+      </div>
+
+      <div class="res-summary">
+        <div class="res-summary-card">
+          <div class="res-summary-label">Rekomendasi Level Awal</div>
+          <div class="res-summary-value"><strong>${result.startLevel}</strong></div>
+        </div>
+        <div class="res-summary-card">
+          <div class="res-summary-label">Fase Awal</div>
+          <div class="res-summary-value"><strong>${result.startPhase}</strong></div>
+        </div>
+        <div class="res-summary-card">
+          <div class="res-summary-label">Karier Utama</div>
+          <div class="res-summary-value">${result.primaryCareer}</div>
+        </div>
+        <div class="res-summary-card">
+          <div class="res-summary-label">Karier Alternatif</div>
+          <div class="res-summary-value">${result.altCareer}</div>
+        </div>
+        <div class="res-summary-card">
+          <div class="res-summary-label">Estimasi Total Belajar</div>
+          <div class="res-summary-value"><strong>${result.totalMonthsLabel}</strong></div>
+        </div>
+        <div class="res-summary-card">
+          <div class="res-summary-label">Estimasi Mingguan</div>
+          <div class="res-summary-value">${Math.round(result.totalMinWeeks)}–${Math.round(result.totalMaxWeeks)} minggu</div>
+        </div>
+      </div>
+
+      <div class="res-topics">
+        <div class="res-section-title">3 Topik Utama untuk Dimulai</div>
+        <div class="res-topic-list">
+          ${result.priorityTopics.map(item => `<div class="res-topic-item">${item}</div>`).join('')}
         </div>
       </div>
 
       <div class="res-path-title">Learning Path Personalisasi Kamu</div>
       <div class="rp-list">
-        ${phases.map((p,i)=>`
-          <div class="rp-row ${p.skip?'skip':''}">
-            <div class="rp-n" style="color:${p.c};border-color:${p.c}">${p.n}</div>
+        ${result.phasePlan.map((p,i)=>`
+          <div class="rp-row ${p.skip ? 'skip' : ''}">
+            <div class="rp-n" style="color:${i <= 2 ? 'var(--L1)' : i <= 5 ? 'var(--L2)' : i <= 8 ? 'var(--L3)' : 'var(--L4)'};border-color:${i <= 2 ? 'var(--L1)' : i <= 5 ? 'var(--L2)' : i <= 8 ? 'var(--L3)' : 'var(--L4)'}">${p.id.replace('p','')}</div>
             <div class="rp-name">${p.name}</div>
-            <div class="rp-dur">${p.skip ? 'Dapat dilewati' : p.dur}</div>
+            <div class="rp-dur">${p.skip ? 'Dapat dilewati' : p.durLabel}</div>
             ${p.skip
               ? `<span class="rp-tag" style="border-color:var(--text2);color:var(--text2)">SKIP</span>`
-              : i===startIdx
-                ? `<span class="rp-tag" style="border-color:${p.c};color:${p.c}">MULAI SINI</span>`
+              : p.id === result.startPhaseId
+                ? `<span class="rp-tag" style="border-color:var(--L1);color:var(--L1)">MULAI SINI</span>`
                 : ''
             }
           </div>`).join('')}
@@ -262,7 +425,7 @@ function resetAssess(){
   document.getElementById('qArea').style.display = 'block';
   document.getElementById('rArea').style.display = 'none';
   document.querySelectorAll('.qcard').forEach((c,i)=>{
-    c.classList.toggle('on', i===0);
+    c.classList.toggle('on', i === 0);
     c.querySelectorAll('.q-opt').forEach(o=>o.classList.remove('sel'));
   });
   document.getElementById('pFill').style.width = '0%';
