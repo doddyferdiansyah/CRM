@@ -789,17 +789,189 @@ const phases=[
    gate:{title:'Siap lanjut ke Fase 5 jika kamu bisa…',items:['Melakukan hardening Linux dengan mengimplementasikan minimal 10 kontrol dari CIS Benchmarks Level 1','Mengkonfigurasi AWS IAM policy dengan least privilege dan menjelaskan mengapa setiap permission diberikan','Melakukan container image scanning dengan Trivy dan mengidentifikasi serta mitigasi 2 critical CVE','Mengkonfigurasi auditd untuk monitor sudo usage dan failed SSH attempts']},
    nodes:[
      {icon:'⚙️',lv:'must',lvl:'MUST',t:'Hardening Sistem Operasi',ref:'CyBOK: OS & Virtualisation Security',
-      topics:['CIS Benchmarks Level 1 & 2 — implementasi langkah per langkah','Disable unnecessary services, ports, dan SUID binaries','SELinux / AppArmor — mandatory access control','Windows GPO, Local Security Policy, dan PowerShell hardening','auditd, syslog, dan log forwarding ke remote server'],
-      tools:['CIS-CAT Lite','Lynis','OpenSCAP','Microsoft Security Compliance Toolkit']},
-     {icon:'☁️',lv:'must',lvl:'MUST',t:'Cloud Security Dasar',ref:'CyBOK: Infrastructure Security',
-      topics:['Shared Responsibility Model — siapa bertanggung jawab untuk apa','IAM: users, roles, policies, permission boundaries, least privilege','S3/Storage bucket misconfiguration — kasus nyata dan cara deteksi','VPC, security groups, NACLs, dan network segmentation di cloud','Cloud logging: CloudTrail, CloudWatch, Azure Monitor, GCP Audit Logs'],
-      tools:['AWS Free Tier','ScoutSuite','Prowler','Cloud Security Alliance']},
-     {icon:'🐳',lv:'should',lvl:'SHOULD',t:'Container & DevSecOps',ref:'CyBOK: OS & Virtualisation',
-      topics:['Docker security: non-root user, read-only filesystem, capabilities','Container image scanning: vulnerability dan malware detection','Kubernetes RBAC, network policies, pod security standards','CI/CD pipeline security: SAST, secrets scanning, dependency check','Infrastructure as Code security: Terraform, Ansible hardening'],
-      tools:['Trivy','Docker Bench','Checkov','Falco','GitHub Advanced Security']},
-     {icon:'🏰',lv:'should',lvl:'SHOULD',t:'Active Directory & IAM Enterprise',ref:'CyBOK: Authentication & Authorisation',
-      topics:['Active Directory: forest, domain, OU, trust relationships','Kerberos authentication — AS-REQ, TGT, TGS, service ticket','Kerberoasting, AS-REP Roasting, Pass-the-Hash (defensive perspective)','Privileged Access Management (PAM) dan Just-In-Time access','Zero Trust Architecture — prinsip "never trust, always verify"'],
-      tools:['Microsoft AD Lab','PingCastle','BloodHound (defensive)']},
+       topics:[
+         {
+           title:'CIS Benchmarks Level 1 & 2 — implementasi langkah per langkah',
+           resources:[
+             'Artikel: CIS Benchmark FAQ',
+             'Tools: CIS',
+             'Artikel: CIS Level 1 vs CIS Level 2',
+             'Tools: CIS-CAT Lite',
+             'Youtube: Pengenalan CIS Benchmark'
+           ]
+         },
+         {
+           title:'Disable unnecessary services, ports, dan SUID binaries',
+           resources:[
+             'Artikel: Linux server security',
+             'Youtube: Teknik hardening',
+             'Youtube: Penjelasan system hardening',
+             'Tools: lynix',
+             'Tools: OpenSCAP',
+             'Linux server hardening guide'
+           ]
+         },
+         {
+           title:'SELinux / AppArmor — mandatory access control',
+           resources:[
+             'Youtube: Mandatory Access Controls',
+             'Artikel: Apa itu SELinux',
+             'Artikel: Apa itu AppArmor',
+             'Youtube: SELinux vs AppArmor'
+           ]
+         },
+         {
+           title:'Windows GPO, Local Security Policy, dan PowerShell hardening',
+           resources:[
+             'Youtube: Pengenalan Group Policy',
+             'Artikel: Microsoft GPO',
+             'Artikel: Local Security Policy',
+             'Artikel: Secure Powershell',
+             'Tools: Security Compliance Toolkit',
+             'Artikel: Apa itu Security compliance toolkit'
+           ]
+         },
+         {
+           title:'auditd, syslog, dan log forwarding ke remote server',
+           resources:[
+             'Artikel: Penjelasan auditd',
+             'Artikel: Auditd vs syslog',
+             'Artikel: Penjelasan syslog',
+             'Youtube: Log forwarding ke syslog',
+             'Youtube: Memahami Linux logging'
+           ]
+         }
+       ]},
+      {icon:'☁️',lv:'must',lvl:'MUST',t:'Cloud Security Dasar',ref:'CyBOK: Infrastructure Security',
+       topics:[
+         {
+           title:'Shared Responsibility Model — siapa bertanggung jawab untuk apa',
+           resources:[
+             'Youtube: Memahami shared responsibility model',
+             'Artikel: AWS SRM',
+             'Artikel: Azure SRM'
+           ]
+         },
+         {
+           title:'IAM: users, roles, policies, permission boundaries, least privilege',
+           resources:[
+             'Youtube: Pengenalan IAM',
+             'Artikel: AWS IAM user role policy',
+             'Artikel: IAM Guide',
+             'Youtube: AWS access management'
+           ]
+         },
+         {
+           title:'S3/Storage bucket misconfiguration — kasus nyata dan cara deteksi',
+           resources:[
+             'Artikel: Penjelasan S3/Storage',
+             'Youtube: AWS S3 tutorial',
+             'Artikel: S3 misconfiguration',
+             'Artikel: 5 misconfiguration S3',
+             'Tools: Scout Suite',
+             'Tools: Prowler'
+           ]
+         },
+         {
+           title:'VPC, security groups, NACLs, dan network segmentation di cloud',
+           resources:[
+             'Youtube: Pengenalan VPC',
+             'Artikel: Cloud network security',
+             'Youtube: Security group vs NACL'
+           ]
+         },
+         {
+           title:'Cloud logging: CloudTrail, CloudWatch, Azure Monitor, GCP Audit Logs',
+           resources:[
+             'Youtube: cloudwatch vs cloudtrail',
+             'Artikel: Azure monitor',
+             'Artikel: GCP audit logs'
+           ]
+         }
+       ]},
+      {icon:'🐳',lv:'should',lvl:'SHOULD',t:'Container & DevSecOps',ref:'CyBOK: OS & Virtualisation',
+       topics:[
+         {
+           title:'Docker security: non-root user, read-only filesystem, capabilities',
+           resources:[
+             'Artikel: Pengenalan docker',
+             'Youtube: Docker security',
+             'Artikel: Docker bench',
+             'OWASP Docker Security Cheat Sheet',
+             'NIST 800-190: Application Container Security Guide'
+           ]
+         },
+         {
+           title:'Container image scanning: vulnerability dan malware detection',
+           resources:[
+             'OWASP DevSecOps Guideline',
+             'Youtube: Container security',
+             'Tools: Trivy',
+             'Tools: Falco'
+           ]
+         },
+         {
+           title:'Kubernetes RBAC, network policies, pod security standards',
+           resources:[
+             'Youtube: Pengenalan Kubernates',
+             'Artikel: Kubernates RBAC',
+             'Artikel: Pod Security Standards'
+           ]
+         },
+         {
+           title:'CI/CD pipeline security: SAST, secrets scanning, dependency check',
+           resources:[
+             'Youtube: Pengenalan Github',
+             'Artikel: GitHub advanced security',
+             'Tools: Checkov',
+             'OWASP CI/CD security Cheat sheet'
+           ]
+         },
+         {
+           title:'Infrastructure as Code security: Terraform, Ansible hardening',
+           resources:[
+             'Youtube: Pengenalan IaC',
+             'OWASP IaC security Cheat sheet',
+             'Artikel: Secure IaC dengan Terraform',
+             'Artikel: IaC dengan Ansible',
+             'Jurnal: security hardening menggunakan IaC'
+           ]
+         }
+       ]},
+      {icon:'🏰',lv:'should',lvl:'SHOULD',t:'Active Directory & IAM Enterprise',ref:'CyBOK: Authentication & Authorisation',
+       topics:[
+         {
+           title:'Active Directory: forest, domain, OU, trust relationships',
+           resources:[
+             'Artikel: Domain, forest, AD trust'
+           ]
+         },
+         {
+           title:'Kerberos authentication — AS-REQ, TGT, TGS, service ticket',
+           resources:[
+             'Artikel: Karberos Attack Guide'
+           ]
+         },
+         {
+           title:'Kerberoasting, AS-REP Roasting, Pass-the-Hash (defensive perspective)',
+           resources:[
+             'Artikel: AS-REP Roasting',
+             'Artikel: Pengenalan Pass the hash'
+           ]
+         },
+         {
+           title:'Privileged Access Management (PAM) dan Just-In-Time access',
+           resources:[
+             'Artikel: PAM dan  Just in time access'
+           ]
+         },
+         {
+           title:'Zero Trust Architecture — prinsip "never trust, always verify"',
+           resources:[
+             'NIST 800-207: Zero Trust Architecture'
+           ]
+         }
+       ]},
    ]},
 
 // ── L2 Fase 5 — Security Communication NEW ──
@@ -1346,7 +1518,99 @@ const RESOURCE_LINKS = {
   'Artikel: Patch management lifecycle':'https://www.ninjaone.com/blog/patch-management-lifecycle-explained/',
   'Artikel: Risk-based vulnerability':'https://www.paloaltonetworks.com/cyberpedia/risk-based-vulnerability-management',
   
-  'Artikel: Cara membuat laporan VA':'https://medium.com/@YoKoKho/tips-menulis-laporan-kerentanan-3deaeaf29a7d'
+  'Artikel: Cara membuat laporan VA':'https://medium.com/@YoKoKho/tips-menulis-laporan-kerentanan-3deaeaf29a7d',
+
+  'Artikel: CIS Benchmark FAQ':'https://www.cisecurity.org/cis-benchmarks/cis-benchmarks-faq',
+  'Tools: CIS':'https://www.cisecurity.org/cis-benchmarks',
+  'Artikel: CIS Level 1 vs CIS Level 2':'https://blog.scalefusion.com/cis-level-1-vs-cis-level-2/',
+  'Tools: CIS-CAT Lite':'https://learn.cisecurity.org/cis-cat-lite',
+  'Youtube: Pengenalan CIS Benchmark':'https://www.youtube.com/live/2orzA98Ih0k?si=3VFHGEYFDxXwv6Cf',
+  
+  'Artikel: Linux server security':'https://www.plesk.com/blog/product-technology/linux-server-security-best-practices/',
+  'Youtube: Teknik hardening':'https://youtu.be/wXoC46Qr_9Q?si=eqSnSAsHjEgyQoBa',
+  'Youtube: Penjelasan system hardening':'https://youtu.be/HltKHtH5Dv4?si=3mmHnlFKjy3hXrUb',
+  'Tools: lynix':'https://cisofy.com/lynis/',
+  'Tools: OpenSCAP':'https://www.open-scap.org/',
+  'Linux server hardening guide':'https://github.com/m4rkw/linux-server-hardening-guide',
+  
+  'Youtube: Mandatory Access Controls':'https://youtu.be/1xstU28GLok?si=mylusr6kJgCZuJ9z',
+  'Artikel: Apa itu SELinux':'https://computing.id/articles/apa-itu-selinux-panduan-dasar-keamanan-linux/',
+  'Artikel: Apa itu AppArmor':'https://debian-handbook.info/browse/id-ID/stable/sect.apparmor.html',
+  'Youtube: SELinux vs AppArmor':'https://youtu.be/xeZI55o2LKs?si=B6n7T6Fy8SYfVvxa',
+  
+  'Youtube: Pengenalan Group Policy':'https://youtu.be/rEhTzP-ScBo?si=60D5nyIsN3Fem0k_',
+  'Artikel: Microsoft GPO':'https://learn.microsoft.com/en-us/previous-versions/windows/desktop/policy/group-policy-objects',
+  'Artikel: Local Security Policy':'https://www.ituonline.com/comptia-a-plus/local-security-policy-configuring-security-standards-in-windows-for-comptia-a-certification/',
+  'Artikel: Secure Powershell':'https://www.cyber.gov.au/business-government/protecting-devices-systems/system-administration/securing-powershell-in-the-enterprise',
+  'Tools: Security Compliance Toolkit':'https://www.microsoft.com/en-us/download/details.aspx?id=55319',
+  'Artikel: Apa itu Security compliance toolkit':'https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/security-compliance-toolkit-10',
+  
+  'Artikel: Penjelasan auditd':'https://www.redhat.com/en/blog/configure-linux-auditing-auditd',
+  'Artikel: Auditd vs syslog':'https://www.idn.id/auditd-vs-syslog-pengalaman-nyata-memilih-solusi-logging-linux-yang-efektif/',
+  'Artikel: Penjelasan syslog':'https://www.splunk.com/en_us/blog/learn/syslog.html',
+  'Youtube: Log forwarding ke syslog':'https://youtu.be/iew8yXX9g2w?si=D76ZYINU8ZkVxYeI',
+  'Youtube: Memahami Linux logging':'https://youtu.be/SFdcbdhOs90?si=Nd9wXGO299SywmW-',
+  
+  'Youtube: Memahami shared responsibility model':'https://youtu.be/Y2dYkoiNhA4?si=C--FoiRd895JcTrB',
+  'Artikel: AWS SRM':'https://aws.amazon.com/compliance/shared-responsibility-model/',
+  'Artikel: Azure SRM':'https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility',
+  
+  'Youtube: Pengenalan IAM':'https://youtu.be/aNj36g7fSsU?si=TswINvSFjixcjV-D',
+  'Artikel: AWS IAM user role policy':'https://medium.com/@kajals909/aws-iam-identity-and-access-management-users-roles-policies-c41c297b833a',
+  'Artikel: IAM Guide':'https://medium.com/@dennis_39505/identity-and-access-management-iam-a-complete-guide-with-examples-best-practices-and-tools-a8e284bf11f7',
+  'Youtube: AWS access management':'https://youtu.be/psKS-4YGD28?si=VvnD9ecl9BFO4Fp-',
+  
+  'Artikel: Penjelasan S3/Storage':'https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html',
+  'Youtube: AWS S3 tutorial':'https://youtu.be/tfU0JEZjcsg?si=JRaKl7G2g9ALvv04',
+  'Artikel: S3 misconfiguration':'https://medium.com/@janijay007/s3-bucket-misconfiguration-from-basics-to-pawn-6893776d1007',
+  'Artikel: 5 misconfiguration S3':'https://jumpcloud.com/blog/amazon-s3-bucket-misconfigurations',
+  'Tools: Scout Suite':'https://github.com/nccgroup/scoutsuite',
+  'Tools: Prowler':'https://github.com/prowler-cloud/prowler',
+  
+  'Youtube: Pengenalan VPC':'https://youtu.be/7_NNlnH7sAg?si=MLL5y6xRbUd1zTe8',
+  'Artikel: Cloud network security':'https://www.akamai.com/glossary/what-is-cloud-network-security',
+  'Youtube: Security group vs NACL':'https://youtu.be/JWoNu2Mtpdg?si=dcGFaxBw1ryH8spw',
+  
+  'Youtube: cloudwatch vs cloudtrail':'https://youtu.be/S5X0PnBwp9I?si=3xrf-V_YGANThryb',
+  'Artikel: Azure monitor':'https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview',
+  'Artikel: GCP audit logs':'https://docs.cloud.google.com/logging/docs/audit',
+  
+  'Artikel: Pengenalan docker':'https://qs.telkomuniversity.ac.id/panduan-lengkap-menggunakan-docker-apa-mengapa-dan-bagaimana/',
+  'Youtube: Docker security':'https://youtu.be/KINjI1tlo2w?si=mvTpjmwc47bfXEJ6',
+  'Artikel: Docker bench':'https://dev.to/docker/automate-docker-security-audits-with-docker-bench-for-security-206g',
+  'OWASP Docker Security Cheat Sheet':'https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html',
+  'NIST 800-190: Application Container Security Guide':'https://csrc.nist.gov/pubs/sp/800/190/final',
+  
+  'OWASP DevSecOps Guideline':'https://owasp.org/www-project-devsecops-guideline/latest/02f-Container-Vulnerability-Scanning',
+  'Youtube: Container security':'https://youtu.be/b_euX_M82uI?si=5K6nvdYrGKsrJdNY',
+  'Tools: Trivy':'https://trivy.dev/',
+  'Tools: Falco':'https://falco.org/',
+  
+  'Youtube: Pengenalan Kubernates':'https://youtu.be/TlHvYWVUZyc?si=fVcWYoLW-Vaa0sWb',
+  'Artikel: Kubernates RBAC':'https://kubernetes.io/docs/reference/access-authn-authz/rbac/',
+  'Artikel: Pod Security Standards':'https://kubernetes.io/docs/concepts/security/pod-security-standards/',
+  
+  'Youtube: Pengenalan Github':'https://youtu.be/r8jQ9hVA2qs?si=csPq8nm5l8alf4zr',
+  'Artikel: GitHub advanced security':'https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security',
+  'Tools: Checkov':'https://www.checkov.io/',
+  'OWASP CI/CD security Cheat sheet':'https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html',
+  
+  'Youtube: Pengenalan IaC':'https://youtu.be/zWw2wuiKd5o?si=O3NzcQLexD4_Uzb1',
+  'OWASP IaC security Cheat sheet':'https://cheatsheetseries.owasp.org/cheatsheets/Infrastructure_as_Code_Security_Cheat_Sheet.html',
+  'Artikel: Secure IaC dengan Terraform':'https://medium.com/@sharathkumarlokesh/securing-infrastructure-as-code-terraform-security-fundamentals-f198c3397673',
+  'Artikel: IaC dengan Ansible':'https://devops.com/infrastructure-as-code-iac-with-ansible-automating-build-environment-setup-for-windows-and-linux/',
+  'Jurnal: security hardening menggunakan IaC':'https://learning-gate.com/index.php/2576-8484/article/view/4697',
+  
+  'Artikel: Domain, forest, AD trust':'https://help.sap.com/docs/SUPPORT_CONTENT/bobjip/3354091760.html',
+  
+  'Artikel: Karberos Attack Guide':'https://owasp.org/www-chapter-bangkok/slides/2025/2025-02-07_Breaking-the-Ticket-A-Beginners-Guide-to-Kerberos-Attacks.pdf',
+  
+  'Artikel: AS-REP Roasting':'https://redbotsecurity.com/as-rep-roasting/',
+  'Artikel: Pengenalan Pass the hash':'https://www.crowdstrike.com/en-us/cybersecurity-101/cyberattacks/pass-the-hash-attack/',
+  
+  'Artikel: PAM dan  Just in time access':'https://cloudsecurityalliance.org/blog/2025/12/04/killing-standing-privileges-why-just-in-time-access-is-the-future-of-pam',
+  
+  'NIST 800-207: Zero Trust Architecture':'https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-207.pdf'
 };
 
 const state = {
