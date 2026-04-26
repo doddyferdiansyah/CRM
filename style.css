@@ -261,6 +261,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(2,8,16,.97);
 .legend-bar span{font-size:9px;color:var(--text2);margin-right:3px;letter-spacing:1px;text-transform:uppercase}
 .lb-item{font-size:9px;padding:3px 10px;border:1px solid;letter-spacing:1px}
 
+.logo,
+.logo:visited{
+  text-decoration:none;
+  color:var(--white);
+  display:inline-block;
+}
+
+.logo:hover,
+.logo:active{
+  text-decoration:none;
+  color:var(--white);
+}
+
+.logo span{
+  color:var(--L1);
+}
+
 @keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:768px){
   .nav-levels{display:none}
