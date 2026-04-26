@@ -983,17 +983,177 @@ const phases=[
    gate:{title:'Siap menuju Fase 9 (Spesialisasi) jika kamu bisa…',items:['Menulis vulnerability report yang bisa dibaca dan dipahami oleh manager non-teknis','Membuat presentasi 10-slide tentang risk cybersecurity kepada "board imajiner" dengan bahasa bisnis','Menulis incident report formal yang memenuhi standar dokumentasi IR','Menjelaskan trade-off antara security dan usability kepada stakeholder yang berbeda latar belakang']},
    nodes:[
      {icon:'📝',lv:'must',lvl:'MUST',t:'Security Report Writing',ref:'CyBOK: Human Factors + NIST CSF',
-      topics:['Vulnerability report structure: executive summary, findings, CVSS, remediation','Incident report: timeline, impact, root cause, lessons learned, prevention','Risk report untuk board: bahasa bisnis, angka, dan rekomendasi actionable','Technical documentation: runbook, playbook, SOP yang bisa dieksekusi orang lain','Visual communication: diagram arsitektur, attack flow, risk matrix'],
-      tools:['SANS Report Templates','Dradis Framework','PlantUML']},
-     {icon:'🎤',lv:'must',lvl:'MUST',t:'Komunikasi Risiko kepada Stakeholder',ref:'ISO 27001 Klausul 7.4',
-      topics:['Bahasa risiko vs bahasa teknis — cara terjemahkan untuk audience berbeda','Risk communication kepada C-level: ROI security investment, business impact','Security awareness presentation yang engaging dan tidak membosankan','Menjelaskan keputusan security kepada tim developer (empati, bukan intimidasi)','Negosiasi: meyakinkan manajemen untuk investasi security'],
-      tools:['Canva','Google Slides','Toastmasters Cybersecurity']},
-     {icon:'🤝',lv:'should',lvl:'SHOULD',t:'Kolaborasi & Security Culture',ref:'CyBOK: Human Factors',
-      topics:['Membangun security culture tanpa menciptakan fear dan paranoia','Security champion program: cara embed security di tim development','Tabletop exercise facilitation: simulasi insiden untuk manajemen','Cross-departemen komunikasi: IT, legal, HR, finance dalam konteks security','Vendor dan third-party security communication'],
-      tools:['NIST Cybersecurity Workforce Framework','ISACA COBIT']},
-     {icon:'💼',lv:'should',lvl:'SHOULD',t:'Career Communication & Personal Branding',ref:'Soft Skills for Cybersecurity',
-      topics:['Menulis write-up CTF dan security blog yang membangun reputasi','LinkedIn optimization untuk cybersecurity professional','Presentasi di conference atau meetup — cara pitch talk proposal','Membangun portfolio yang terlihat oleh recruiter','Networking di komunitas cybersecurity Indonesia dan global'],
-      tools:['LinkedIn','Medium/Hashnode','OWASP Chapter Indonesia','DEF CON CFP']},
+       topics:[
+         {
+           title:'Vulnerability report structure: executive summary, findings, CVSS, remediation',
+           resources:[
+             'SANS Report Templates: Vulnerability report examples',
+             'Dradis Framework: Reporting workflow',
+             'YouTube: Cara menulis vulnerability report'
+           ]
+         },
+         {
+           title:'Incident report: timeline, impact, root cause, lessons learned, prevention',
+           resources:[
+             'SANS Report Templates: Incident report examples',
+             'Artikel: Incident report writing basics',
+             'YouTube: Incident reporting fundamentals'
+           ]
+         },
+         {
+           title:'Risk report untuk board: bahasa bisnis, angka, dan rekomendasi actionable',
+           resources:[
+             'Artikel: Risk reporting for executives',
+             'Canva: Executive presentation templates',
+             'Google Slides: Board presentation basics'
+           ]
+         },
+         {
+           title:'Technical documentation: runbook, playbook, SOP yang bisa dieksekusi orang lain',
+           resources:[
+             'Dradis Framework: Documentation workflow',
+             'Artikel: Runbook vs playbook vs SOP',
+             'YouTube: Menyusun dokumentasi teknis'
+           ]
+         },
+         {
+           title:'Visual communication: diagram arsitektur, attack flow, risk matrix',
+           resources:[
+             'PlantUML',
+             'Canva: Diagram and presentation templates',
+             'Artikel: Risk matrix dan attack flow basics'
+           ]
+         }
+       ]},
+      {icon:'🎤',lv:'must',lvl:'MUST',t:'Komunikasi Risiko kepada Stakeholder',ref:'ISO 27001 Klausul 7.4',
+       topics:[
+         {
+           title:'Bahasa risiko vs bahasa teknis — cara terjemahkan untuk audience berbeda',
+           resources:[
+             'Artikel: Communicating cyber risk to non-technical audiences',
+             'Google Slides: Communication deck basics',
+             'YouTube: Menjelaskan risiko tanpa jargon'
+           ]
+         },
+         {
+           title:'Risk communication kepada C-level: ROI security investment, business impact',
+           resources:[
+             'Artikel: Cybersecurity ROI for executives',
+             'Canva: Executive deck templates',
+             'YouTube: Business impact communication'
+           ]
+         },
+         {
+           title:'Security awareness presentation yang engaging dan tidak membosankan',
+           resources:[
+             'Canva',
+             'Google Slides',
+             'Artikel: Membuat security awareness presentation yang engaging'
+           ]
+         },
+         {
+           title:'Menjelaskan keputusan security kepada tim developer (empati, bukan intimidasi)',
+           resources:[
+             'Artikel: Security communication with developers',
+             'YouTube: Developer-friendly security communication',
+             'Toastmasters Cybersecurity'
+           ]
+         },
+         {
+           title:'Negosiasi: meyakinkan manajemen untuk investasi security',
+           resources:[
+             'Artikel: Pitching cybersecurity investment',
+             'Toastmasters Cybersecurity',
+             'YouTube: Negosiasi dan persuasi profesional'
+           ]
+         }
+       ]},
+      {icon:'🤝',lv:'should',lvl:'SHOULD',t:'Kolaborasi & Security Culture',ref:'CyBOK: Human Factors',
+       topics:[
+         {
+           title:'Membangun security culture tanpa menciptakan fear dan paranoia',
+           resources:[
+             'NIST Cybersecurity Workforce Framework',
+             'Artikel: Building security culture',
+             'YouTube: Security culture basics'
+           ]
+         },
+         {
+           title:'Security champion program: cara embed security di tim development',
+           resources:[
+             'Artikel: Security champions program',
+             'ISACA COBIT',
+             'YouTube: Security champions in practice'
+           ]
+         },
+         {
+           title:'Tabletop exercise facilitation: simulasi insiden untuk manajemen',
+           resources:[
+             'Artikel: Tabletop exercise guide',
+             'NIST Cybersecurity Workforce Framework',
+             'YouTube: Incident tabletop exercise basics'
+           ]
+         },
+         {
+           title:'Cross-departemen komunikasi: IT, legal, HR, finance dalam konteks security',
+           resources:[
+             'ISACA COBIT',
+             'Artikel: Cross-functional security collaboration',
+             'YouTube: Security collaboration across departments'
+           ]
+         },
+         {
+           title:'Vendor dan third-party security communication',
+           resources:[
+             'Artikel: Third-party risk communication',
+             'ISACA COBIT',
+             'YouTube: Vendor security communication basics'
+           ]
+         }
+       ]},
+      {icon:'💼',lv:'should',lvl:'SHOULD',t:'Career Communication & Personal Branding',ref:'Soft Skills for Cybersecurity',
+       topics:[
+         {
+           title:'Menulis write-up CTF dan security blog yang membangun reputasi',
+           resources:[
+             'Medium/Hashnode',
+             'Artikel: Cara menulis write-up CTF',
+             'YouTube: Blogging for cybersecurity reputation'
+           ]
+         },
+         {
+           title:'LinkedIn optimization untuk cybersecurity professional',
+           resources:[
+             'LinkedIn',
+             'Artikel: Optimasi LinkedIn untuk cybersecurity',
+             'YouTube: Personal branding di LinkedIn'
+           ]
+         },
+         {
+           title:'Presentasi di conference atau meetup — cara pitch talk proposal',
+           resources:[
+             'DEF CON CFP',
+             'OWASP Chapter Indonesia',
+             'Artikel: Menulis CFP dan proposal talk'
+           ]
+         },
+         {
+           title:'Membangun portfolio yang terlihat oleh recruiter',
+           resources:[
+             'LinkedIn',
+             'Medium/Hashnode',
+             'Artikel: Portfolio cybersecurity untuk recruiter'
+           ]
+         },
+         {
+           title:'Networking di komunitas cybersecurity Indonesia dan global',
+           resources:[
+             'OWASP Chapter Indonesia',
+             'LinkedIn',
+             'Artikel: Networking strategy for cybersecurity professionals'
+           ]
+         }
+       ]},
    ]},
 
   // ── L3 Fase 6 — GRC ──
