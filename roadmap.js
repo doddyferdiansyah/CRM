@@ -1172,7 +1172,6 @@ const phases=[
          {
            title:'NIST RMF: Categorize, Select, Implement, Assess, Authorize, Monitor',
            resources:[
-             'NIST RMF Docs',
              'YouTube: NIST Risk Management Framework',
              'Artikel: NIST RMF step by step'
            ]
@@ -1189,7 +1188,6 @@ const phases=[
            title:'Risk register dan continuous monitoring',
            resources:[
              'Artikel: Cara membuat risk register',
-             'NIST RMF Docs',
              'YouTube: Continuous monitoring in risk management'
            ]
          }
@@ -1216,14 +1214,12 @@ const phases=[
            title:'Statement of Applicability (SoA) — dokumen jantung ISMS',
            resources:[
              'Artikel: Apa itu Statement of Applicability',
-             'ISO 27001 Academy',
              'YouTube: Menyusun SoA'
            ]
          },
          {
            title:'Internal audit ISO 27001: planning, fieldwork, nonconformity',
            resources:[
-             'IT Governance Resources',
              'Artikel: Internal audit ISO 27001',
              'YouTube: ISO 27001 internal audit basics'
            ]
@@ -2672,39 +2668,67 @@ const RESOURCE_LINKS = {
   'Artikel: Tips security pich deck untuk investor':'https://www.godesignguru.com/blog/how-to-create-a-cybersecurity-pitch-deck-that-wins-investors-(with-examples)',
 
   'NIST Cybersecurity Workforce Framework':'https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center',
-'Artikel: Building security culture':'https://www.proofpoint.com/us/blog/security-awareness-training/how-build-sustainable-security-culture-drives-behavior-change',
-'YouTube: Security culture basics':'https://youtu.be/zlczFwGc6J8?si=QGEOspZw9Xym29I-',
-
-'Artikel: Security champions program':'https://owasp.org/www-project-security-culture/v10/4-Security_Champions/',
-'ISACA COBIT':'https://www.cisecurity.org/insights/white-papers/controls-v8-1-mapping-to-isaca-cobit-19',
-'YouTube: Security champions in practice':'https://youtu.be/25AACDpy4w8?si=4qvtkeZxIPGGqyYT',
-
-'Artikel: Tabletop exercise guide':'https://www.cisa.gov/resources-tools/services/cisa-tabletop-exercise-packages',
-'NIST Cybersecurity Workforce Framework':'https://niccs.cisa.gov/tools/nice-framework',
-'YouTube: Incident tabletop exercise basics':'https://youtu.be/nVR8qr2ivOg?si=xzu_v3fFpwsAFCSU',
-
-'Artikel: Cross-functional security collaboration':'https://www.hooksecurity.co/blog/cross-functional-collaboration-boosts-security',
-'YouTube: Security collaboration across departments':'https://youtu.be/Kdk5mEwk1u0?si=foM8pL12TGWPwK_y',
-
-'Artikel: Third-party risk communication':'https://www.rapid7.com/fundamentals/third-party-risk-management-tprm/',
-'YouTube: Vendor security communication basics':'https://youtu.be/h7VJHU-Ma7Q?si=u8E5TcM4kdFG2LC1',
-
-'Medium':'https://medium.com/',
-'Hashnode':'https://hashnode.com/',
-'Artikel: Cara menulis write-up CTF':'https://pequalsnp-team.github.io/cheatsheet/writing-good-writeup',
-'YouTube: Blogging for cybersecurity reputation':'https://youtu.be/xhqlsvuDe10?si=jyHPWwThu1CCMQoc',
-
-'LinkedIn':'https://www.linkedin.com',
-'Artikel: Optimasi LinkedIn untuk cybersecurity':'https://www.linkedin.com/posts/taimurijlal_do-not-neglect-your-cybersecurity-linkedin-activity-7191346073687224320-bXtR/',
-'YouTube: Personal branding di LinkedIn':'https://youtu.be/xHfaU6Jk3uI?si=_kWOpnZP2C_WkEFz',
-
-'DEF CON CFP':'https://defcon.org/',
-'OWASP Chapter Indonesia':'https://owasp.org/www-chapter-jakarta/',
-'Artikel: Menulis CFP dan proposal talk':'https://www.freecodecamp.org/news/how-to-write-a-good-conference-talk-proposal/',
-
-'Artikel: Portfolio cybersecurity untuk recruiter':'https://dibimbing.id/blog/detail/portofolio-cyber-security',
-
-'Artikel: Networking strategy for cybersecurity professionals':'https://cybernoweducation.medium.com/networking-strategies-in-cybersecurity-e2138c80b983'
+  'Artikel: Building security culture':'https://www.proofpoint.com/us/blog/security-awareness-training/how-build-sustainable-security-culture-drives-behavior-change',
+  'YouTube: Security culture basics':'https://youtu.be/zlczFwGc6J8?si=QGEOspZw9Xym29I-',
+  
+  'Artikel: Security champions program':'https://owasp.org/www-project-security-culture/v10/4-Security_Champions/',
+  'ISACA COBIT':'https://www.cisecurity.org/insights/white-papers/controls-v8-1-mapping-to-isaca-cobit-19',
+  'YouTube: Security champions in practice':'https://youtu.be/25AACDpy4w8?si=4qvtkeZxIPGGqyYT',
+  
+  'Artikel: Tabletop exercise guide':'https://www.cisa.gov/resources-tools/services/cisa-tabletop-exercise-packages',
+  'NIST Cybersecurity Workforce Framework':'https://niccs.cisa.gov/tools/nice-framework',
+  'YouTube: Incident tabletop exercise basics':'https://youtu.be/nVR8qr2ivOg?si=xzu_v3fFpwsAFCSU',
+  
+  'Artikel: Cross-functional security collaboration':'https://www.hooksecurity.co/blog/cross-functional-collaboration-boosts-security',
+  'YouTube: Security collaboration across departments':'https://youtu.be/Kdk5mEwk1u0?si=foM8pL12TGWPwK_y',
+  
+  'Artikel: Third-party risk communication':'https://www.rapid7.com/fundamentals/third-party-risk-management-tprm/',
+  'YouTube: Vendor security communication basics':'https://youtu.be/h7VJHU-Ma7Q?si=u8E5TcM4kdFG2LC1',
+  
+  'Medium':'https://medium.com/',
+  'Hashnode':'https://hashnode.com/',
+  'Artikel: Cara menulis write-up CTF':'https://pequalsnp-team.github.io/cheatsheet/writing-good-writeup',
+  'YouTube: Blogging for cybersecurity reputation':'https://youtu.be/xhqlsvuDe10?si=jyHPWwThu1CCMQoc',
+  
+  'LinkedIn':'https://www.linkedin.com',
+  'Artikel: Optimasi LinkedIn untuk cybersecurity':'https://www.linkedin.com/posts/taimurijlal_do-not-neglect-your-cybersecurity-linkedin-activity-7191346073687224320-bXtR/',
+  'YouTube: Personal branding di LinkedIn':'https://youtu.be/xHfaU6Jk3uI?si=_kWOpnZP2C_WkEFz',
+  
+  'DEF CON CFP':'https://defcon.org/',
+  'OWASP Chapter Indonesia':'https://owasp.org/www-chapter-jakarta/',
+  'Artikel: Menulis CFP dan proposal talk':'https://www.freecodecamp.org/news/how-to-write-a-good-conference-talk-proposal/',
+  
+  'Artikel: Portfolio cybersecurity untuk recruiter':'https://dibimbing.id/blog/detail/portofolio-cyber-security',
+  
+  'Artikel: Networking strategy for cybersecurity professionals':'https://cybernoweducation.medium.com/networking-strategies-in-cybersecurity-e2138c80b983',
+  
+  'Artikel: Risk identification basics':'https://www.metricstream.com/learn/risk-identification.html',
+  'NIST RMF Docs':'https://csrc.nist.gov/pubs/sp/800/37/r2/final',
+  'YouTube: Identifikasi risiko keamanan informasi':'https://www.youtube.com/live/ABXtLpL-haQ?si=dKMPmBO50kuGI-tJ',
+  'FAIR Institute':'https://www.fairinstitute.org/',
+  'Artikel: Qualitative vs quantitative risk analysis':'https://securityscorecard.com/blog/qualitative-vs-quantitative-risk-assessment/',
+  'YouTube: FAIR model basics':'https://youtu.be/T3jxS96XF_o?si=KwGIDgGCRRKIH1uK',
+  'YouTube: NIST Risk Management Framework':'https://csrc.nist.gov/projects/risk-management',
+  'Artikel: NIST RMF step by step':'https://csrc.nist.gov/Projects/risk-management/about-rmf/prepare-step',
+  'Artikel: Risk treatment strategies':'https://youtu.be/azv4_FD_zvk?si=-j7BX0TjFQMBsUwm',
+  'YouTube: Risk response and treatment':'https://youtu.be/Yhk7ZLw5LVY?si=Yr2JHEBFad4Dz6qq',
+  'RiskLens':'https://safe.security/',
+  'Artikel: Cara membuat risk register':'file:///C:/Users/doddy/Downloads/48977-75676677880-1-PB.pdf',
+  'YouTube: Continuous monitoring in risk management':'https://youtu.be/vkoYezOEvaw?si=ylmzYIAHMJlnHhUS',
+  
+  'ISO 27001 Academy':'https://www.udemy.com/course/isoiec27001/?couponCode=2021PM25',
+  'Artikel: PDCA dan struktur ISO 27001':'https://www.linkedin.com/pulse/iso-270012022-pdca-jyotiprakash-sahoo/',
+  'YouTube: Penjelasan klausul ISO 27001':'https://youtu.be/TBp0ig0NT2Y?si=9qknlUs28TONdzNm',
+  'IT Governance Resources':'https://www.isaca.org/career-center/career-journey/it-governance',
+  'Artikel: Annex A ISO 27001:2022':'https://www.isms.online/iso-27001/annex-a-2022/',
+  'YouTube: Kontrol Annex A':'https://youtu.be/SCsu8wVquVc?si=NyLwr2L5ss3BOQ_2',
+  'Artikel: Apa itu Statement of Applicability':'https://it.proxsisgroup.com/mengenal-statement-of-applicability-soa-dalam-iso-27001/',
+  'YouTube: Menyusun SoA':'https://youtu.be/S4nroRs2AFw?si=so4AuRiIpcDEqO50',
+  'Artikel: Internal audit ISO 27001':'https://rads.co.id/iso-27001-internal-audit/',
+  'YouTube: ISO 27001 internal audit basics':'https://youtu.be/Rk1dnXoIPbM?si=FWBrUvVEykQMXGR5',
+  'Tugboat Logic':'https://my.tugboatlogic.com/login',
+  'Artikel: Management review ISO 27001':'https://www.isms.online/iso-27001/requirements-2013/9-3-management-review-2013/',
+  'YouTube: Continual improvement in ISMS':'https://youtu.be/aU2YRMNx9Es?si=TEwoH95Kq1Ovrqvh'
 
 
 };
