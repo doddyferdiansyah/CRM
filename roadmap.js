@@ -987,41 +987,35 @@ const phases=[
          {
            title:'Vulnerability report structure: executive summary, findings, CVSS, remediation',
            resources:[
-             'SANS Report Templates: Vulnerability report examples',
-             'Dradis Framework: Reporting workflow',
-             'YouTube: Cara menulis vulnerability report'
+             'Artikel: Vulnerability Assessment report',
+             'Tools: Dradis pentest report',
+             'Contoh template report VA dan PT'
            ]
          },
          {
            title:'Incident report: timeline, impact, root cause, lessons learned, prevention',
            resources:[
-             'SANS Report Templates: Incident report examples',
-             'Artikel: Incident report writing basics',
-             'YouTube: Incident reporting fundamentals'
+             'Artikel: Mengenal incident response report',
+             'Contoh SANS incident response report'
            ]
          },
          {
            title:'Risk report untuk board: bahasa bisnis, angka, dan rekomendasi actionable',
            resources:[
-             'Artikel: Risk reporting for executives',
-             'Canva: Executive presentation templates',
-             'Google Slides: Board presentation basics'
+             'Artikel: Buat report ke manajemen board'
            ]
          },
          {
            title:'Technical documentation: runbook, playbook, SOP yang bisa dieksekusi orang lain',
            resources:[
-             'Dradis Framework: Documentation workflow',
-             'Artikel: Runbook vs playbook vs SOP',
-             'YouTube: Menyusun dokumentasi teknis'
+             'Artikel: Runbooks, playbooks, SOP'
            ]
          },
          {
            title:'Visual communication: diagram arsitektur, attack flow, risk matrix',
            resources:[
-             'PlantUML',
-             'Canva: Diagram and presentation templates',
-             'Artikel: Risk matrix dan attack flow basics'
+             'Artikel: Risk matrix',
+             'Tools: PlantUML':'https://plantuml.com/'
            ]
          }
        ]},
@@ -1030,41 +1024,39 @@ const phases=[
          {
            title:'Bahasa risiko vs bahasa teknis — cara terjemahkan untuk audience berbeda',
            resources:[
-             'Artikel: Communicating cyber risk to non-technical audiences',
-             'Google Slides: Communication deck basics',
-             'YouTube: Menjelaskan risiko tanpa jargon'
+             'Jurnal: komunikasi ke orang non teknis',
+             'Artikel: Membuat deck presentasi',
+             'Youtube: Guide to Pitch deck'
            ]
          },
          {
            title:'Risk communication kepada C-level: ROI security investment, business impact',
            resources:[
-             'Artikel: Cybersecurity ROI for executives',
-             'Canva: Executive deck templates',
-             'YouTube: Business impact communication'
+             'Youtube: Menjelaskan kebutuhan cybersecurity ke board',
+             'Youtube: Cybersecurity ROI',
+             'Artikel: Business communication'
            ]
          },
          {
            title:'Security awareness presentation yang engaging dan tidak membosankan',
            resources:[
-             'Canva',
-             'Google Slides',
-             'Artikel: Membuat security awareness presentation yang engaging'
+             'Artikel: Cybersecurity awareness',
+             'Artikel: security awareness training'
            ]
          },
          {
            title:'Menjelaskan keputusan security kepada tim developer (empati, bukan intimidasi)',
            resources:[
-             'Artikel: Security communication with developers',
-             'YouTube: Developer-friendly security communication',
-             'Toastmasters Cybersecurity'
+             'Artikel: komunikasi keamanan dengan developer',
+             'Artikel: meningkatkan komunikasi antar tim keamanan dan developer',
+             'Komunitas: Toastmasters'
            ]
          },
          {
            title:'Negosiasi: meyakinkan manajemen untuk investasi security',
            resources:[
-             'Artikel: Pitching cybersecurity investment',
-             'Toastmasters Cybersecurity',
-             'YouTube: Negosiasi dan persuasi profesional'
+             'Artikel: Strategi secure investment',
+             'Artikel: Tips security pich deck untuk investor'
            ]
          }
        ]},
@@ -1770,7 +1762,40 @@ const RESOURCE_LINKS = {
   
   'Artikel: PAM dan  Just in time access':'https://cloudsecurityalliance.org/blog/2025/12/04/killing-standing-privileges-why-just-in-time-access-is-the-future-of-pam',
   
-  'NIST 800-207: Zero Trust Architecture':'https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-207.pdf'
+  'NIST 800-207: Zero Trust Architecture':'https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-207.pdf',
+
+  'Artikel: Vulnerability Assessment report':'https://docs.invicti.com/ie-is/sans-top-25-report',
+'Tools: Dradis pentest report':'https://dradis.com/solutions/reporting.html',
+'Contoh template report VA dan PT':'https://invia.com.au/App/media/sample%20vapt%20report.pdf',
+
+'Artikel: Mengenal incident response report':'https://zeltser.com/incident-response-report-template',
+'Contoh SANS incident response report':'https://www.sans.org/media/security-training/mgt512/secinc_forms.pdf',
+
+'Artikel: Buat report ke manajemen board':'https://mitratech.com/resource-hub/blog/reporting-risk-c-suite/',
+
+'Artikel: Runbooks, playbooks, SOP':'https://cutover.com/blog/differences-runbooks-playbooks-sops',
+
+'Artikel: Risk matrix':'https://www.metricstream.com/learn/what-is-risk-matrix.html',
+'Tools: PlantUML':'https://plantuml.com/',
+
+'Jurnal: komunikasi ke orang non teknis':'https://www.isaca.org/resources/isaca-journal/issues/2020/volume-3/communicating-technology-risk-to-nontechnical-people',
+'Artikel: Membuat deck presentasi':'https://creativelivesinprogress.com/articles/a-guide-to-creating-great-decks-and-presentations',
+'Youtube: Guide to Pitch deck':'https://youtu.be/sqfFKYvwFKc?si=qt7P9CXYplsJXA6C',
+
+'Youtube: Menjelaskan kebutuhan cybersecurity ke board':'https://youtu.be/dHxsJbWIxnQ?si=PuJxL7uYcHgMbI-O',
+'Youtube: Cybersecurity ROI':'https://youtu.be/plNBqKn3vCE?si=KcJM25f7gWofsFot',
+'Artikel: Business communication':'https://www.indeed.com/career-advice/career-development/importance-of-business-communication',
+
+'Artikel: Cybersecurity awareness':'https://www.osbckansas.gov/cybersecurity_resources/cybersecurity_awareness.pdf',
+'Artikel: security awareness training':'https://hoxhunt.com/guide/security-awareness-training',
+
+'Artikel: komunikasi keamanan dengan developer':'https://medium.com/@cyberpromagazine/bridging-the-gap-collaborative-cybersecurity-between-developers-and-security-teams-8e2e7da94cb5',
+'Artikel: meningkatkan komunikasi antar tim keamanan dan developer':'https://www.guardsquare.com/blog/how-mobile-app-developers-and-security-teams-can-better-communicate',
+'Komunitas: Toastmasters':'https://www.toastmasters.org/Find-a-Club/28675579-cybermasters',
+
+'Artikel: Strategi secure investment':'https://qubit.capital/blog/cybersecurity-fundraising',
+'Artikel: Tips security pich deck untuk investor':'https://www.godesignguru.com/blog/how-to-create-a-cybersecurity-pitch-deck-that-wins-investors-(with-examples)'
+
 };
 
 const state = {
