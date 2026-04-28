@@ -1089,7 +1089,6 @@ const phases=[
          {
            title:'Cross-departemen komunikasi: IT, legal, HR, finance dalam konteks security',
            resources:[
-             'ISACA COBIT',
              'Artikel: Cross-functional security collaboration',
              'YouTube: Security collaboration across departments'
            ]
@@ -1098,7 +1097,6 @@ const phases=[
            title:'Vendor dan third-party security communication',
            resources:[
              'Artikel: Third-party risk communication',
-             'ISACA COBIT',
              'YouTube: Vendor security communication basics'
            ]
          }
@@ -1108,7 +1106,8 @@ const phases=[
          {
            title:'Menulis write-up CTF dan security blog yang membangun reputasi',
            resources:[
-             'Medium/Hashnode',
+             'Medium',
+             'Hashnode',
              'Artikel: Cara menulis write-up CTF',
              'YouTube: Blogging for cybersecurity reputation'
            ]
@@ -1132,16 +1131,12 @@ const phases=[
          {
            title:'Membangun portfolio yang terlihat oleh recruiter',
            resources:[
-             'LinkedIn',
-             'Medium/Hashnode',
              'Artikel: Portfolio cybersecurity untuk recruiter'
            ]
          },
          {
            title:'Networking di komunitas cybersecurity Indonesia dan global',
            resources:[
-             'OWASP Chapter Indonesia',
-             'LinkedIn',
              'Artikel: Networking strategy for cybersecurity professionals'
            ]
          }
@@ -1794,7 +1789,44 @@ const RESOURCE_LINKS = {
   'Komunitas: Toastmasters':'https://www.toastmasters.org/Find-a-Club/28675579-cybermasters',
   
   'Artikel: Strategi secure investment':'https://qubit.capital/blog/cybersecurity-fundraising',
-  'Artikel: Tips security pich deck untuk investor':'https://www.godesignguru.com/blog/how-to-create-a-cybersecurity-pitch-deck-that-wins-investors-(with-examples)'
+  'Artikel: Tips security pich deck untuk investor':'https://www.godesignguru.com/blog/how-to-create-a-cybersecurity-pitch-deck-that-wins-investors-(with-examples)',
+
+  'NIST Cybersecurity Workforce Framework':'https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center',
+'Artikel: Building security culture':'https://www.proofpoint.com/us/blog/security-awareness-training/how-build-sustainable-security-culture-drives-behavior-change',
+'YouTube: Security culture basics':'https://youtu.be/zlczFwGc6J8?si=QGEOspZw9Xym29I-',
+
+'Artikel: Security champions program':'https://owasp.org/www-project-security-culture/v10/4-Security_Champions/',
+'ISACA COBIT':'https://www.cisecurity.org/insights/white-papers/controls-v8-1-mapping-to-isaca-cobit-19',
+'YouTube: Security champions in practice':'https://youtu.be/25AACDpy4w8?si=4qvtkeZxIPGGqyYT',
+
+'Artikel: Tabletop exercise guide':'https://www.cisa.gov/resources-tools/services/cisa-tabletop-exercise-packages',
+'NIST Cybersecurity Workforce Framework':'https://niccs.cisa.gov/tools/nice-framework',
+'YouTube: Incident tabletop exercise basics':'https://youtu.be/nVR8qr2ivOg?si=xzu_v3fFpwsAFCSU',
+
+'Artikel: Cross-functional security collaboration':'https://www.hooksecurity.co/blog/cross-functional-collaboration-boosts-security',
+'YouTube: Security collaboration across departments':'https://youtu.be/Kdk5mEwk1u0?si=foM8pL12TGWPwK_y',
+
+'Artikel: Third-party risk communication':'https://www.rapid7.com/fundamentals/third-party-risk-management-tprm/',
+'YouTube: Vendor security communication basics':'https://youtu.be/h7VJHU-Ma7Q?si=u8E5TcM4kdFG2LC1',
+
+'Medium':'https://medium.com/',
+'Hashnode':'https://hashnode.com/',
+'Artikel: Cara menulis write-up CTF':'https://pequalsnp-team.github.io/cheatsheet/writing-good-writeup',
+'YouTube: Blogging for cybersecurity reputation':'https://youtu.be/xhqlsvuDe10?si=jyHPWwThu1CCMQoc',
+
+'LinkedIn':'https://www.linkedin.com',
+'Artikel: Optimasi LinkedIn untuk cybersecurity':'https://www.linkedin.com/posts/taimurijlal_do-not-neglect-your-cybersecurity-linkedin-activity-7191346073687224320-bXtR/',
+'YouTube: Personal branding di LinkedIn':'https://youtu.be/xHfaU6Jk3uI?si=_kWOpnZP2C_WkEFz',
+
+'DEF CON CFP':'https://defcon.org/',
+'OWASP Chapter Indonesia':'https://owasp.org/www-chapter-jakarta/',
+'Artikel: Menulis CFP dan proposal talk':'https://www.freecodecamp.org/news/how-to-write-a-good-conference-talk-proposal/',
+
+'Artikel: Portfolio cybersecurity untuk recruiter':'https://dibimbing.id/blog/detail/portofolio-cyber-security',
+
+'Artikel: Networking strategy for cybersecurity professionals':'https://cybernoweducation.medium.com/networking-strategies-in-cybersecurity-e2138c80b983'
+
+
 };
 
 const state = {
