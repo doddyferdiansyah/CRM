@@ -1152,23 +1152,263 @@ const phases=[
    gate:{title:'Siap lanjut ke Fase 7 jika kamu bisa…',items:['Menjelaskan perbedaan UU PDP dan GDPR serta siapa yang terikat masing-masing','Membuat risk register 10 risiko lengkap dengan likelihood, impact, dan treatment plan','Melakukan gap analysis ISO 27001 sederhana menggunakan checklist publik','Menjelaskan 12 PCI DSS requirements secara garis besar dan siapa yang wajib mematuhinya']},
    nodes:[
      {icon:'⚖️',lv:'must',lvl:'MUST',t:'Manajemen Risiko',ref:'CyBOK: Risk Management + ISO 31000',
-      topics:['Risk identification: aset, ancaman, kerentanan, dan dampak','Qualitative vs quantitative risk analysis — FAIR model','NIST RMF: Categorize, Select, Implement, Assess, Authorize, Monitor','Risk treatment: mitigate, transfer (asuransi), accept, avoid','Risk register dan continuous monitoring'],
-      tools:['NIST RMF Docs','FAIR Institute','RiskLens']},
-     {icon:'📋',lv:'must',lvl:'MUST',t:'ISO/IEC 27001:2022',ref:'ISO/IEC 27001:2022',
-      topics:['PDCA cycle dan klausul 4–10 secara mendalam','Annex A: 93 kontrol dalam 4 tema (organizational, people, physical, technological)','Statement of Applicability (SoA) — dokumen jantung ISMS','Internal audit ISO 27001: planning, fieldwork, nonconformity','Management review dan continual improvement'],
-      tools:['ISO 27001 Academy','IT Governance Resources','Tugboat Logic']},
-     {icon:'🇮🇩',lv:'must',lvl:'MUST',t:'UU ITE & UU PDP Indonesia',ref:'UU No.19/2016 & UU No.27/2022',
-      topics:['UU ITE: kejahatan siber, konten ilegal, dan jerat hukumnya','UU PDP: 11 hak subjek data, kewajiban pengendali vs prosesor','Perbedaan kritis UU PDP Indonesia vs GDPR Eropa','Sanksi pidana dan administratif pelanggaran UU PDP','BSSN, Kominfo, dan Komdigi — peran regulator siber Indonesia'],
-      tools:['BSSN.go.id','Kominfo.go.id','LexID']},
-     {icon:'🌍',lv:'must',lvl:'MUST',t:'GDPR & Privasi Data Global',ref:'GDPR 2016/679 + CyBOK: Privacy',
-      topics:['7 prinsip GDPR lengkap dengan contoh implementasi','11 hak subjek data dan bagaimana memfasilitasinya','DPO (Data Protection Officer): kapan wajib dan apa tugasnya','DPIA: kapan wajib, cara lakukan, dan dokumentasi','Breach notification: 72 jam, kepada siapa, apa isinya'],
-      tools:['GDPR.eu','ICO Resources','CNIL Guidelines']},
-     {icon:'💳',lv:'should',lvl:'SHOULD',t:'PCI DSS v4.0 & HIPAA',ref:'PCI SSC + HIPAA Security Rule',
-      topics:['12 PCI DSS requirements — dari network security sampai policy','Cardholder Data Environment (CDE) scoping dan network segmentation','SAQ types: A, B, C, D — mana yang relevan untuk bisnis kamu','HIPAA Security Rule: administrative, physical, technical safeguards','PHI definition dan 18 identifier yang harus dilindungi'],
-      tools:['PCI SSC Website','HHS.gov HIPAA','PCI DSS v4 Quick Ref']},
-     {icon:'🤖',lv:'should',lvl:'SHOULD',t:'Regulasi AI & ISO 42001',ref:'ISO/IEC 42001:2023 + EU AI Act ',
-      topics:['ISO/IEC 42001:2023 — AI Management System, kontrol, dan audit','EU AI Act: prohibited AI, high-risk AI, transparency obligations','NIST AI RMF: Govern, Map, Measure, Manage','Indonesia: Peraturan Presiden AI dan peta jalan AI nasional','AI impact assessment dan cara dokumentasinya'],
-      tools:['ISO 42001 Overview','EU AI Act Tracker','NIST AI RMF']},
+       topics:[
+         {
+           title:'Risk identification: aset, ancaman, kerentanan, dan dampak',
+           resources:[
+             'Artikel: Risk identification basics',
+             'NIST RMF Docs',
+             'YouTube: Identifikasi risiko keamanan informasi'
+           ]
+         },
+         {
+           title:'Qualitative vs quantitative risk analysis — FAIR model',
+           resources:[
+             'FAIR Institute',
+             'Artikel: Qualitative vs quantitative risk analysis',
+             'YouTube: FAIR model basics'
+           ]
+         },
+         {
+           title:'NIST RMF: Categorize, Select, Implement, Assess, Authorize, Monitor',
+           resources:[
+             'NIST RMF Docs',
+             'YouTube: NIST Risk Management Framework',
+             'Artikel: NIST RMF step by step'
+           ]
+         },
+         {
+           title:'Risk treatment: mitigate, transfer (asuransi), accept, avoid',
+           resources:[
+             'Artikel: Risk treatment strategies',
+             'YouTube: Risk response and treatment',
+             'RiskLens'
+           ]
+         },
+         {
+           title:'Risk register dan continuous monitoring',
+           resources:[
+             'Artikel: Cara membuat risk register',
+             'NIST RMF Docs',
+             'YouTube: Continuous monitoring in risk management'
+           ]
+         }
+       ]},
+      {icon:'📋',lv:'must',lvl:'MUST',t:'ISO/IEC 27001:2022',ref:'ISO/IEC 27001:2022',
+       topics:[
+         {
+           title:'PDCA cycle dan klausul 4–10 secara mendalam',
+           resources:[
+             'ISO 27001 Academy',
+             'Artikel: PDCA dan struktur ISO 27001',
+             'YouTube: Penjelasan klausul ISO 27001'
+           ]
+         },
+         {
+           title:'Annex A: 93 kontrol dalam 4 tema (organizational, people, physical, technological)',
+           resources:[
+             'IT Governance Resources',
+             'Artikel: Annex A ISO 27001:2022',
+             'YouTube: Kontrol Annex A'
+           ]
+         },
+         {
+           title:'Statement of Applicability (SoA) — dokumen jantung ISMS',
+           resources:[
+             'Artikel: Apa itu Statement of Applicability',
+             'ISO 27001 Academy',
+             'YouTube: Menyusun SoA'
+           ]
+         },
+         {
+           title:'Internal audit ISO 27001: planning, fieldwork, nonconformity',
+           resources:[
+             'IT Governance Resources',
+             'Artikel: Internal audit ISO 27001',
+             'YouTube: ISO 27001 internal audit basics'
+           ]
+         },
+         {
+           title:'Management review dan continual improvement',
+           resources:[
+             'Tugboat Logic',
+             'Artikel: Management review ISO 27001',
+             'YouTube: Continual improvement in ISMS'
+           ]
+         }
+       ]},
+      {icon:'🇮🇩',lv:'must',lvl:'MUST',t:'UU ITE & UU PDP Indonesia',ref:'UU No.19/2016 & UU No.27/2022',
+       topics:[
+         {
+           title:'UU ITE: kejahatan siber, konten ilegal, dan jerat hukumnya',
+           resources:[
+             'Kominfo.go.id',
+             'Artikel: Ringkasan UU ITE',
+             'YouTube: Penjelasan UU ITE'
+           ]
+         },
+         {
+           title:'UU PDP: 11 hak subjek data, kewajiban pengendali vs prosesor',
+           resources:[
+             'BSSN.go.id',
+             'Artikel: Ringkasan UU PDP',
+             'YouTube: Hak subjek data dan kewajiban pengendali'
+           ]
+         },
+         {
+           title:'Perbedaan kritis UU PDP Indonesia vs GDPR Eropa',
+           resources:[
+             'LexID',
+             'Artikel: UU PDP vs GDPR',
+             'YouTube: Perbandingan regulasi privasi'
+           ]
+         },
+         {
+           title:'Sanksi pidana dan administratif pelanggaran UU PDP',
+           resources:[
+             'Artikel: Sanksi dalam UU PDP',
+             'Kominfo.go.id',
+             'YouTube: Konsekuensi pelanggaran data pribadi'
+           ]
+         },
+         {
+           title:'BSSN, Kominfo, dan Komdigi — peran regulator siber Indonesia',
+           resources:[
+             'BSSN.go.id',
+             'Kominfo.go.id',
+             'Artikel: Peran regulator siber di Indonesia'
+           ]
+         }
+       ]},
+      {icon:'🌍',lv:'must',lvl:'MUST',t:'GDPR & Privasi Data Global',ref:'GDPR 2016/679 + CyBOK: Privacy',
+       topics:[
+         {
+           title:'7 prinsip GDPR lengkap dengan contoh implementasi',
+           resources:[
+             'GDPR.eu',
+             'Artikel: 7 principles of GDPR',
+             'YouTube: GDPR principles explained'
+           ]
+         },
+         {
+           title:'11 hak subjek data dan bagaimana memfasilitasinya',
+           resources:[
+             'ICO Resources',
+             'Artikel: Data subject rights under GDPR',
+             'YouTube: Hak subjek data di GDPR'
+           ]
+         },
+         {
+           title:'DPO (Data Protection Officer): kapan wajib dan apa tugasnya',
+           resources:[
+             'CNIL Guidelines',
+             'Artikel: Data Protection Officer basics',
+             'YouTube: Role of DPO'
+           ]
+         },
+         {
+           title:'DPIA: kapan wajib, cara lakukan, dan dokumentasi',
+           resources:[
+             'ICO Resources',
+             'Artikel: Data Protection Impact Assessment',
+             'YouTube: Cara melakukan DPIA'
+           ]
+         },
+         {
+           title:'Breach notification: 72 jam, kepada siapa, apa isinya',
+           resources:[
+             'GDPR.eu',
+             'Artikel: GDPR breach notification requirements',
+             'YouTube: 72-hour breach reporting'
+           ]
+         }
+       ]},
+      {icon:'💳',lv:'should',lvl:'SHOULD',t:'PCI DSS v4.0 & HIPAA',ref:'PCI SSC + HIPAA Security Rule',
+       topics:[
+         {
+           title:'12 PCI DSS requirements — dari network security sampai policy',
+           resources:[
+             'PCI SSC Website',
+             'PCI DSS v4 Quick Ref',
+             'YouTube: PCI DSS overview'
+           ]
+         },
+         {
+           title:'Cardholder Data Environment (CDE) scoping dan network segmentation',
+           resources:[
+             'PCI SSC Website',
+             'Artikel: CDE scoping and segmentation',
+             'YouTube: PCI DSS scoping'
+           ]
+         },
+         {
+           title:'SAQ types: A, B, C, D — mana yang relevan untuk bisnis kamu',
+           resources:[
+             'PCI DSS v4 Quick Ref',
+             'Artikel: PCI SAQ types explained',
+             'YouTube: Memahami SAQ PCI'
+           ]
+         },
+         {
+           title:'HIPAA Security Rule: administrative, physical, technical safeguards',
+           resources:[
+             'HHS.gov HIPAA',
+             'Artikel: HIPAA Security Rule overview',
+             'YouTube: HIPAA safeguards explained'
+           ]
+         },
+         {
+           title:'PHI definition dan 18 identifier yang harus dilindungi',
+           resources:[
+             'HHS.gov HIPAA',
+             'Artikel: What is PHI',
+             'YouTube: PHI and HIPAA basics'
+           ]
+         }
+       ]},
+      {icon:'🤖',lv:'should',lvl:'SHOULD',t:'Regulasi AI & ISO 42001',ref:'ISO/IEC 42001:2023 + EU AI Act',
+       topics:[
+         {
+           title:'ISO/IEC 42001:2023 — AI Management System, kontrol, dan audit',
+           resources:[
+             'ISO 42001 Overview',
+             'Artikel: ISO 42001 basics',
+             'YouTube: AI Management System explained'
+           ]
+         },
+         {
+           title:'EU AI Act: prohibited AI, high-risk AI, transparency obligations',
+           resources:[
+             'EU AI Act Tracker',
+             'Artikel: EU AI Act overview',
+             'YouTube: EU AI Act explained'
+           ]
+         },
+         {
+           title:'NIST AI RMF: Govern, Map, Measure, Manage',
+           resources:[
+             'NIST AI RMF',
+             'Artikel: NIST AI RMF overview',
+             'YouTube: NIST AI RMF basics'
+           ]
+         },
+         {
+           title:'Indonesia: Peraturan Presiden AI dan peta jalan AI nasional',
+           resources:[
+             'Artikel: Kebijakan AI di Indonesia',
+             'Dokumen: Peta jalan AI nasional',
+             'YouTube: Regulasi AI Indonesia'
+           ]
+         },
+         {
+           title:'AI impact assessment dan cara dokumentasinya',
+           resources:[
+             'Artikel: AI impact assessment',
+             'NIST AI RMF',
+             'YouTube: Menyusun AI impact assessment'
+           ]
+         }
+       ]},
    ]},
 
   // ── L3 Fase 7 — SOC ──
@@ -1180,20 +1420,220 @@ const phases=[
    gate:{title:'Siap lanjut ke Fase 8 jika kamu bisa…',items:['Mengoperasikan SIEM dan membuat correlation rule yang trigger alert pada 3 skenario berbeda','Menyelesaikan minimal 1 skenario IR end-to-end dari detection hingga laporan final','Menggunakan Volatility 3 untuk analisis memory dump dan menemukan proses mencurigakan','Melakukan threat hunting menggunakan MITRE ATT&CK Navigator di atas log SIEM']},
    nodes:[
      {icon:'📡',lv:'must',lvl:'MUST',t:'SIEM & Log Management',ref:'CyBOK: Security Operations',
-      topics:['SIEM architecture: collector, normalizer, correlator, dashboard','Log sources: Windows Event Log, Syslog, EDR, firewall, cloud logs','SPL (Splunk) atau KQL (Elastic/Sentinel) query dasar sampai menengah','Correlation rules: tuning untuk kurangi false positive','Log retention, archiving, dan compliance requirements'],
-      tools:['Splunk Free','Elastic SIEM','Microsoft Sentinel','Splunk BOTS']},
-     {icon:'🚨',lv:'must',lvl:'MUST',t:'Incident Response & Playbook',ref:'CyBOK: Incident Management + NIST SP 800-61r3',
-      topics:['PICERL lifecycle: Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned','Incident classification: severity P1–P4, escalation matrix','Playbook: ransomware, phishing, data breach, insider threat, DDoS','Evidence preservation: order of volatility, imaging, chain of custody','SOAR integration: automasi triage dan response dengan AI assist'],
-      tools:['TheHive','Shuffle SOAR','DFIR.training','CyberDefenders']},
-     {icon:'🔬',lv:'must',lvl:'MUST',t:'Digital Forensics Dasar',ref:'CyBOK: Forensics',
-      topics:['Order of volatility dan kenapa urutan collection penting','Disk imaging: dd, FTK Imager, dcfldd — best practices','Memory forensics: Volatility 3 — proses, network, artifacts','Log analysis dan timeline reconstruction menggunakan plaso/log2timeline','Network forensics: analisis PCAP, extract artifacts dari capture'],
-      tools:['Autopsy','Volatility 3','FTK Imager','Plaso','NetworkMiner']},
-     {icon:'🎯',lv:'should',lvl:'SHOULD',t:'Threat Intelligence & Hunting',ref:'MITRE ATT&CK + CyBOK: Adversarial Behaviors',
-      topics:['MITRE ATT&CK: Tactics (14), Techniques (200+), Procedures — cara pakai Navigator','Threat hunting: hypothesis-driven, TTP-based, anomaly-based','IOC types: hash, IP, domain, URL, mutex, registry — cara ekstrak & share','OSINT untuk threat research: Shodan, WHOIS, VirusTotal, Censys','STIX/TAXII, OpenCTI, MISP untuk threat intelligence sharing'],
-      tools:['MITRE ATT&CK Navigator','OpenCTI','MISP','Shodan','IntelOwl']},
-     {icon:'🤖',lv:'should',lvl:'SHOULD',t:'AI-Assisted SOC Operations',ref:'CyBOK: Security Operations',
-      topics:['AI untuk alert triage: mengurangi false positive secara otomatis','LLM-assisted threat hunting: natural language query ke log','Agentic AI dalam SOAR: autonomous containment dan response','AI-powered threat intelligence summarization','Human-in-the-loop: kapan tetap butuh keputusan manusia'],
-      tools:['Microsoft Copilot for Security','Google Chronicle AI','CrowdStrike Charlotte AI']},
+       topics:[
+         {
+           title:'SIEM architecture: collector, normalizer, correlator, dashboard',
+           resources:[
+             'YouTube: Pengenalan SIEM',
+             'Artikel: SIEM architecture basics',
+             'Tools: Splunk Free'
+           ]
+         },
+         {
+           title:'Log sources: Windows Event Log, Syslog, EDR, firewall, cloud logs',
+           resources:[
+             'YouTube: Windows Event Log',
+             'Artikel: Syslog basics',
+             'Artikel: Cloud log sources'
+           ]
+         },
+         {
+           title:'SPL (Splunk) atau KQL (Elastic/Sentinel) query dasar sampai menengah',
+           resources:[
+             'YouTube: SPL query basics',
+             'YouTube: KQL basics',
+             'Tools: Microsoft Sentinel'
+           ]
+         },
+         {
+           title:'Correlation rules: tuning untuk kurangi false positive',
+           resources:[
+             'Artikel: Correlation rule tuning',
+             'YouTube: Reducing false positives in SIEM',
+             'Tools: Elastic SIEM'
+           ]
+         },
+         {
+           title:'Log retention, archiving, dan compliance requirements',
+           resources:[
+             'Artikel: Log retention policy',
+             'Artikel: SIEM archiving and compliance',
+             'Tools: Splunk BOTS'
+           ]
+         }
+       ]},
+      {icon:'🚨',lv:'must',lvl:'MUST',t:'Incident Response & Playbook',ref:'CyBOK: Incident Management + NIST SP 800-61r3',
+       topics:[
+         {
+           title:'PICERL lifecycle: Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned',
+           resources:[
+             'YouTube: Incident response lifecycle',
+             'Artikel: PICERL incident response',
+             'DFIR.training'
+           ]
+         },
+         {
+           title:'Incident classification: severity P1–P4, escalation matrix',
+           resources:[
+             'Artikel: Incident severity classification',
+             'YouTube: Escalation matrix basics',
+             'CyberDefenders'
+           ]
+         },
+         {
+           title:'Playbook: ransomware, phishing, data breach, insider threat, DDoS',
+           resources:[
+             'Artikel: IR playbook examples',
+             'YouTube: Ransomware response playbook',
+             'Tools: TheHive'
+           ]
+         },
+         {
+           title:'Evidence preservation: order of volatility, imaging, chain of custody',
+           resources:[
+             'Artikel: Order of volatility',
+             'Artikel: Chain of custody basics',
+             'DFIR.training'
+           ]
+         },
+         {
+           title:'SOAR integration: automasi triage dan response dengan AI assist',
+           resources:[
+             'YouTube: SOAR basics',
+             'Artikel: Automating incident response',
+             'Tools: Shuffle SOAR'
+           ]
+         }
+       ]},
+      {icon:'🔬',lv:'must',lvl:'MUST',t:'Digital Forensics Dasar',ref:'CyBOK: Forensics',
+       topics:[
+         {
+           title:'Order of volatility dan kenapa urutan collection penting',
+           resources:[
+             'Artikel: Order of volatility',
+             'YouTube: Digital forensics basics',
+             'Artikel: Evidence collection basics'
+           ]
+         },
+         {
+           title:'Disk imaging: dd, FTK Imager, dcfldd — best practices',
+           resources:[
+             'YouTube: Disk imaging basics',
+             'Tools: FTK Imager',
+             'Artikel: dd dan dcfldd forensics'
+           ]
+         },
+         {
+           title:'Memory forensics: Volatility 3 — proses, network, artifacts',
+           resources:[
+             'YouTube: Volatility 3 basics',
+             'Tools: Volatility 3',
+             'Artikel: Memory forensics introduction'
+           ]
+         },
+         {
+           title:'Log analysis dan timeline reconstruction menggunakan plaso/log2timeline',
+           resources:[
+             'Artikel: Timeline reconstruction basics',
+             'Tools: Plaso',
+             'YouTube: Log2timeline tutorial'
+           ]
+         },
+         {
+           title:'Network forensics: analisis PCAP, extract artifacts dari capture',
+           resources:[
+             'YouTube: Network forensics basics',
+             'Tools: NetworkMiner',
+             'Artikel: PCAP analysis guide'
+           ]
+         }
+       ]},
+      {icon:'🎯',lv:'should',lvl:'SHOULD',t:'Threat Intelligence & Hunting',ref:'MITRE ATT&CK + CyBOK: Adversarial Behaviors',
+       topics:[
+         {
+           title:'MITRE ATT&CK: Tactics (14), Techniques (200+), Procedures — cara pakai Navigator',
+           resources:[
+             'MITRE ATT&CK Navigator',
+             'YouTube: Cara pakai MITRE ATT&CK',
+             'Artikel: ATT&CK tactics and techniques'
+           ]
+         },
+         {
+           title:'Threat hunting: hypothesis-driven, TTP-based, anomaly-based',
+           resources:[
+             'YouTube: Threat hunting basics',
+             'Artikel: Hypothesis-driven threat hunting',
+             'Artikel: TTP-based hunting'
+           ]
+         },
+         {
+           title:'IOC types: hash, IP, domain, URL, mutex, registry — cara ekstrak & share',
+           resources:[
+             'Artikel: Indicator of Compromise basics',
+             'YouTube: IOC extraction',
+             'Tools: IntelOwl'
+           ]
+         },
+         {
+           title:'OSINT untuk threat research: Shodan, WHOIS, VirusTotal, Censys',
+           resources:[
+             'Tools: Shodan',
+             'Artikel: OSINT untuk threat intel',
+             'YouTube: Threat research with VirusTotal and Censys'
+           ]
+         },
+         {
+           title:'STIX/TAXII, OpenCTI, MISP untuk threat intelligence sharing',
+           resources:[
+             'Tools: OpenCTI',
+             'Tools: MISP',
+             'Artikel: STIX TAXII basics'
+           ]
+         }
+       ]},
+      {icon:'🤖',lv:'should',lvl:'SHOULD',t:'AI-Assisted SOC Operations',ref:'CyBOK: Security Operations',
+       topics:[
+         {
+           title:'AI untuk alert triage: mengurangi false positive secara otomatis',
+           resources:[
+             'Artikel: AI for alert triage',
+             'YouTube: AI in SOC operations',
+             'Tools: Microsoft Copilot for Security'
+           ]
+         },
+         {
+           title:'LLM-assisted threat hunting: natural language query ke log',
+           resources:[
+             'Artikel: LLM for threat hunting',
+             'YouTube: Natural language SIEM query',
+             'Tools: Google Chronicle AI'
+           ]
+         },
+         {
+           title:'Agentic AI dalam SOAR: autonomous containment dan response',
+           resources:[
+             'Artikel: Agentic AI for SOAR',
+             'YouTube: Autonomous incident response',
+             'Tools: Microsoft Copilot for Security'
+           ]
+         },
+         {
+           title:'AI-powered threat intelligence summarization',
+           resources:[
+             'Artikel: AI threat intelligence summarization',
+             'YouTube: AI-assisted threat intel',
+             'Tools: CrowdStrike Charlotte AI'
+           ]
+         },
+         {
+           title:'Human-in-the-loop: kapan tetap butuh keputusan manusia',
+           resources:[
+             'Artikel: Human in the loop security operations',
+             'YouTube: Limits of AI in SOC',
+             'Artikel: AI governance in security operations'
+           ]
+         }
+       ]},
    ]},
 
 // ── L3 Fase 8 — AI Security NEW ──
@@ -1204,21 +1644,221 @@ const phases=[
    qw:'Coba kirim prompt injection ke ChatGPT atau Claude: "Ignore previous instructions and..." — amati responsnya. Kamu baru saja mencoba serangan AI security yang nyata dan legal!',
    gate:{title:'Siap lanjut ke Fase 6 jika kamu bisa…',items:['Menjelaskan setidaknya 5 dari OWASP LLM Top 10 dengan contoh serangan nyata','Melakukan prompt injection attack di lingkungan lab yang legal (GANDALF AI, dsb.)','Menjelaskan perbedaan risiko keamanan antara AI tradisional, LLM, dan Agentic AI','Mengidentifikasi potensi data leakage dalam arsitektur RAG (Retrieval-Augmented Generation)','Menjelaskan apa itu ISO/IEC 42001 dan kapan sebuah organisasi wajib mematuhinya']},
    nodes:[
-     {icon:'🤖',lv:'must',lvl:'MUST',t:'OWASP LLM Top 10 & AI Threats',ref:'OWASP Top 10 for LLM Applications ',
-      topics:['LLM01: Prompt Injection — direct dan indirect, cara kerja & eksploitasi','LLM02: Sensitive Information Disclosure — PII leakage, training data exposure','LLM06: Excessive Agency — AI yang melakukan lebih dari yang seharusnya','LLM07: System Prompt Leakage — cara ekstrak instruksi tersembunyi','LLM09: Misinformation — hallucination dan dampak keamanan'],
-      tools:['GANDALF AI (Lakera)','PortSwigger AI Labs','OWASP LLM Guide']},
-     {icon:'🕸️',lv:'must',lvl:'MUST',t:'Agentic AI Security',ref:'OWASP Top 10 for Agentic AI ',
-      topics:['Apa itu Agentic AI: autonomous decision-making dan tool use','Agent goal hijacking — cara manipulasi tujuan agen','Tool misuse & identity abuse dalam multi-agent systems','Memory poisoning — injeksi memori jangka panjang agen','MCP (Model Context Protocol) security — attack surface baru '],
-      tools:['GitHub Secure Code Game Season 4','OWASP AI Exchange','Anthropic Red Team Resources']},
-     {icon:'🔬',lv:'must',lvl:'MUST',t:'Model Security & Data Poisoning',ref:'NIST AI RMF + CyBOK Update',
-      topics:['Adversarial attacks: input perturbation untuk manipulasi output model','Data poisoning: corrupting training data — "Harvest Now, Corrupt Later"','Model extraction dan model inversion attacks','AI supply chain security: model dan dataset integrity','AI SBOM (Software Bill of Materials) untuk AI components'],
-      tools:['Adversarial Robustness Toolbox','CleverHans','AI Verify Foundation']},
-     {icon:'📋',lv:'should',lvl:'SHOULD',t:'AI Governance & Regulasi',ref:'ISO/IEC 42001 + EU AI Act + NIST AI RMF',
-      topics:['ISO/IEC 42001:2023 — AI Management System standard','EU AI Act: risk-based classification, prohibited AI, GPAI regulations','NIST AI RMF: Govern, Map, Measure, Manage','AI Impact Assessment dan Algorithmic Auditing','Indonesia: kebijakan AI nasional dan implikasinya'],
-      tools:['ISO 42001 Guide','EU AI Act Portal','NIST AI RMF Docs']},
-     {icon:'🛡️',lv:'nice',lvl:'NICE',t:'Securing AI Infrastructure',ref:'Cloud Security Alliance AI Security',
-      topics:['Securing LLM API: rate limiting, input validation, output filtering','RAG pipeline security: vector database poisoning prevention','AI model access control dan authentication','Monitoring dan observability untuk AI systems','DSPM & AI-SPM (AI Security Posture Management)'],
-      tools:['Wiz AI Security','Lakera Guard','Portkey AI Gateway']},
+     {icon:'🤖',lv:'must',lvl:'MUST',t:'OWASP LLM Top 10 & AI Threats',ref:'OWASP Top 10 for LLM Applications',
+       topics:[
+         {
+           title:'LLM01: Prompt Injection — direct dan indirect, cara kerja & eksploitasi',
+           resources:[
+             'OWASP LLM Guide',
+             'Tools: GANDALF AI (Lakera)',
+             'Lab: Prompt Injection'
+           ]
+         },
+         {
+           title:'LLM02: Sensitive Information Disclosure — PII leakage, training data exposure',
+           resources:[
+             'OWASP LLM Guide',
+             'Artikel: Sensitive information disclosure pada LLM',
+             'YouTube: PII leakage pada AI'
+           ]
+         },
+         {
+           title:'LLM06: Excessive Agency — AI yang melakukan lebih dari yang seharusnya',
+           resources:[
+             'OWASP LLM Guide',
+             'Artikel: Excessive agency pada agentic AI',
+             'YouTube: AI agent overreach'
+           ]
+         },
+         {
+           title:'LLM07: System Prompt Leakage — cara ekstrak instruksi tersembunyi',
+           resources:[
+             'OWASP LLM Guide',
+             'Lab: System Prompt Leakage',
+             'Tools: PortSwigger AI Labs'
+           ]
+         },
+         {
+           title:'LLM09: Misinformation — hallucination dan dampak keamanan',
+           resources:[
+             'OWASP LLM Guide',
+             'Artikel: Hallucination dan misinformation pada LLM',
+             'YouTube: Risiko misinformation pada AI'
+           ]
+         }
+       ]},
+      {icon:'🕸️',lv:'must',lvl:'MUST',t:'Agentic AI Security',ref:'OWASP Top 10 for Agentic AI',
+       topics:[
+         {
+           title:'Apa itu Agentic AI: autonomous decision-making dan tool use',
+           resources:[
+             'OWASP AI Exchange',
+             'Artikel: Apa itu Agentic AI',
+             'YouTube: Agentic AI basics'
+           ]
+         },
+         {
+           title:'Agent goal hijacking — cara manipulasi tujuan agen',
+           resources:[
+             'OWASP AI Exchange',
+             'Artikel: Agent goal hijacking',
+             'YouTube: Goal hijacking pada AI agent'
+           ]
+         },
+         {
+           title:'Tool misuse & identity abuse dalam multi-agent systems',
+           resources:[
+             'Anthropic Red Team Resources',
+             'Artikel: Tool misuse pada multi-agent systems',
+             'YouTube: Identity abuse in AI systems'
+           ]
+         },
+         {
+           title:'Memory poisoning — injeksi memori jangka panjang agen',
+           resources:[
+             'OWASP AI Exchange',
+             'Artikel: Memory poisoning pada AI agent',
+             'YouTube: Long-term memory attacks'
+           ]
+         },
+         {
+           title:'MCP (Model Context Protocol) security — attack surface baru',
+           resources:[
+             'GitHub Secure Code Game Season 4',
+             'Artikel: MCP security basics',
+             'YouTube: Model Context Protocol security'
+           ]
+         }
+       ]},
+      {icon:'🔬',lv:'must',lvl:'MUST',t:'Model Security & Data Poisoning',ref:'NIST AI RMF + CyBOK Update',
+       topics:[
+         {
+           title:'Adversarial attacks: input perturbation untuk manipulasi output model',
+           resources:[
+             'Adversarial Robustness Toolbox',
+             'CleverHans',
+             'YouTube: Adversarial attack basics'
+           ]
+         },
+         {
+           title:'Data poisoning: corrupting training data — "Harvest Now, Corrupt Later"',
+           resources:[
+             'Artikel: Data poisoning attacks',
+             'YouTube: Data poisoning pada AI',
+             'AI Verify Foundation'
+           ]
+         },
+         {
+           title:'Model extraction dan model inversion attacks',
+           resources:[
+             'Artikel: Model extraction attacks',
+             'Artikel: Model inversion attacks',
+             'YouTube: Model theft and inversion'
+           ]
+         },
+         {
+           title:'AI supply chain security: model dan dataset integrity',
+           resources:[
+             'AI Verify Foundation',
+             'Artikel: AI supply chain security',
+             'YouTube: Securing model and dataset integrity'
+           ]
+         },
+         {
+           title:'AI SBOM (Software Bill of Materials) untuk AI components',
+           resources:[
+             'Artikel: AI SBOM basics',
+             'YouTube: Software Bill of Materials untuk AI',
+             'AI Verify Foundation'
+           ]
+         }
+       ]},
+      {icon:'📋',lv:'should',lvl:'SHOULD',t:'AI Governance & Regulasi',ref:'ISO/IEC 42001 + EU AI Act + NIST AI RMF',
+       topics:[
+         {
+           title:'ISO/IEC 42001:2023 — AI Management System standard',
+           resources:[
+             'ISO 42001 Guide',
+             'Artikel: ISO 42001 overview',
+             'YouTube: AI Management System basics'
+           ]
+         },
+         {
+           title:'EU AI Act: risk-based classification, prohibited AI, GPAI regulations',
+           resources:[
+             'EU AI Act Portal',
+             'Artikel: EU AI Act overview',
+             'YouTube: EU AI Act explained'
+           ]
+         },
+         {
+           title:'NIST AI RMF: Govern, Map, Measure, Manage',
+           resources:[
+             'NIST AI RMF Docs',
+             'Artikel: NIST AI RMF overview',
+             'YouTube: NIST AI RMF basics'
+           ]
+         },
+         {
+           title:'AI Impact Assessment dan Algorithmic Auditing',
+           resources:[
+             'Artikel: AI Impact Assessment',
+             'Artikel: Algorithmic auditing basics',
+             'YouTube: Menyusun AI impact assessment'
+           ]
+         },
+         {
+           title:'Indonesia: kebijakan AI nasional dan implikasinya',
+           resources:[
+             'Artikel: Kebijakan AI Indonesia',
+             'Dokumen: Peta jalan AI nasional',
+             'YouTube: Regulasi AI di Indonesia'
+           ]
+         }
+       ]},
+      {icon:'🛡️',lv:'nice',lvl:'NICE',t:'Securing AI Infrastructure',ref:'Cloud Security Alliance AI Security',
+       topics:[
+         {
+           title:'Securing LLM API: rate limiting, input validation, output filtering',
+           resources:[
+             'Lakera Guard',
+             'Artikel: Securing LLM APIs',
+             'YouTube: LLM API security basics'
+           ]
+         },
+         {
+           title:'RAG pipeline security: vector database poisoning prevention',
+           resources:[
+             'Artikel: RAG security basics',
+             'YouTube: Vector database poisoning',
+             'Portkey AI Gateway'
+           ]
+         },
+         {
+           title:'AI model access control dan authentication',
+           resources:[
+             'Wiz AI Security',
+             'Artikel: Access control untuk AI systems',
+             'YouTube: Authentication in AI infrastructure'
+           ]
+         },
+         {
+           title:'Monitoring dan observability untuk AI systems',
+           resources:[
+             'Artikel: AI observability basics',
+             'YouTube: Monitoring AI workloads',
+             'Wiz AI Security'
+           ]
+         },
+         {
+           title:'DSPM & AI-SPM (AI Security Posture Management)',
+           resources:[
+             'Artikel: AI Security Posture Management',
+             'Lakera Guard',
+             'Portkey AI Gateway'
+           ]
+         }
+       ]},
    ]},
 
   // ── L4-L5 Fase 9 ──
@@ -1230,23 +1870,263 @@ const phases=[
    gate:{title:'Kamu dianggap Profesional jika kamu bisa…',items:['Memiliki minimal 1 sertifikasi industri yang diakui sesuai jalur spesialisasi','Memiliki portfolio nyata: write-ups, bug bounty, open source contribution, atau proyek klien','Lulus technical interview entry-level di bidang spesialisasi yang dipilih','Aktif berkontribusi di komunitas: OWASP, ID-SIRTII, conference, atau open source']},
    nodes:[
      {icon:'🔴',lv:'must',lvl:'PILIH 1',t:'Red Team / Penetration Testing',ref:'CyBOK: Adversarial Behaviors + PTES',
-      topics:['Pentesting methodology: PTES, OSSTMM, OWASP Testing Guide','Exploitation: Metasploit, manual exploits, custom payload','Post-exploitation: pivoting, persistence, lateral movement, exfiltration','AD attacks: Kerberoasting, Pass-the-Hash, DCSync, Golden Ticket','Report writing profesional: executive summary + technical findings'],
-      tools:['Kali Linux','Metasploit','BloodHound','HackTheBox Pro Labs']},
-     {icon:'🔵',lv:'must',lvl:'PILIH 1',t:'Blue Team / SOC Analyst',ref:'CyBOK: Security Operations',
-      topics:['Advanced SIEM correlation dan tuning untuk reduce false positives','EDR/XDR: CrowdStrike, Microsoft Defender, SentinelOne — cara operasikan','Threat hunting frameworks: PEAK, TaHiTI, hypothesis-driven','Malware triage: sandbox analysis, IOC extraction, YARA rules','AI-assisted SOC: Copilot for Security, Chronicle AI'],
-      tools:['Splunk Enterprise','CrowdStrike Falcon','Microsoft Sentinel','Blue Team Labs Online']},
-     {icon:'🤖',lv:'must',lvl:'PILIH 1',t:'AI Security Engineer',ref:'OWASP LLM + OffSec OSAI + NIST AI RMF',
-      topics:['AI red teaming: attack dan assessment AI systems secara metodis','LLM security testing: prompt injection, jailbreaking, data extraction','Agentic AI defense: guardrails, input validation, output filtering','AI security architecture: secure LLM pipeline design','AI SBOM dan supply chain security untuk AI components'],
-      tools:['OffSec AI-300','OWASP LLM Labs','Garak LLM Scanner','Rebuff']},
-     {icon:'🟣',lv:'should',lvl:'PILIH 1',t:'Cloud Security Engineer',ref:'CyBOK: Infrastructure + CSA STAR',
-      topics:['Multi-cloud security architecture (AWS + Azure + GCP)','CSPM: Cloud Security Posture Management — Wiz, Prisma, Orca','DevSecOps pipeline dari dev hingga production','Container & Kubernetes security di produksi','Cloud compliance: SOC 2, FedRAMP, ISO 27017'],
-      tools:['Prowler','Wiz','Prisma Cloud','Checkov']},
-     {icon:'🟢',lv:'should',lvl:'PILIH 1',t:'Application Security (AppSec)',ref:'CyBOK: Software Security + OWASP SAMM',
-      topics:['Secure SDLC dan threat modeling: STRIDE, PASTA, LINDDUN','SAST/DAST/IAST tools dan cara interpretasi hasil','API security: OWASP API Top 10, testing, dan defense','Security code review: Python, JavaScript, Java, Go','Supply chain security: dependency scanning, SBOM, Sigstore'],
-      tools:['SonarQube','Semgrep','OWASP ZAP','Checkmarx']},
-     {icon:'⚖️',lv:'nice',lvl:'PILIH 1',t:'GRC / Compliance Analyst',ref:'CyBOK: Law & Regulation + ISO 27001',
-      topics:['Audit methodology: planning, fieldwork, reporting, follow-up','Policy lifecycle management: drafting, review, approval, training','Vendor risk management program end-to-end','AI governance dan compliance dengan ISO 42001','Regulatory reporting dan hubungan dengan BSSN, OJK, Kominfo'],
-      tools:['ServiceNow GRC','OneTrust','Drata','Vanta']},
+       topics:[
+         {
+           title:'Pentesting methodology: PTES, OSSTMM, OWASP Testing Guide',
+           resources:[
+             'Artikel: PTES methodology',
+             'Artikel: OSSTMM overview',
+             'Artikel: OWASP Testing Guide'
+           ]
+         },
+         {
+           title:'Exploitation: Metasploit, manual exploits, custom payload',
+           resources:[
+             'Tools: Metasploit',
+             'YouTube: Manual exploitation basics',
+             'Artikel: Custom payload basics'
+           ]
+         },
+         {
+           title:'Post-exploitation: pivoting, persistence, lateral movement, exfiltration',
+           resources:[
+             'YouTube: Post exploitation basics',
+             'Artikel: Lateral movement and persistence',
+             'HackTheBox Pro Labs'
+           ]
+         },
+         {
+           title:'AD attacks: Kerberoasting, Pass-the-Hash, DCSync, Golden Ticket',
+           resources:[
+             'Artikel: Kerberoasting basics',
+             'Artikel: Pass-the-Hash and DCSync',
+             'Tools: BloodHound'
+           ]
+         },
+         {
+           title:'Report writing profesional: executive summary + technical findings',
+           resources:[
+             'Artikel: Pentest report writing',
+             'Contoh: Executive summary and technical findings',
+             'Kali Linux'
+           ]
+         }
+       ]},
+      {icon:'🔵',lv:'must',lvl:'PILIH 1',t:'Blue Team / SOC Analyst',ref:'CyBOK: Security Operations',
+       topics:[
+         {
+           title:'Advanced SIEM correlation dan tuning untuk reduce false positives',
+           resources:[
+             'Artikel: Advanced SIEM correlation',
+             'YouTube: SIEM tuning to reduce false positives',
+             'Tools: Splunk Enterprise'
+           ]
+         },
+         {
+           title:'EDR/XDR: CrowdStrike, Microsoft Defender, SentinelOne — cara operasikan',
+           resources:[
+             'Tools: CrowdStrike Falcon',
+             'Artikel: EDR vs XDR basics',
+             'YouTube: Operating EDR and XDR'
+           ]
+         },
+         {
+           title:'Threat hunting frameworks: PEAK, TaHiTI, hypothesis-driven',
+           resources:[
+             'Artikel: PEAK threat hunting',
+             'Artikel: Hypothesis-driven threat hunting',
+             'Blue Team Labs Online'
+           ]
+         },
+         {
+           title:'Malware triage: sandbox analysis, IOC extraction, YARA rules',
+           resources:[
+             'YouTube: Malware triage basics',
+             'Artikel: IOC extraction and YARA rules',
+             'Tools: Microsoft Sentinel'
+           ]
+         },
+         {
+           title:'AI-assisted SOC: Copilot for Security, Chronicle AI',
+           resources:[
+             'Artikel: AI-assisted SOC operations',
+             'YouTube: Copilot for Security overview',
+             'Tools: Microsoft Sentinel'
+           ]
+         }
+       ]},
+      {icon:'🤖',lv:'must',lvl:'PILIH 1',t:'AI Security Engineer',ref:'OWASP LLM + OffSec OSAI + NIST AI RMF',
+       topics:[
+         {
+           title:'AI red teaming: attack dan assessment AI systems secara metodis',
+           resources:[
+             'Artikel: AI red teaming methodology',
+             'Tools: OffSec AI-300',
+             'Lab: OWASP LLM Labs'
+           ]
+         },
+         {
+           title:'LLM security testing: prompt injection, jailbreaking, data extraction',
+           resources:[
+             'Lab: OWASP LLM Labs',
+             'Artikel: Prompt injection and jailbreaking',
+             'Tools: Garak LLM Scanner'
+           ]
+         },
+         {
+           title:'Agentic AI defense: guardrails, input validation, output filtering',
+           resources:[
+             'Artikel: Guardrails for agentic AI',
+             'YouTube: Input validation and output filtering for LLMs',
+             'Tools: Rebuff'
+           ]
+         },
+         {
+           title:'AI security architecture: secure LLM pipeline design',
+           resources:[
+             'Artikel: Secure LLM pipeline architecture',
+             'YouTube: AI security architecture basics',
+             'OffSec AI-300'
+           ]
+         },
+         {
+           title:'AI SBOM dan supply chain security untuk AI components',
+           resources:[
+             'Artikel: AI SBOM basics',
+             'Artikel: AI supply chain security',
+             'Tools: Garak LLM Scanner'
+           ]
+         }
+       ]},
+      {icon:'🟣',lv:'should',lvl:'PILIH 1',t:'Cloud Security Engineer',ref:'CyBOK: Infrastructure + CSA STAR',
+       topics:[
+         {
+           title:'Multi-cloud security architecture (AWS + Azure + GCP)',
+           resources:[
+             'Artikel: Multi-cloud security architecture',
+             'YouTube: AWS Azure GCP security overview',
+             'Tools: Wiz'
+           ]
+         },
+         {
+           title:'CSPM: Cloud Security Posture Management — Wiz, Prisma, Orca',
+           resources:[
+             'Artikel: CSPM basics',
+             'Tools: Wiz',
+             'Tools: Prisma Cloud'
+           ]
+         },
+         {
+           title:'DevSecOps pipeline dari dev hingga production',
+           resources:[
+             'Artikel: DevSecOps pipeline security',
+             'YouTube: DevSecOps from dev to production',
+             'Tools: Checkov'
+           ]
+         },
+         {
+           title:'Container & Kubernetes security di produksi',
+           resources:[
+             'Artikel: Kubernetes security in production',
+             'YouTube: Container security at scale',
+             'Tools: Prowler'
+           ]
+         },
+         {
+           title:'Cloud compliance: SOC 2, FedRAMP, ISO 27017',
+           resources:[
+             'Artikel: SOC 2 for cloud',
+             'Artikel: FedRAMP overview',
+             'Artikel: ISO 27017 basics'
+           ]
+         }
+       ]},
+      {icon:'🟢',lv:'should',lvl:'PILIH 1',t:'Application Security (AppSec)',ref:'CyBOK: Software Security + OWASP SAMM',
+       topics:[
+         {
+           title:'Secure SDLC dan threat modeling: STRIDE, PASTA, LINDDUN',
+           resources:[
+             'Artikel: Secure SDLC basics',
+             'Artikel: STRIDE PASTA LINDDUN overview',
+             'YouTube: Threat modeling for AppSec'
+           ]
+         },
+         {
+           title:'SAST/DAST/IAST tools dan cara interpretasi hasil',
+           resources:[
+             'Tools: SonarQube',
+             'Tools: Semgrep',
+             'Artikel: SAST vs DAST vs IAST'
+           ]
+         },
+         {
+           title:'API security: OWASP API Top 10, testing, dan defense',
+           resources:[
+             'Artikel: OWASP API Top 10',
+             'YouTube: API security testing basics',
+             'Tools: OWASP ZAP'
+           ]
+         },
+         {
+           title:'Security code review: Python, JavaScript, Java, Go',
+           resources:[
+             'Artikel: Secure code review basics',
+             'YouTube: Code review for security',
+             'Tools: Checkmarx'
+           ]
+         },
+         {
+           title:'Supply chain security: dependency scanning, SBOM, Sigstore',
+           resources:[
+             'Artikel: Dependency scanning basics',
+             'Artikel: SBOM and Sigstore',
+             'YouTube: Software supply chain security'
+           ]
+         }
+       ]},
+      {icon:'⚖️',lv:'nice',lvl:'PILIH 1',t:'GRC / Compliance Analyst',ref:'CyBOK: Law & Regulation + ISO 27001',
+       topics:[
+         {
+           title:'Audit methodology: planning, fieldwork, reporting, follow-up',
+           resources:[
+             'Artikel: Audit methodology basics',
+             'YouTube: Audit planning and reporting',
+             'Tools: ServiceNow GRC'
+           ]
+         },
+         {
+           title:'Policy lifecycle management: drafting, review, approval, training',
+           resources:[
+             'Artikel: Policy lifecycle management',
+             'YouTube: Writing and maintaining security policies',
+             'Tools: OneTrust'
+           ]
+         },
+         {
+           title:'Vendor risk management program end-to-end',
+           resources:[
+             'Artikel: Vendor risk management basics',
+             'YouTube: Third-party risk lifecycle',
+             'Tools: Drata'
+           ]
+         },
+         {
+           title:'AI governance dan compliance dengan ISO 42001',
+           resources:[
+             'Artikel: AI governance basics',
+             'Artikel: ISO 42001 overview',
+             'Tools: Vanta'
+           ]
+         },
+         {
+           title:'Regulatory reporting dan hubungan dengan BSSN, OJK, Kominfo',
+           resources:[
+             'Artikel: Regulatory reporting in Indonesia',
+             'Artikel: Peran BSSN OJK Kominfo',
+             'YouTube: Compliance reporting basics'
+           ]
+         }
+       ]},
    ]},
 ];
 
