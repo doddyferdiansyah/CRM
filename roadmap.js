@@ -1015,7 +1015,7 @@ const phases=[
            title:'Visual communication: diagram arsitektur, attack flow, risk matrix',
            resources:[
              'Artikel: Risk matrix',
-             'Tools: PlantUML':'https://plantuml.com/'
+             'Tools: PlantUML'
            ]
          }
        ]},
