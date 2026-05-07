@@ -2728,8 +2728,34 @@ const RESOURCE_LINKS = {
   'YouTube: ISO 27001 internal audit basics':'https://youtu.be/Rk1dnXoIPbM?si=FWBrUvVEykQMXGR5',
   'Tugboat Logic':'https://my.tugboatlogic.com/login',
   'Artikel: Management review ISO 27001':'https://www.isms.online/iso-27001/requirements-2013/9-3-management-review-2013/',
+  'YouTube: Continual improvement in ISMS':'https://youtu.be/aU2YRMNx9Es?si=TEwoH95Kq1Ovrqvh',
+  'Artikel: Risk identification basics':'https://www.metricstream.com/learn/risk-identification.html',
+  'NIST RMF Docs':'https://csrc.nist.gov/pubs/sp/800/37/r2/final',
+  'YouTube: Identifikasi risiko keamanan informasi':'https://www.youtube.com/live/ABXtLpL-haQ?si=dKMPmBO50kuGI-tJ',
+  'FAIR Institute':'https://www.fairinstitute.org/',
+  'Artikel: Qualitative vs quantitative risk analysis':'https://securityscorecard.com/blog/qualitative-vs-quantitative-risk-assessment/',
+  'YouTube: FAIR model basics':'https://youtu.be/T3jxS96XF_o?si=KwGIDgGCRRKIH1uK',
+  'YouTube: NIST Risk Management Framework':'https://csrc.nist.gov/projects/risk-management',
+  'Artikel: NIST RMF step by step':'https://csrc.nist.gov/Projects/risk-management/about-rmf/prepare-step',
+  'Artikel: Risk treatment strategies':'https://youtu.be/azv4_FD_zvk?si=-j7BX0TjFQMBsUwm',
+  'YouTube: Risk response and treatment':'https://youtu.be/Yhk7ZLw5LVY?si=Yr2JHEBFad4Dz6qq',
+  'RiskLens':'https://safe.security/',
+  'Artikel: Cara membuat risk register':'file:///C:/Users/doddy/Downloads/48977-75676677880-1-PB.pdf',
+  'YouTube: Continuous monitoring in risk management':'https://youtu.be/vkoYezOEvaw?si=ylmzYIAHMJlnHhUS',
+  
+  'ISO 27001 Academy':'https://www.udemy.com/course/isoiec27001/?couponCode=2021PM25',
+  'Artikel: PDCA dan struktur ISO 27001':'https://www.linkedin.com/pulse/iso-270012022-pdca-jyotiprakash-sahoo/',
+  'YouTube: Penjelasan klausul ISO 27001':'https://youtu.be/TBp0ig0NT2Y?si=9qknlUs28TONdzNm',
+  'IT Governance Resources':'https://www.isaca.org/career-center/career-journey/it-governance',
+  'Artikel: Annex A ISO 27001:2022':'https://www.isms.online/iso-27001/annex-a-2022/',
+  'YouTube: Kontrol Annex A':'https://youtu.be/SCsu8wVquVc?si=NyLwr2L5ss3BOQ_2',
+  'Artikel: Apa itu Statement of Applicability':'https://it.proxsisgroup.com/mengenal-statement-of-applicability-soa-dalam-iso-27001/',
+  'YouTube: Menyusun SoA':'https://youtu.be/S4nroRs2AFw?si=so4AuRiIpcDEqO50',
+  'Artikel: Internal audit ISO 27001':'https://rads.co.id/iso-27001-internal-audit/',
+  'YouTube: ISO 27001 internal audit basics':'https://youtu.be/Rk1dnXoIPbM?si=FWBrUvVEykQMXGR5',
+  'Tugboat Logic':'https://my.tugboatlogic.com/login',
+  'Artikel: Management review ISO 27001':'https://www.isms.online/iso-27001/requirements-2013/9-3-management-review-2013/',
   'YouTube: Continual improvement in ISMS':'https://youtu.be/aU2YRMNx9Es?si=TEwoH95Kq1Ovrqvh'
-
 
 };
 
