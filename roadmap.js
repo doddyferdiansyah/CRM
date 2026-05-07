@@ -1329,7 +1329,6 @@ const phases=[
          {
            title:'Cardholder Data Environment (CDE) scoping dan network segmentation',
            resources:[
-             'PCI SSC Website',
              'Artikel: CDE scoping and segmentation',
              'YouTube: PCI DSS scoping'
            ]
@@ -1337,7 +1336,6 @@ const phases=[
          {
            title:'SAQ types: A, B, C, D — mana yang relevan untuk bisnis kamu',
            resources:[
-             'PCI DSS v4 Quick Ref',
              'Artikel: PCI SAQ types explained',
              'YouTube: Memahami SAQ PCI'
            ]
@@ -1353,7 +1351,6 @@ const phases=[
          {
            title:'PHI definition dan 18 identifier yang harus dilindungi',
            resources:[
-             'HHS.gov HIPAA',
              'Artikel: What is PHI',
              'YouTube: PHI and HIPAA basics'
            ]
@@ -1397,8 +1394,8 @@ const phases=[
            title:'AI impact assessment dan cara dokumentasinya',
            resources:[
              'Artikel: AI impact assessment',
-             'NIST AI RMF',
-             'YouTube: Menyusun AI impact assessment'
+             'YouTube: Menyusun AI impact assessment',
+             'Dokumen: AIIA'
            ]
          }
        ]},
@@ -2780,7 +2777,36 @@ const RESOURCE_LINKS = {
   'Artikel: Data Protection Impact Assessment':'https://www.dataprotection.ie/en/organisations/know-your-obligations/data-protection-impact-assessments',
   'YouTube: Cara melakukan DPIA':'https://youtu.be/_ABeiFJAyq8?si=X3jCYz8_4JTUHECt',
   'Artikel: GDPR breach notification requirements':'https://gdpr-info.eu/art-33-gdpr/',
-  'YouTube: 72-hour breach reporting':'https://youtu.be/aulPvJLO6yY?si=wtCx3BVZ6Pgs87Cb'
+  'YouTube: 72-hour breach reporting':'https://youtu.be/aulPvJLO6yY?si=wtCx3BVZ6Pgs87Cb',
+
+  'PCI SSC Website':'https://www.pcisecuritystandards.org/',
+  'PCI DSS v4 Quick Ref':'https://www.pcisecuritystandards.org/documents/PCIDSS_QRGv3.pdf',
+  'YouTube: PCI DSS overview':'https://youtu.be/szVmMxWORBc?si=f0wosZ2sJUz8o87R',
+  'Artikel: CDE scoping and segmentation':'https://listings.pcisecuritystandards.org/documents/Guidance-PCI-DSS-Scoping-and-Segmentation_v1.pdf',
+  'YouTube: PCI DSS scoping':'https://youtu.be/Pu7fWeNtoZI?si=eE81Ro2aPBGyBOnh',
+  'Artikel: PCI SAQ types explained':'https://listings.pcisecuritystandards.org/documents/Understanding_SAQs_PCI_DSS_v3.pdf',
+  'YouTube: Memahami SAQ PCI':'https://youtu.be/9kAsRe7t26g?si=sHzzZ6A3qJaHsp0B',
+  'HHS.gov HIPAA':'https://www.hhs.gov/hipaa/index.html',
+  'Artikel: HIPAA Security Rule overview':'https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html',
+  'YouTube: HIPAA safeguards explained':'https://youtu.be/twUM8kKMIJ4?si=2EJk6YWcbxsH-IKD',
+  'Artikel: What is PHI':'https://www.hipaajournal.com/considered-phi-hipaa/',
+  'YouTube: PHI and HIPAA basics':'https://youtu.be/dG4mQ60SnLY?si=syjVBBBdY2o_4oH4',
+  
+  'ISO 42001 Overview':'https://www.iso.org/home/insights-news/resources/iso-42001-explained-what-it-is.html',
+  'Artikel: ISO 42001 basics':'https://www.tuvsud.com/en-id/resource-centre/blogs/a-guide-to-iso-42001-artificial-intelligence-management-system',
+  'YouTube: AI Management System explained':'https://youtu.be/O4iKEr5AIi4?si=uo1TYTwCwBhWBax8',
+  'EU AI Act Tracker':'https://aiacttracker.com/',
+  'Artikel: EU AI Act overview':'https://artificialintelligenceact.eu/high-level-summary/',
+  'YouTube: EU AI Act explained':'https://youtu.be/s_rxOnCt3HQ?si=v1FIQBX8eTv3qz5A',
+  'NIST AI RMF':'https://www.nist.gov/itl/ai-risk-management-framework',
+  'Artikel: NIST AI RMF overview':'https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf',
+  'YouTube: NIST AI RMF basics':'https://youtu.be/0oeD2Wf25wY?si=LTmBNyFPGvcdKtG8',
+  'Artikel: Kebijakan AI di Indonesia':'https://dkis.cirebonkota.go.id/artikel/perkembangan-ai-di-indonesia-etika-tata-kelola-dan-regulasinya',
+  'Dokumen: Peta jalan AI nasional':'https://repository.radenintan.ac.id/39933/',
+  'YouTube: Regulasi AI Indonesia':'https://youtu.be/xt3TNs_lji8?si=PCxpESnyvuXlQAbq',
+  'Artikel: AI impact assessment':'https://www.onetrust.com/glossary/ai-impact-assessment-aiia/',
+  'YouTube: Menyusun AI impact assessment':'https://youtu.be/UHPiRrfn5tA?si=6cf6nv6StQAFKwMl',
+  'Dokumen: AIIA':'https://www.digital.gov.au/ai/impact-assessment-tool'
 
 };
 
