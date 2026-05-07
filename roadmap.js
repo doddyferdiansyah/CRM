@@ -1254,7 +1254,6 @@ const phases=[
          {
            title:'Perbedaan kritis UU PDP Indonesia vs GDPR Eropa',
            resources:[
-             'LexID',
              'Artikel: UU PDP vs GDPR',
              'YouTube: Perbandingan regulasi privasi'
            ]
@@ -1305,7 +1304,6 @@ const phases=[
          {
            title:'DPIA: kapan wajib, cara lakukan, dan dokumentasi',
            resources:[
-             'ICO Resources',
              'Artikel: Data Protection Impact Assessment',
              'YouTube: Cara melakukan DPIA'
            ]
@@ -1313,7 +1311,6 @@ const phases=[
          {
            title:'Breach notification: 72 jam, kepada siapa, apa isinya',
            resources:[
-             'GDPR.eu',
              'Artikel: GDPR breach notification requirements',
              'YouTube: 72-hour breach reporting'
            ]
@@ -2755,7 +2752,35 @@ const RESOURCE_LINKS = {
   'YouTube: ISO 27001 internal audit basics':'https://youtu.be/Rk1dnXoIPbM?si=FWBrUvVEykQMXGR5',
   'Tugboat Logic':'https://my.tugboatlogic.com/login',
   'Artikel: Management review ISO 27001':'https://www.isms.online/iso-27001/requirements-2013/9-3-management-review-2013/',
-  'YouTube: Continual improvement in ISMS':'https://youtu.be/aU2YRMNx9Es?si=TEwoH95Kq1Ovrqvh'
+  'YouTube: Continual improvement in ISMS':'https://youtu.be/aU2YRMNx9Es?si=TEwoH95Kq1Ovrqvh',
+
+  'Kominfo.go.id':'https://www.komdigi.go.id/',
+  'Artikel: Ringkasan UU ITE':'https://iblam.ac.id/2025/08/14/mengenal-tentang-uu-informasi-dan-transaksi-elektronik/',
+  'YouTube: Penjelasan UU ITE':'https://youtu.be/ios-GWu7VI4?si=Fj5hg_kAUR6ax5_5',
+  'BSSN.go.id':'https://www.bssn.go.id/',
+  'Artikel: Ringkasan UU PDP':'https://www.hukumonline.com/klinik/a/uu-pdp--landasan-hukum-pelindungan-data-pribadi-lt5d588c1cc649e/',
+  'YouTube: Hak subjek data dan kewajiban pengendali':'https://youtu.be/z5kabdOY8E8?si=z-pq8kkJ-Ldo_NXj',
+  'Artikel: UU PDP vs GDPR':'https://csirt.teknokrat.ac.id/gdpr-vs-uu-pdp-perbandingan-regulasi-perlindungan-data/',
+  'YouTube: Perbandingan regulasi privasi':'https://youtu.be/HX4O4uPM2L0?si=v1yrZWjcqNykLQOd',
+  'Artikel: Sanksi dalam UU PDP':'https://siplawfirm.id/sanksi-hukum-dalam-undang-undang-perlindungan-data-pribadi?lang=id',
+  'YouTube: Konsekuensi pelanggaran data pribadi':'https://youtu.be/0kK902-ZvNM?si=eTXgvGfsTbVwyV1t',
+  'BSSN.go.id':'https://www.bssn.go.id/',
+  'Komdigi.go.id':'https://www.komdigi.go.id/',
+  'Artikel: Peran regulator siber di Indonesia':'https://knowledge.web.id/index.php/ijisk/article/download/161/96',
+  
+  'GDPR.eu':'https://gdpr.eu/',
+  'Artikel: 7 principles of GDPR':'https://www.onetrust.com/blog/gdpr-principles/',
+  'YouTube: GDPR principles explained':'https://youtu.be/mYV1jZ7_qhw?si=-gNTmZaGT3YEwLeu',
+  'ICO Resources':'https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/',
+  'Artikel: Data subject rights under GDPR':'https://gdpr-info.eu/chapter-3/',
+  'YouTube: Hak subjek data di GDPR':'https://youtu.be/tQ7ZY8yI9G0?si=1_LNVn24qITH8yK8',
+  'CNIL Guidelines':'https://www.cnil.fr/en/guidelines-and-recommendations',
+  'Artikel: Data Protection Officer basics':'https://gdpr.eu/data-protection-officer/',
+  'YouTube: Role of DPO':'https://youtu.be/LyMDNpeRzcY?si=kszBrHheAvvsnDcv',
+  'Artikel: Data Protection Impact Assessment':'https://www.dataprotection.ie/en/organisations/know-your-obligations/data-protection-impact-assessments',
+  'YouTube: Cara melakukan DPIA':'https://youtu.be/_ABeiFJAyq8?si=X3jCYz8_4JTUHECt',
+  'Artikel: GDPR breach notification requirements':'https://gdpr-info.eu/art-33-gdpr/',
+  'YouTube: 72-hour breach reporting':'https://youtu.be/aulPvJLO6yY?si=wtCx3BVZ6Pgs87Cb'
 
 };
 
